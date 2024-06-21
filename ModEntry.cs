@@ -493,6 +493,7 @@ public sealed class ModEntry : SimpleMod
         /* Check this out in Features/Rampage.cs */
         _ = new RampageManager();
         _ = new FuryManager();
+        _ = new TheftManager();
 
         _ = new CleaveManager();
         _ = new RemoteManager();
