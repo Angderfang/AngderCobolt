@@ -13,10 +13,24 @@ internal sealed class RampageManager : IStatusLogicHook
     }
     public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
     {
-        if (status != Instance.Rampage.Status)
-            return false;
+        /*if (status != Instance.Rampage.Status)
+            return false; */
         if (timing != StatusTurnTriggerTiming.TurnStart)
             return false;
+
+
+        if (amount > 0)
+        {
+            if (ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
+            {
+                combat.Queue(new AHurt()
+                {
+                    targetPlayer = !ship.isPlayerShip,
+                    hurtAmount = amount,
+                });
+                amount = amount - 2;
+            };
+        }
 
         /* Theft */
 
@@ -83,25 +97,11 @@ internal sealed class RampageManager : IStatusLogicHook
                 status = ModEntry.Instance.Theft.Status,
                 statusAmount = -1,
                 targetPlayer = true
-
             });
 
         }
         /* Theft */
         /* should probably be seperate TBH. But eh. */
-
-        if (amount > 0)
-        {
-            if (ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
-            {
-                combat.Queue(new AHurt()
-                {
-                    targetPlayer = !ship.isPlayerShip,
-                    hurtAmount = amount,
-                });
-                amount = amount - 2;
-            };
-        }
         return false;
     }
 }
