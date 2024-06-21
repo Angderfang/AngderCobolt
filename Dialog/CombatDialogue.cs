@@ -179,12 +179,18 @@ internal static class CombatDialogue
             playerShotJustHit = true,
             lines = new()
             {
-                new CustomSay()
+                new SaySwitch()
                 {
-                    who = Angder,
-                    Text = "We hit them, they hit us. It's a good day.",
-                    loopTag = "talk"
-                },
+                    lines = new()
+                    {
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "We hit them, they hit us. It's a good day.",
+                            loopTag = "talk"
+                        },
+                    }
+                }
             }
         };
         DB.story.all["scratch_Angder"] = new()
@@ -197,12 +203,30 @@ internal static class CombatDialogue
             oncePerCombatTags = new() { "scratch" },
             lines = new()
             {
-                new CustomSay()
+                new SaySwitch()
                 {
-                    who = Angder,
-                    Text = "Wouldn't be a proper dogfight without a few bruises.",
-                    loopTag = "talk"
-                },
+                    lines = new()
+                    {
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "Wouldn't be a proper dogfight without a few bruises.",
+                            loopTag = "talk"
+                        },
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "Another 20 of those, and we might be in trouble.",
+                            loopTag = "talk"
+                        },
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "Fighting is only fun if it's a little challenging.",
+                            loopTag = "talk"
+                        },
+                    }
+                }
             }
         };
         DB.story.all["nosell_Angder"] = new()
@@ -239,7 +263,7 @@ internal static class CombatDialogue
                 },
             }
         };
-        DB.story.all["Normalhits_outgoing_Angder"] = new()
+        DB.story.all["Normalhits_outgoing_Angder_2"] = new()
         {
             type = NodeType.combat,
             allPresent = new() { Angder },
