@@ -1,6 +1,6 @@
 <h1>ANGDER Version 0.9.1 </h1>
 
-A work-in-progress Cobalt Core mod. Requires Kokoro.
+A work-in-progress Cobalt Core mod. Requires Kokoro, and nickle.
 
 Angder is a dark blue wolf, who's personality is best described as a golden retriever with a knife. He loves violence, combat, and is extremely aggressive because of this.
 
