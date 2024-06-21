@@ -1,0 +1,125 @@
+{
+  "character": {
+    "Angder": {
+      "name": "Angder",
+      "Trash" : "Angder's Haul",
+      "description": [ 
+          "<c=151F72>ANGDER</c>",
+          "Angder is chaotic, violent, and has a love of combat. His cards involve <c=boldPink>absurd numbers of attacks</c> and he often goes <c=boldPink>missing</c> for extended periods."
+      ]
+    }
+  },
+  "artifact": {
+    "PersonalJetpack": {
+      "name": "Personal Jetpack",
+      "description": "If you have no Fury, planned Heist, or Rampage, \"Angder is missing\" will reduce by 1 each turn ."
+    },
+    "BurntoutFireRegulator": {
+      "name": "Burnt out Firing Regulator",
+      "description": "Gain 1 extra <c=energy>energy</c> every other turn, Removes reliable from all cleave attacks. <c=downside>All cleave attacks have a base damage of 0. </c> "
+    }, 
+        "ChainAxe": {
+      "name": "Chainsaw Axe",
+      "description": "For every 3 cards played in one turn that are not from Angder or his lootstash, gain 1 rampage."
+    },
+    "Biggerbullets": {
+      "name": "Bigger Shells",
+      "description": "Destroying Midrow objects deals 2 damage to the enemy ship. UNUSED"
+    },
+    "HairTrigger": {
+      "name": "HairTrigger",
+      "description": "At the start of each combat, add at least one <c=card>\"Slight nudge\"</c> card to your discard pile. <c=boldPink>the number of cards generated scales with a larger deck, capping at 4 with 25 cards</c>. <c=downside>Not recommended for drone users.</c>"
+    },
+    "ShipsManifest": {
+      "name": "Ships Manifest",
+      "description": "At the start of each combat, you gain 3 planned heists, in addition, when triggered planned heist grants an extra card."
+    },
+  },
+  "card": {
+   "HairTrigger": { "name": "Slight nudge", "description": {"None": "On draw, immediately Shoot for <c=boldPink>{{damage}}</c> then draw a card.", "A": "On draw, immediately Shoot for <c=boldPink>{{damage2}}</c> then draw a card.", "B": "On draw, immediately shoot for <c=boldPink>{{damage3}}</c> then draw two cards."}},
+   "CoolRocket": {"name": "Cool Rocket I found" },
+   "Exposedport": {"name": "Remote Access" },
+   "StolenMunitions": {"name": "Spare Ammunition" },
+   "Powercore": {"name": "Their spare powercore."},
+   "Autoshoot": { "name": "Accidental Overload", "description": {"None": "When drawn, cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Reliable.", "A": "Cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Draw 1. Immediate. Reliable.", "B": "Long Cleave twice for <c=boldPink>{{damage}}</c> damage per shot. Immediate. Reliable."}},
+
+    "Remotecontrol":{"name": "Radio Uplink",  "description": {
+    "None": "Select a card in hand, it gains Remote control.",
+    "A": "Select two cards in hand, they gain Remote control.",
+    "B": "Every card in your hand gains Remote control."}},
+    "SeeingRed": {"name": "Seeing Red"},
+    "Enrage": {"name": "Enrage"},
+    "FasterCannons": {"name": "Overcharge Cannon"},
+    "Plannedraid": {"name": "Plan raid" },
+    "Instinct": {"name": "Instinct" },
+    "Snarl": {"name": "Snarl" },
+    "DistantYelling": {"name": "Distant Yelling" },
+	"BottledRage": {"name": "Bottled Rage" },
+	"Cleave": {"name": "Cleave" },
+    "FillTheSky": {"name": "Shatter the Sky" },
+    "TooAngryToDie": {"name": "Too Angry to Die" },
+    "FastReturn": {"name": "Fast Return" },
+	"Board": { "name": "Board ship" },
+    "Punch": { "name": "Punch it" },
+    "ShiftingShot": { "name": "Parting shots"},
+    "Anticipation": { "name": "Anticipation" },
+    "Boardmanuvour": { "name": "Boarding manoeuvre" },
+    "Entrypod": { "name": "Entry pod" },
+    "DeepBreaths": { "name": "Deep Breaths"},
+    "AmmoDump": { "name": "Gatling laser"},
+    "DeepRaid": { "name": "Raid Ship"},
+    "Ram": { "name": "Ram", "description": {
+        "None": "Deal damage = to hull. Then take enemy hull as damage.",
+        "A": "Deal piercing damage = to hull. Then take enemy hull as pierce damage.",
+        "B": "Deal damage = to hull. Then take enemy hull as damage." }}
+  },
+  
+  "trait": {
+   "Remotecontrol": {
+        "name" : "Remote Control", 
+        "description": "Card can be used while it's owner is missing."
+    },
+  },
+  "status": {
+    "Rampage": {
+      "name": "Rampage",
+      "description": "If Angder is missing, deals <c=boldPink>{0}</c> damage to the enemy at the start of each turn. Drops by 2 each turn while Angder is missing."
+    },
+            "Theft": {
+        "name": "Planned heist",
+        "description" : "If Angder is missing at the start of your turn, add a 0 cost card into your hand from Angder's haul. Ticks down when activated.",
+    },
+                "Fury": {
+        "name": "Fury",
+        "description" : "Increases Rampage by <c=boldPink>{0}</c> each turn.",
+    }
+  },
+  "action": {
+    "Cleave": {
+        "name": {
+            "Unknown": "Random Cleave",
+            "Left": "Cleave Left",
+            "Right": "Cleave Right"
+        },
+        "description": {
+            "Right": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further to the Right",
+            "Left": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further to the Left",
+            "Unknown": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further in a random, but consistant, direction.",
+        }
+    },
+    "Ramaction": {
+        "name": {"Piercing" : "Ram through their shields",
+        "normal" : "Ram"
+        },
+        "description" : {
+            "Damage": "Ram into the enemy ship, dealing damage equal to your current hull. <c=downside>You then take damage equal to their remaining Hull value.</c>",
+            "Piercing": "Ram into the enemy ship, bypassing their shields, and dealing piercing damage equal to your current hull. <c=downside>You then take piercing damage equal to their remaining Hull value.</c>"
+             }
+    },
+    "Overdriveno": {
+        "name": "Reliable",
+        "description" : {
+            "Damage": "This action deals a set amount of damage per shot, it cannot be modified by status effects or artifacts.",
+             }
+    },
+}
