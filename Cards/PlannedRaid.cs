@@ -31,7 +31,7 @@ internal sealed class CardPlannedRaid : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Crates.Sprite,
-            cost = 2,
+            cost = 1,
             exhaust = true
         };
         return data;
@@ -83,7 +83,7 @@ internal sealed class CardPlannedRaid : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 2,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
                 };
