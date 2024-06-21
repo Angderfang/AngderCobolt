@@ -111,8 +111,8 @@ internal sealed class CardFillTheSky : Card, IAngderCard
 
                     new AStatus()
                     {
-                        status = Status.overdrive,
-                        statusAmount = 2,
+                        status = Status.tempShield,
+                        statusAmount = 3,
                         targetPlayer = true
                     }
                 };
