@@ -237,12 +237,30 @@ internal static class CombatDialogue
             maxDamageDealtToPlayerThisTurn = 0,
             lines = new()
             {
-                new CustomSay()
+                new SaySwitch()
                 {
-                    who = Angder,
-                    Text = "...was that supposed to hurt us?",
-                    loopTag = "talk"
-                },
+                    lines = new()
+                    {
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "...Was that supposed to hurt us?",
+                            loopTag = "talk"
+                        },
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "Their weapons seem pretty useless.",
+                            loopTag = "talk"
+                        },
+                        new CustomSay()
+                        {
+                            who = Angder,
+                            Text = "I hope we can hit harder than they can.",
+                            loopTag = "talk"
+                        },
+                    }
+                }
             }
         };
         //Hitthem

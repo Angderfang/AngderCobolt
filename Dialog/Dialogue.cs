@@ -25,5 +25,13 @@ internal static class Dialogue
             card.InjectDialogue();
         }
         */
-    }
+
+/*
+ * [22:54]Shockah: don't dialogue selectors need to begin with a dot?
+[22:54]Shockah: for whatever reason?
+[22:54]TheJazMaster: Ohhhhhhhhhhhhhhh
+[22:54]Shockah: (and then no dot in the actual story)
+[22:54]TheJazMaster: That must be it
+*/
+        }
 }

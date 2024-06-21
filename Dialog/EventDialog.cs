@@ -885,7 +885,7 @@ internal static class EventDialogue
                 {
                     who = "comp",
                     Text = "Let's keep moving.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 }
             }
         };
