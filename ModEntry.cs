@@ -106,6 +106,7 @@ public sealed class ModEntry : SimpleMod
         typeof(CardEntrypod),
         typeof(CardAnticipation),
         typeof(CardEscapePod),
+        typeof(CardEscapePod),
     ];
     internal static IReadOnlyList<Type> Angder_CommonCard_Types { get; } = [
          typeof(CardBoardmanuvour),
@@ -399,7 +400,7 @@ public sealed class ModEntry : SimpleMod
             Deck = AngderDeck.Deck,
             LoopTag = "gameover",
             Frames = new[]
-{
+            {
                 Angder_Droop.Sprite,
                 Angder_Droop_talk.Sprite,
                 Angder_Droop.Sprite,
@@ -408,16 +409,24 @@ public sealed class ModEntry : SimpleMod
             }
         });
 
-        Angderchar = helper.Content.Characters.RegisterCharacter("Angder", new CharacterConfiguration()
+
+
+
+
+
+        Angderchar = helper.Content.Characters.RegisterCharacter("Angder", new()
         {
             Deck = AngderDeck.Deck,
-            Description = AnyLocalizations.Bind(["character", "Angder", "description"]).Localize,
-            
             Starters = new StarterDeck
             {
-                cards = [new CardEntrypod(), new CardAnticipation(), new CardEscapePod()],
+                cards = [new CardEntrypod(), 
+                    new CardAnticipation(), 
+                    new CardEscapePod()
+                    ],
             },
-            BorderSprite = Angder_Character_Panel.Sprite
+            BorderSprite = Angder_Character_Panel.Sprite,
+            Description = AnyLocalizations.Bind(["character", "Angder", "description"]).Localize,
+
         });
 
 
