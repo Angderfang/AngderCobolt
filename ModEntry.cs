@@ -105,13 +105,13 @@ public sealed class ModEntry : SimpleMod
         typeof(CardBoard),
         typeof(CardEntrypod),
         typeof(CardAnticipation),
+        typeof(CardEscapePod),
     ];
     internal static IReadOnlyList<Type> Angder_CommonCard_Types { get; } = [
          typeof(CardBoardmanuvour),
          typeof(CardShiftingShot),
          typeof(CardDeepBreaths),
          typeof(CardPunch),
-         typeof(CardSnarl),
          typeof(CardInstinct),
          //typeof(CardRemotecontrol) /*cut for being bad */
     ];
@@ -133,7 +133,8 @@ public sealed class ModEntry : SimpleMod
          typeof(CardFillTheSky),
          typeof(CardDeepraid),
          typeof(CardPlannedRaid),
-         typeof(CardEnrage)
+         typeof(CardEnrage),
+         typeof(CardSnarl)
  /* Thats the rares done?*/
     ];
     internal static IReadOnlyList<Type> Angder_Trash_Types { get; } = [
@@ -260,7 +261,8 @@ public sealed class ModEntry : SimpleMod
             {
             cards = [
                 new CardCleave(),
-                new CardBoard()
+                new CardBoard(),
+                new CardEscapePod()
                 ]
             }
         );
@@ -413,7 +415,7 @@ public sealed class ModEntry : SimpleMod
             
             Starters = new StarterDeck
             {
-                cards = [new CardEntrypod(), new CardAnticipation()],
+                cards = [new CardEntrypod(), new CardAnticipation(), new CardEscapePod()],
             },
             BorderSprite = Angder_Character_Panel.Sprite
         });
