@@ -1,8 +1,8 @@
 {
   "UniqueName": "Angder.Angdermod",
-  "Version": "0.9.1",
+  "Version": "0.10",
   "Author": "Angder",
-  "Description": "Angder!",
+  "Description": "Angder. Adds a violent, aggressive, character to the game.",
   "RequiredApiVersion": "0.6.0",
   "EntryPointAssembly": "Angdermod.dll",
   "Dependencies": [
