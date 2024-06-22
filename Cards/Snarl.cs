@@ -18,7 +18,7 @@ internal sealed class CardSnarl : Card, IAngderCard
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
