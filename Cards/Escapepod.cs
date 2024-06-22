@@ -15,7 +15,6 @@ internal sealed class CardEscapePod : Card, IAngderCard
             Meta = new()
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
-
                 rarity = Rarity.common,
                 dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
@@ -42,6 +41,7 @@ internal sealed class CardEscapePod : Card, IAngderCard
                 actions = new()
                 {
                   
+
                     /* Hmm... is this going to be a good idea? */
                     //Well it will help Angder leave spawn at least?
                     //Or clog his deck. One or the other
@@ -55,7 +55,7 @@ internal sealed class CardEscapePod : Card, IAngderCard
                     
                     new AStatus()
                     {
-                        status = ModEntry.Instance.Rampage.Status,
+                        status = Status.tempShield,
                         statusAmount = 1,
                         targetPlayer = true
                     },
