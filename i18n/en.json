@@ -11,36 +11,36 @@
   },
   "artifact": {
     "PersonalJetpack": {
-      "name": "Personal Jetpack",
+      "name": "PERSONAL JETPACK",
       "description": "If you have no Fury, planned Heist, or Rampage, \"Angder is missing\" will reduce by 1 each turn ."
     },
     "BurntoutFireRegulator": {
-      "name": "Burnt out Firing Regulator",
+      "name": "BURNT OUT FIRING REGULATOR",
       "description": "Gain 1 extra <c=energy>energy</c> every other turn, Removes reliable from all cleave attacks. <c=downside>All cleave attacks have a base damage of 0. </c> "
     }, 
         "ChainAxe": {
-      "name": "Chainsaw Axe",
-      "description": "For every 3 cards played in one turn that are not from Angder or his lootstash, gain 1 rampage."
+      "name": "CHAINSAW AXE",
+      "description": "For every 3 cards played in one turn that are not from Angder or his lootstash, gain 1 rampage. <c=downside>Capped at three activations per turn.</c>"
     },
     "Biggerbullets": {
-      "name": "Bigger Shells",
+      "name": "BIGGER SHELLS",
       "description": "Destroying Midrow objects deals 2 damage to the enemy ship. UNUSED"
     },
     "HairTrigger": {
-      "name": "HairTrigger",
+      "name": "HAIRTRIGGER",
       "description": "At the start of each combat, add at least one <c=card>\"Slight nudge\"</c> card to your discard pile. <c=boldPink>the number of cards generated scales with a larger deck, capping at 4 with 25 cards</c>. <c=downside>Not recommended for drone users.</c>"
     },
     "ShipsManifest": {
-      "name": "Ships Manifest",
+      "name": "SHIPS MANIFEST",
       "description": "At the start of each combat, you gain 3 planned heists, in addition, when triggered planned heist grants an extra card."
     },
   },
   "card": {
-   "HairTrigger": { "name": "Slight nudge", "description": {"None": "On draw, immediately Shoot for <c=boldPink>{{damage}}</c> then draw a card.", "A": "On draw, immediately Shoot for <c=boldPink>{{damage2}}</c> then draw a card.", "B": "On draw, immediately shoot for <c=boldPink>{{damage3}}</c> then draw two cards."}},
-   "CoolRocket": {"name": "Cool Rocket I found" },
+   "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, immediately Shoot for <c=boldPink>{{damage}}</c> then draw a card.", "A": "On draw, immediately Shoot for <c=boldPink>{{damage2}}</c> then draw a card.", "B": "On draw, immediately shoot for <c=boldPink>{{damage3}}</c> then draw two cards."}},
+   "CoolRocket": {"name": "Cool Rocket I Found" },
    "Exposedport": {"name": "Remote Access" },
    "StolenMunitions": {"name": "Spare Ammunition" },
-   "Powercore": {"name": "Their spare powercore."},
+   "Powercore": {"name": "Their Spare Powercore."},
    "Autoshoot": { "name": "Accidental Overload", "description": {"None": "When drawn, cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Reliable.", "A": "Cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Draw 1. Immediate. Reliable.", "B": "Long Cleave twice for <c=boldPink>{{damage}}</c> damage per shot. Immediate. Reliable."}},
 
     "Remotecontrol":{"name": "Radio Uplink",  "description": {
@@ -49,8 +49,9 @@
     "B": "Every card in your hand gains Remote control."}},
     "SeeingRed": {"name": "Seeing Red"},
     "Enrage": {"name": "Enrage"},
+    "EscapePod": {"name": "Escape Pod"},
     "FasterCannons": {"name": "Overcharge Cannon"},
-    "Plannedraid": {"name": "Plan raid" },
+    "Plannedraid": {"name": "Plan Raid" },
     "Instinct": {"name": "Instinct" },
     "Snarl": {"name": "Snarl" },
     "DistantYelling": {"name": "Distant Yelling" },
@@ -60,13 +61,13 @@
     "TooAngryToDie": {"name": "Too Angry to Die" },
     "FastReturn": {"name": "Fast Return" },
 	"Board": { "name": "Board ship" },
-    "Punch": { "name": "Punch it" },
-    "ShiftingShot": { "name": "Parting shots"},
+    "Punch": { "name": "Punch It" },
+    "ShiftingShot": { "name": "Parting Shots"},
     "Anticipation": { "name": "Anticipation" },
-    "Boardmanuvour": { "name": "Boarding manoeuvre" },
+    "Boardmanuvour": { "name": "Boarding Manoeuvre" },
     "Entrypod": { "name": "Entry pod" },
     "DeepBreaths": { "name": "Deep Breaths"},
-    "AmmoDump": { "name": "Gatling laser"},
+    "AmmoDump": { "name": "Gatling Laser"},
     "DeepRaid": { "name": "Raid Ship"},
     "Ram": { "name": "Ram", "description": {
         "None": "Deal damage = to hull. Then take enemy hull as damage.",
@@ -99,7 +100,9 @@
         "name": {
             "Unknown": "Random Cleave",
             "Left": "Cleave Left",
-            "Right": "Cleave Right"
+            "Right": "Cleave Right",
+            "LeftLong": "Long Cleave Left",
+            "RightLong": "Long Cleave Right"
         },
         "description": {
             "Right": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further to the Right",
@@ -108,12 +111,12 @@
         }
     },
     "Ramaction": {
-        "name": {"Piercing" : "Ram through their shields",
+        "name": {"Piercing" : "Piercing Ram",
         "normal" : "Ram"
         },
         "description" : {
-            "Damage": "Ram into the enemy ship, dealing damage equal to your current hull. <c=downside>You then take damage equal to their remaining Hull value.</c>",
-            "Piercing": "Ram into the enemy ship, bypassing their shields, and dealing piercing damage equal to your current hull. <c=downside>You then take piercing damage equal to their remaining Hull value.</c>"
+            "Damage": "Deal damage equal to your current hull. <c=downside>You then take damage equal to their remaining Hull value.</c> this attack does not require you to be facing the enemy, and cannot be dodged.",
+            "Piercing": "Deal damage equal to your current hull, bypassing their shields. <c=downside>You then take piercing damage equal to their remaining Hull value.</c> this attack does not require you to be facing the enemy, and cannot be dodged.",
              }
     },
     "Overdriveno": {
