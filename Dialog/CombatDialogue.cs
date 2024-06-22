@@ -83,7 +83,7 @@ internal static class CombatDialogue
                         {
                             who = Deck.goat.Key(),
                             Text = "He should be wearing a helmet, right?",
-                            loopTag = "Panic"
+                            loopTag = "panic"
                         },
                         new CustomSay()
                         {

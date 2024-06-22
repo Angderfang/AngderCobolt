@@ -59,28 +59,28 @@ namespace Angder.Angdermod.Dialog
                     {
                         new CustomSay()
                         {
-                        delay = 3,
+                        delay = 4,
                         who = Deck.riggs.Key(),
                         Text = "Looks like the power to your consoles weapons is critically low.",
                         loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                        delay = 3,
+                        delay = 4,
                         who = Deck.dizzy.Key(),
                         Text = "I'm getting a little extra power on my end.",
                         loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                        delay = 3,
+                        delay = 4,
                         who = Deck.peri.Key(),
                         Text = "Looks like the safety has kicked in to stop you overloading the cannons.",
                         loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                        delay = 3,
+                        delay = 4,
                         who = Deck.eunice.Key(),
                         Text = "Get yourself some overdrive, that should fix it almost immediately.",
                         loopTag = "sly"
@@ -185,9 +185,8 @@ namespace Angder.Angdermod.Dialog
             DB.story.all["Angder_Hairtrigger"] = new()
             {
                 type = NodeType.combat,
-                allPresent = new() { Angder
-                },
-                hasArtifacts = ["Angder.Angdermod::Hairtrigger"],
+                allPresent = new() { Angder},
+                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -220,7 +219,7 @@ namespace Angder.Angdermod.Dialog
                         delay = 0.5,
                         who = Angder,
                         Text = "...",
-                        loopTag = "sad"
+                        loopTag = "nervous"
 
                     },
                 }
@@ -269,25 +268,27 @@ namespace Angder.Angdermod.Dialog
                         {
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 3,
                                 who = Deck.riggs.Key(),
-                                Text = "...Is our ship mentioned on there?",
+                                Text = "...Is our ship mentioned in there?",
                                 loopTag = "neutral"
                             },
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 3,
                                 who = Deck.peri.Key(),
                                 Text = "Where did you even get that?",
                                 loopTag = "neutral"
                             },
+                            /*
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 3,
                                 who = Deck.hacker.Key(),
-                                Text = "This sort of dataleak is all too common.",
+                                Text = "They should have worked harder on their security.",
                                 loopTag = "smile"
                             },
+                            */
                         }
                     },
                 }
@@ -334,21 +335,21 @@ namespace Angder.Angdermod.Dialog
                         {
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 2,
                                 who = Deck.riggs.Key(),
                                 Text = "Pretty much.",
                                 loopTag = "neutral"
                             },
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 2,
                                 who = Deck.peri.Key(),
                                 Text = "Please don't waste all our power shooting at nothing!",
                                 loopTag = "panic"
                             },
                             new CustomSay()
                             {
-                                delay = 0.5,
+                                delay = 2,
                                 who = Deck.hacker.Key(),
                                 Text = "Calibration is a strange thing.",
                                 loopTag = "neutral"
