@@ -9,4 +9,4 @@ Everything about this mod is subject to change as I nail down the balance, and f
 
 Huge thanks to: **Shockah,** **Arin,** and **TheJazMaster** for help coding this character.
 
-Also special thanks to **Soggoru Waffle** for giving me some art that will likely be less temporary than most of the other bits present. (the art in question being the Icons used for "cleave" and "long cleave"
+Also special thanks to **Soggoru Waffle** for giving me some art that will likely be less temporary than most of the other bits present. (the art in question being the Icons used for "cleave" and "long cleave")
