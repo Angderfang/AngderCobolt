@@ -18,6 +18,7 @@ public sealed class ModEntry : SimpleMod
 {
     internal static ModEntry Instance { get; private set; } = null!;
     internal IKokoroApi KokoroApi { get; }
+    internal ITyAndSashaApi? TyAndSashaApi { get; private set; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
 
@@ -175,6 +176,13 @@ public sealed class ModEntry : SimpleMod
         Harmony = new(package.Manifest.UniqueName);
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
 
+        helper.Events.OnModLoadPhaseFinished += (_, phase) =>
+        {
+            if (phase != ModLoadPhase.AfterDbInit)
+                return;
+
+            TyAndSashaApi = helper.ModRegistry.GetApi<ITyAndSashaApi>("TheJazMaster.TyAndSasha");
+        };
         /* These localizations lists help us organize our mod's text and messages by language.
          * For general use, prefer AnyLocalizations, as that will provide an easier time to potential localization submods that are made for your mod 
          * IMPORTANT: These localizations are found in the i18n folder (short for internationalization). The Demo Mod comes with a barebones en.json localization file that you might want to check out before continuing 
@@ -255,19 +263,18 @@ public sealed class ModEntry : SimpleMod
             BorderSprite = Angder_Character_CardFrame.Sprite,
             Name = this.AnyLocalizations.Bind(["character", "Angder", "name"]).Localize,
         });
-        
+
         helper.ModRegistry.GetApi<IMoreDifficultiesApi>("TheJazMaster.MoreDifficulties", new SemanticVersion(1, 3, 0))?.RegisterAltStarters(
-            deck: AngderDeck.Deck,
-            starterDeck: new StarterDeck
-            {
-            cards = [
+        deck: AngderDeck.Deck,
+        starterDeck: new StarterDeck
+        {
+        cards = [
                 new CardCleave(),
-                new CardBoard(),
+                new CardShiftingShot(),
                 new CardEscapePod()
                 ]
-            }
+        }  
         );
-        
         //Trash deck
         AngderstrashDeck = helper.Content.Decks.RegisterDeck("Angders loot", new DeckConfiguration()
         {
