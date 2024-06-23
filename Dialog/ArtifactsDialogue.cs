@@ -57,6 +57,7 @@ namespace Angder.Angdermod.Dialog
                 {
                     lines = new()
                     {
+                        /*
                         new CustomSay()
                         {
                         delay = 4,
@@ -64,6 +65,7 @@ namespace Angder.Angdermod.Dialog
                         Text = "Looks like the power to your consoles weapons is critically low.",
                         loopTag = "neutral"
                         },
+                        */
                         new CustomSay()
                         {
                         delay = 4,
@@ -73,16 +75,16 @@ namespace Angder.Angdermod.Dialog
                         },
                         new CustomSay()
                         {
-                        delay = 4,
+                        delay = 6,
                         who = Deck.peri.Key(),
-                        Text = "Looks like the safety has kicked in to stop you overloading the cannons.",
+                        Text = "The safety has kicked in to stop you overloading the cannons.",
                         loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                         delay = 4,
                         who = Deck.eunice.Key(),
-                        Text = "Get yourself some overdrive, that should fix it almost immediately.",
+                        Text = "Get yourself some overdrive, that should fix it.",
                         loopTag = "sly"
                         },
                     }
