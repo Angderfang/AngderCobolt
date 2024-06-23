@@ -216,7 +216,7 @@ internal static class CombatDialogue
                         new CustomSay()
                         {
                             who = Angder,
-                            Text = "Another 20 of those, and we might be in trouble.",
+                            Text = "relax, A little damage never killed anyone.",
                             loopTag = "talk"
                         },
                         new CustomSay()
@@ -471,13 +471,14 @@ internal static class CombatDialogue
                         Text = "Stay still dratt it!",
                         loopTag = "grumpy"
                         },
-
+                        /*
                         new CustomSay()
                         {
                         who = Deck.peri.Key(),
                         Text = "With how you use our Cannons, I am worried we will run out of ammunition",
                         loopTag = "squint"
                         },
+                        */
 
                     }
                 },

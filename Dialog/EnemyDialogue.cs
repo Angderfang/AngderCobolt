@@ -57,7 +57,7 @@ internal static class EnemyDialogue
                 new CustomSay()
                 {
                     who = "miner",
-                    Text = "I can lend you some ammunition if you want.",
+                    Text = "Let me lend you some more ammunition.",
                     loopTag = "neutral"
                 },
             }
@@ -113,7 +113,7 @@ internal static class EnemyDialogue
                 {
                     delay = 1.5,
                     who = Deck.eunice.Key(),
-                    Text = "We are going to blow up my whole ship, I don't really care about the robot.",
+                    Text = "We are going to blow up the whole ship, I don't really care about the robot.",
                     loopTag = "neutral"
                 },
             }
@@ -186,14 +186,14 @@ internal static class EnemyDialogue
                 new CustomSay()
                 {
                     who = Angder,
-                    Text = "Honestly, I quite enjoy fighting you",
+                    Text = "Honestly, I quite enjoy fighting you.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     delay = 1,
                     who = "pirate",
-                    Text = "Thanks... I guess",
+                    Text = "Thanks... I guess.",
                     loopTag = "neutral"
                 },
             }
@@ -230,7 +230,7 @@ internal static class EnemyDialogue
                 new CustomSay()
                 {
                     who = Angder,
-                    Text = "Always love fighting a genuine monster", //Wow, rude Angder. If Grunan was here, she would respond with something like : "ANGDER! Don't call random creatures monsters (Though to be fair this one does eat people)"
+                    Text = "Always love fighting a genuine monster.", //Wow, rude Angder. If Grunan was here, she would respond with something like : "ANGDER! Don't call random creatures monsters (Though to be fair this one does eat people)"
                     loopTag = "neutral"
                 },
             }

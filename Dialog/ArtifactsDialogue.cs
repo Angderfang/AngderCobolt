@@ -94,7 +94,7 @@ namespace Angder.Angdermod.Dialog
                 type = NodeType.combat,
                 allPresent = new() { Angder, Deck.peri.Key() },
                 hasArtifacts = ["Angder.Angdermod::BurntoutFireRegulator", "BerserkerDrive"],
-                oncePerCombatTags = new() { "AngderRepair" },
+                oncePerRunTags = new() { "AngderRepair" },
                 oncePerRun = true,
                 lines = new()
             {
@@ -182,10 +182,11 @@ namespace Angder.Angdermod.Dialog
 
             };
 
-            DB.story.all["Angder_Hairtrigger"] = new()
+            DB.story.all["Angder_Hairtrigger_riggs"] = new()
             {
+                oncePerRunTags = new() { "AngderTrigger" },
                 type = NodeType.combat,
-                allPresent = new() { Angder},
+                allPresent = new() { Angder, Deck.riggs.Key() },
                 hasArtifacts = ["Angder.Angdermod::HairTrigger"],
                 oncePerRun = true,
                 lines = new()
@@ -200,13 +201,66 @@ namespace Angder.Angdermod.Dialog
                                 Text = "Huh, the firing trigger seems a bit loose!",
                                 loopTag = "neutral"
                             },
+                        }
+                    },
+                    new CustomSay()
+                    {
+                        delay = 0.5,
+                        who = Angder,
+                        Text = "...",
+                        loopTag = "nervous"
+
+                    },
+                }
+
+            };
+
+            DB.story.all["Angder_Hairtrigger_peri"] = new()
+            {
+                oncePerRunTags = new() { "AngderTrigger" },
+                type = NodeType.combat,
+                allPresent = new() { Angder, Deck.peri.Key() },
+                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
+                oncePerRun = true,
+                lines = new()
+                {
+                    new SaySwitch()
+                    {
+                        lines = new()
+                        {
                             new CustomSay()
                             {
                                 who = Deck.peri.Key(),
                                 Text = "Someone has been messing with our controls...",
                                 loopTag = "neutral"
                             },
-                            new CustomSay()
+                        }
+                    },
+                    new CustomSay()
+                    {
+                        delay = 0.5,
+                        who = Angder,
+                        Text = "...",
+                        loopTag = "nervous"
+
+                    },
+                }
+
+            };
+            DB.story.all["Angder_Hairtrigger_goat"] = new()
+            {
+                oncePerRunTags = new() { "AngderTrigger" },
+                type = NodeType.combat,
+                allPresent = new() { Angder, Deck.goat.Key() },
+                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
+                oncePerRun = true,
+                lines = new()
+                {
+                    new SaySwitch()
+                    {
+                        lines = new()
+                        {
+                        new CustomSay()
                             {
                                 who = Deck.goat.Key(),
                                 Text = "...Is this button meant to be at an angle?",
@@ -225,6 +279,7 @@ namespace Angder.Angdermod.Dialog
                 }
 
             };
+
 
             DB.story.all["Angder_PersonalJetpack"] = new()
             {

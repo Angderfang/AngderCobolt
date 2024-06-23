@@ -164,7 +164,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = "comp",
-                    Text = "...Though you also took considerably longer to arrive for the first time.",
+                    Text = "Though you also took considerably longer to arrive for the first time.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -176,17 +176,18 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = "comp",
-                    Text = "...Which is odd as that implies the passage of external time.",
+                    Text = "Which is suprising as that implies the passage of external time.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "...I would rather just blow some people up rather than think about what that implies.",
+                    Text = "I would rather just blow some people up rather than think about what that implies.",
                     loopTag = "talk"
                 },
             }
         };
+
         /*
         DB.story.all["angder_Intro_3"] = new()
         {
@@ -234,12 +235,13 @@ internal static class EventDialogue
 
         //Dizzy Story
 
-        /*
+        
         DB.story.all["angder_Intro_Dizzy"] = new()
         {
             type = NodeType.@event,
             lookup = new() { "zone_first" },
             allPresent = new() { angder, Deck.dizzy.Key() },
+            requiredScenes = ["angder_Intro_1"],
             once = true,
             bg = "BGRunStart",
             lines = new()
@@ -259,47 +261,35 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "What ship is this? it looks familiar...",
-                    loopTag = "grumpy"
+                    Text = "Oh, of course. the loop. Which means we are about to be attacked.",
+                    loopTag = "talk"
                 },
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Wait, this IS my ship. It's just... someone cleaned it?",
-                    loopTag = "sad"
-                },
-                new CustomSay()
-                {
-                    who = angder,
-                    Text = "You even replaced some of the newer parts with... vintage replacements?",
+                    Text = "Which is closer, the Bridge or the airlock?",
                     loopTag = "talk"
                 },
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "This ship is definitely not yours, and as for being in good condition...",
-                    loopTag = "neutral"
-                },
-                new CustomSay()
-                {
-                    who = Deck.dizzy.Key(),
-                    Text = "...Thats not going to last according to the proximity sensor.",
-                    loopTag = "neutral"
+                    Text = "Definitely the bridge, and please don't check the map.",
+                    loopTag = "serious"
                 },
             }
         };
-        */
+        
         //Angder grumpy intros should be kept to a minimum.
 
 
-        /*
+        
         DB.story.all["angder_Advance_Dizzy"] = new()
         {
             type = NodeType.@event,
             lookup = new() { "zone_lawless" },
             allPresent = new() { angder, Deck.dizzy.Key() },
             once = true,
-            bg = "BGRunStart",
+            bg = "BGVanilla",
             //requiredScenes = ["angder_Intro_Dizzy"],
             lines = new()
             {
@@ -318,25 +308,25 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "How do you breath while wearing it in space?",
+                    Text = "How do you breath while wearing it in space? I never see you wearing a helmet",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Without a helmet? That's easy. Personal forcefield.",
+                    Text = "A helmet? Why would I need one, the Personal forcefield. keeps it all inside.",
                     loopTag = "talk"
                 },
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "riiight. And where is the oxygen stored?",
+                    Text = "right. And where is the oxygen stored?",
                     loopTag = "frown"
                 },
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "In this thing.",
+                    Text = "In that little disc on the back.",
                     loopTag = "talk" // NEED IMAGE OF ANGDER showing thing
                 },
                 new CustomSay()
@@ -347,12 +337,31 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    who = angder,
+                    Text = "You know, quantum compression, Transdimensional storage.",
+                    loopTag = "talk" // NEED IMAGE OF ANGDER showing thing
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "It's high tech but you should be familiar with it, right?",
+                    loopTag = "talk" // Serious
+                },
+                new CustomSay()
+                {
                     who = Deck.dizzy.Key(),
                     Text = "Nothing you just said is possible with modern technology.",
                     loopTag = "squint"
                 },
+                new CustomSay()
+                {
+                    who = Deck.dizzy.Key(),
+                    Text = "Mind if I take a closer look at some point?",
+                    loopTag = "neutral"
+                },
             }
         };
+        /*
 
         DB.story.all["angder_Final_Dizzy"] = new()
         {
@@ -438,7 +447,8 @@ internal static class EventDialogue
                 },
             }
         };
-        */ //Not happy with how Dizzy sounds here.
+        */
+         //Not happy with how Dizzy sounds here.
 
         //Riggs
 
@@ -560,7 +570,7 @@ internal static class EventDialogue
             lookup = new() { "zone_lawless" },
             allPresent = new() { angder, Deck.riggs.Key() },
             once = true,
-            bg = "BGRunStart",
+            bg = "BGVanilla",
             requiredScenes = ["angder_Intro_Riggs"],
             hasArtifacts = ["CargoHold"],
             lines = new()
@@ -622,6 +632,7 @@ internal static class EventDialogue
         {
             type = NodeType.@event,
             lookup = new() { "zone_first" },
+            requiredScenes = ["angder_Intro_1"],
             allPresent = new() { angder, Deck.eunice.Key() },
             once = true,
             bg = "BGRunStart",
@@ -654,7 +665,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Were you include yourself in that assessment?",
+                    Text = "Were you including yourself in that assessment?",
                     loopTag = "smug"
                 },
                 new CustomSay()
@@ -686,7 +697,7 @@ internal static class EventDialogue
             lookup = new() { "zone_lawless" },
             allPresent = new() { angder, Deck.eunice.Key() },
             once = true,
-            bg = "BGRunStart",
+            bg = "BGVanilla",
             requiredScenes = ["angder_Intro_eunice"],
             lines = new()
             {
@@ -717,7 +728,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Just... I think I have seen you before somewhere...",
+                    Text = "Just... I think I have seen you before somewhere. Before the loops I mean.",
                     loopTag = "talk"
                 },
                 new CustomSay()
@@ -833,6 +844,97 @@ internal static class EventDialogue
             }
         };
         */
+
+        /* peri */
+
+
+        
+        DB.story.all["angder_Annoys_peri"] = new()
+        {
+            type = NodeType.@event,
+            requiredScenes = ["angder_Intro_1"],
+            lookup = new() { "zone_lawless" },
+            allPresent = new() { angder, Deck.peri.Key() },
+            once = true,
+            bg = "BGVanilla",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Angder. We need to talk.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "what is it?",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I need to ask you to take things a little more seriously.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "What are you talking about? I am always taking this seriously.",
+                    loopTag = "grumpy"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I don't think you are.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I have been watching you in combat, you are constantly grinning from ear to ear, and taking stupid risks without a single concern for the safety of this ship.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Even when WE are the ones being injured, you are too busy enjoying yourself to actually help.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I mean yea. I enjoy fighting. Is that really a problem? I do plenty of damage!",
+                    loopTag = "talk"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "At the slightest opportunity, you dive to the enemy ship, often when we need you at the controls.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Yea, that's how I fight. Up close, personal. blood rushing through my veins.",
+                    loopTag = "talk"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "...",
+                    loopTag = "nap"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Just try to be a bit more considerate of the rest of us. Some of us actually want the loops to end at some point.",
+                    loopTag = "neutral"
+                },
+            }
+        };
+        
+
 
         //No more Story
         DB.story.GetNode("CrystallizedFriendEvent")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
@@ -993,12 +1095,14 @@ internal static class EventDialogue
                 }
             }
         };
+        /*
         DB.story.GetNode("Sasha_2_multi_2")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
         {
             who = angder,
             Text = "BALL!",
             loopTag = "talk"
         });
+        */
 
     }
 }
