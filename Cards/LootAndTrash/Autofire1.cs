@@ -44,8 +44,20 @@ internal sealed class CardAutoblastleft : Card, IAngderCard
     {
         int Randomshootcard = (int)s.rngActions.NextInt() % 2;
 
+        if (upgrade == Upgrade.A)
+        {
+            c.Queue(new ADrawCard()
+            {
+                count = 1,
+            });
+        }
+
         if (upgrade != Upgrade.B)
         {
+            c.Queue(new ADrawCard()
+            {
+                count = 1,
+            });
             switch (Randomshootcard)
             {
                 case 0:
@@ -72,13 +84,6 @@ internal sealed class CardAutoblastleft : Card, IAngderCard
                     break;
             }
 
-        }
-        if (upgrade == Upgrade.A)
-        {
-            c.Queue(new ADrawCard()
-            {
-                count = 1,
-            });
         }
 
         if (upgrade == Upgrade.B)

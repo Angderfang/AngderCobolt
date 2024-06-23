@@ -15,9 +15,7 @@ internal sealed class CardEntrypod : Card, IAngderCard
             Meta = new()
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
-
                 rarity = Rarity.common,
-
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Entrypod", "name"]).Localize

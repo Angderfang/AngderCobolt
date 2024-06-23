@@ -38,6 +38,13 @@ internal sealed class CardSeeingRed : Card, IAngderCard
         };
         return data;
     }
+    private int GetRmpageamountspecial(State state)
+    {
+        var x = state.ship.Get(ModEntry.Instance.Rampage.Status);
+        if (ModEntry.Instance.TyAndSashaApi is { } api)
+            x += state.ship.Get(api.XFactorStatus);
+        return x;
+    }
     public override List<CardAction> GetActions(State s, Combat c)
     {
         int right = 1;
@@ -94,10 +101,10 @@ internal sealed class CardSeeingRed : Card, IAngderCard
 
                     new CleaveAction()
                     {
-                        DamageAlt = GetDmg(s, GetRampageAmt(s)),
+                        DamageAlt = GetDmg(s, GetRmpageamountspecial(s)),
                         Ignoresoverdrive = false,
-                        Damage = GetRampageAmt(s), //Angderjustcleavethings.AngderCleaveDmg(s, GetRampageAmt(s), this, false),
-                        Xcard = true,
+                        Damage = GetRmpageamountspecial(s),
+                        Xcard = 1,
                         Length = 2,
                         Thiscard = this,
                         Direction = right,

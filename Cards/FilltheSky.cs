@@ -67,7 +67,8 @@ internal sealed class CardFillTheSky : Card, IAngderCard
                         Length = 4,
                         Thiscard = this,
                         Direction = right,
-                        Ignoresoverdrive = true
+                        Ignoresoverdrive = true,
+                        omitFromTooltips = false
                     },
                     new CleaveAction()
                     {
@@ -76,6 +77,7 @@ internal sealed class CardFillTheSky : Card, IAngderCard
                         Length = 4,
                         Thiscard = this,
                         Direction = left,
+                        omitFromTooltips = false,
                         Ignoresoverdrive = true
                     }
                     /* Empty the sky (Refered to as fill the sky, cos consistancy is for chumps) is the ultimate cleave card. */

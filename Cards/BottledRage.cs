@@ -28,6 +28,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
     {
         CardData data = new CardData()
         {
+            retain = true,
             cost = 1,
             exhaust = true,
             art = ModEntry.Instance.Angder_Bottled.Sprite
@@ -46,7 +47,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
                     new AAddCard()
                     {
                         card = new CardDistantYelling(),
-                        destination = CardDestination.Discard,
+                        destination = CardDestination.Deck,
                         amount = 2,
                     },
 
@@ -59,7 +60,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
                     new AAddCard()
                     {
                         card = new CardDistantYelling(),
-                        destination = CardDestination.Discard,
+                        destination = CardDestination.Deck,
                         amount = 4
                     },
 
@@ -75,7 +76,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
                         {
                             upgrade = Upgrade.A
                         },
-                        destination = CardDestination.Discard,
+                        destination = CardDestination.Deck,
                         amount = 2
                     },
                 };

@@ -50,7 +50,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                     {
                         card = new CardAutoblastleft(),
                         destination = CardDestination.Deck,
-                        amount = 3,
+                        amount = 2,
                     },
                     //Base card is risky, A is safe, B is hyper-aggressive.
                 };
@@ -77,7 +77,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                     {
                         card = new CardAutoblastleft()
                         {
-                                            upgrade = Upgrade.A
+                                            //upgrade = Upgrade.A
                         },
                         destination = CardDestination.Deck,
                         amount = 3,
