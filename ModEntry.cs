@@ -496,8 +496,8 @@ public sealed class ModEntry : SimpleMod
 
         //Registering the trait sprites seperately for... some reason?
 
-        RemoteControlSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Icons/Remotecontrol.png"));
-        RemoteControlIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Icons/RemotecontrolIcon.png"));
+        RemoteControlSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Remotecontrol.png"));
+        RemoteControlIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/RemotecontrolIcon.png"));
 
         /* Register trait. Making this work sucked! */
         RemoteControl = helper.Content.Cards.RegisterTrait("Remotecontrol", new()
