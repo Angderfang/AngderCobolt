@@ -92,7 +92,7 @@
     },
                     "Disrupt": {
         "name": "POWER SIPHON",
-        "description" : "If Angder is missing, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> at the start of your turn. Tucks down by 1 each turn while Angder is missing, <c=downside> this is doubled when over 5, and tripled when over 10. </c>"
+        "description" : "If Angder is missing, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> at the start of your turn. Ticks down by 1 each turn while Angder is missing, <c=downside>this is doubled when POWER SIPHON is over 5, and tripled when it's over 10.</c>"
 
     }
   },
