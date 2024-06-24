@@ -20,7 +20,7 @@ public class CleaveAction : CardAction
     public required int Direction; //Used to be a bool, but then I realized I wanted 3 states, not just 2.
     public required Card Thiscard; //Probably a better way to do this, but eh, it works -- Not with right click it doesn't
     public required bool Ignoresoverdrive; /* This used to only decide if it had the symbol. Then I stopped being dumb.*/
-    public bool? Xcard; // Used to tell seeing red to stilll benifit from Rampage.
+    public int? Xcard; // Used to tell seeing red to stilll benifit from Rampage.
     public bool escapeclause = false; /* I hate this variable, but this WILL keep the code running so... */
     private AAttack? volleyattack;
 
@@ -60,7 +60,7 @@ public class CleaveAction : CardAction
 
             num++;
         }
-        var BurntoutFireRegulatorpresent = s.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
+        //var BurntoutFireRegulatorpresent = s.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
         string key;
         string key2;
         string name;
@@ -109,7 +109,7 @@ public class CleaveAction : CardAction
             description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Unknown"], new { Long = Length + 1, truedamage });
         }
 
-        if (Ignoresoverdrive == true && BurntoutFireRegulatorpresent == null)
+        if (Ignoresoverdrive == true)// && BurntoutFireRegulatorpresent == null)
         {
             key2 = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Overdriveno";
 
@@ -276,26 +276,6 @@ public class CleaveAction : CardAction
                 break;
                 }
         c.QueueImmediate(list);
-
-
-
-        /*
-            else
-            {
-            timer = Length * SinglePartDuration;
-            while (Length >= 0)
-                {
-                    //This code is wh jupiter drones and warmode only fire from themselves. But also why it physically works. I have looked into making them offset, and it seems to be impossible.
-
-                    c.QueueImmediate(new AAttack()
-                    {
-                        damage = truedamageDamage,
-                        //fromX = GetFromX(s, c)
-                    });
-                    Length = Length - 1;
-                };
-        }
-        */
     }
 }
 
@@ -304,15 +284,15 @@ public class CleaveAction : CardAction
     public static class Angderjustcleavethings
     {
     //Used when calling the function. Does not respect Right click sometimes.
-        public static int AngderCleaveDmg(State s, int baseDamage, Card cardused, bool ignore, int DamageAlternate, bool? Xcard)
+        public static int AngderCleaveDmg(State s, int baseDamage, Card cardused, bool ignore, int DamageAlternate, int? Xcard)
         {
-            var Regulator = s.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
+            //var Regulator = s.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
 
-            if (Regulator is not null && Xcard != true)
-            {
-                return DamageAlternate - baseDamage;
-            }
-            else if (ignore == false)
+            //if (Xcard != null) //Regulator is not null
+            //{
+            //    return DamageAlternate - baseDamage;
+            //}
+            if (ignore == false)
                 return DamageAlternate;
 
             else
@@ -335,11 +315,11 @@ public class CleaveAction : CardAction
         {
 
             //Overchargeno is a mess.
-            var BurntoutFireRegulatorpresent = state.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
+            //var BurntoutFireRegulatorpresent = state.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
 
             if (action is not CleaveAction attack)
                 return true;
-            if (attack.Ignoresoverdrive is not true || attack.escapeclause is not false || BurntoutFireRegulatorpresent != null)
+            if (attack.Ignoresoverdrive is not true || attack.escapeclause is not false) //BurntoutFireRegulatorpresent != null)
                 return true;
 
             var copy = Mutil.DeepCopy(attack);
