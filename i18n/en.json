@@ -12,7 +12,7 @@
   "artifact": {
     "PersonalJetpack": {
       "name": "PERSONAL JETPACK",
-      "description": "If you have no Fury, planned Heist, or Rampage, \"Angder is missing\" will reduce by 1 each turn ."
+      "description": "If you have no <c=status>FURY</c>, <c=status>PLANNED HEIST</c>, <c=status>POWER SIPHON</c>, or <c=status>RAMPAGE</c>, <c=status>\"Angder is missing\"</c> will reduce by 1 each turn ."
     },
         "ChainAxe": {
       "name": "CHAINSAW AXE",
