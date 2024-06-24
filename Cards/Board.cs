@@ -31,7 +31,7 @@ internal sealed class CardBoard : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Airlock.Sprite,
-            cost = upgrade == Upgrade.B ? 0: 1,
+            cost = 1,
 
             /* if we don't set a card specific 'art' (a 'Spr' type) here, the game will give it the deck's 'DefaultCardArt' */
         };
@@ -93,7 +93,14 @@ internal sealed class CardBoard : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 3,
+                        statusAmount = 2,
+                        targetPlayer = true
+                    },
+                    
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Disrupt.Status,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
 

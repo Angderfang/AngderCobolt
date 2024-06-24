@@ -67,7 +67,7 @@ internal sealed class CardEnrage : Card, IAngderCard
                     },
                     new AStatus()
                     {
-                        status = Status.tempShield,
+                        status = ModEntry.Instance.Disrupt.Status,
                         statusAmount = 3,
                         targetPlayer = true
                     },

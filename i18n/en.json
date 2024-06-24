@@ -14,10 +14,6 @@
       "name": "PERSONAL JETPACK",
       "description": "If you have no Fury, planned Heist, or Rampage, \"Angder is missing\" will reduce by 1 each turn ."
     },
-    "BurntoutFireRegulator": {
-      "name": "BURNT OUT FIRING REGULATOR",
-      "description": "Gain 1 extra <c=energy>energy</c> every other turn, Removes reliable from all cleave attacks. <c=downside>All cleave attacks have a base damage of 0. </c> "
-    }, 
         "ChainAxe": {
       "name": "CHAINSAW AXE",
       "description": "For every 3 cards played in one turn that are not from Angder or his lootstash, gain 1 rampage. <c=downside>Capped at three activations per turn.</c>"
@@ -32,42 +28,42 @@
     },
     "ShipsManifest": {
       "name": "SHIPS MANIFEST",
-      "description": "At the start of each combat, you gain 3 planned heists, in addition, when triggered planned heist grants an extra card."
+      "description": "At the start of combat, gain 3 <c=status>PLANNED HEIST</c>. <c=status>PLANNED HEIST</c> grants an extra card."
     },
   },
   "card": {
-   "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, immediately Shoot for <c=boldPink>{{damage}}</c> then draw a card.", "A": "On draw, immediately Shoot for <c=boldPink>{{damage2}}</c> then draw a card.", "B": "On draw, immediately shoot for <c=boldPink>{{damage3}}</c> then draw two cards."}},
+   "Ports": {"name": "Remote uplink" },
+   "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, attack <c=boldPink>{{damage}}</c> then draw a card. Exhaust.", "A": "On draw, attack <c=boldPink>{{damage2}}</c> then draw a card. Exhaust.", "B": "On draw, attack <c=boldPink>{{damage3}}</c> then draw 2 cards. Exhaust."}},
    "CoolRocket": {"name": "Cool Rocket I Found" },
+   "Anxiety": {"name": "Preparation" },
+   "Diagnostic": {"name": "Diagnostic" },
    "Exposedport": {"name": "Remote Access" },
    "StolenMunitions": {"name": "Spare Ammunition" },
-   "Powercore": {"name": "Their Spare Powercore."},
-   "Autoshoot": { "name": "Accidental Overload", "description": {"None": "When drawn, cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Reliable.", "A": "Cleave dealing <c=boldPink>{{damage}}</c> damage per shot. Draw 1. Immediate. Reliable.", "B": "Long Cleave twice for <c=boldPink>{{damage}}</c> damage per shot. Immediate. Reliable."}},
+   "Powercore": {"name": "Their Spare Powercore"},
+   "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
+   "DiagnosticComplete": { "name": "Diagnostic Complete.", "description": {"None": "Shield <c=boldPink>2</c>. Draw 1. Exhaust, Immediate.", "A":  "Shield <c=boldPink>2</c>. Draw 2. Exhaust, Immediate.", "B": "Shield <c=boldPink>4</c>. Exhaust, Immediate."}},
 
     "Remotecontrol":{"name": "Radio Uplink",  "description": {
     "None": "Select a card in hand, it gains Remote control.",
     "A": "Select two cards in hand, they gain Remote control.",
     "B": "Every card in your hand gains Remote control."}},
     "SeeingRed": {"name": "Seeing Red"},
-    "Enrage": {"name": "Enrage"},
+    "Enrage": {"name": "Impatience"},
     "EscapePod": {"name": "Escape Pod"},
     "FasterCannons": {"name": "Overcharge Cannon"},
     "Plannedraid": {"name": "Plan Raid" },
     "Instinct": {"name": "Instinct" },
-    "Snarl": {"name": "Snarl" },
     "DistantYelling": {"name": "Distant Yelling" },
 	"BottledRage": {"name": "Bottled Rage" },
-	"Cleave": {"name": "Cleave" },
-    "FillTheSky": {"name": "Shatter the Sky" },
     "TooAngryToDie": {"name": "Too Angry to Die" },
     "FastReturn": {"name": "Fast Return" },
-	"Board": { "name": "Board ship" },
+	"Board": { "name": "Board Ship" },
     "Punch": { "name": "Punch It" },
-    "ShiftingShot": { "name": "Parting Shots"},
     "Anticipation": { "name": "Anticipation" },
     "Boardmanuvour": { "name": "Boarding Manoeuvre" },
-    "Entrypod": { "name": "Entry pod" },
+    "Entrypod": { "name": "Entry Pod" },
+    "Distractiongambit": { "name": "Distraction Gambit" },
     "DeepBreaths": { "name": "Deep Breaths"},
-    "AmmoDump": { "name": "Gatling Laser"},
     "DeepRaid": { "name": "Raid Ship"},
     "Ram": { "name": "Ram", "description": {
         "None": "Deal damage = to hull. Then take enemy hull as damage.",
@@ -83,16 +79,21 @@
   },
   "status": {
     "Rampage": {
-      "name": "Rampage",
-      "description": "If Angder is missing, deals <c=boldPink>{0}</c> damage to the enemy at the start of each turn. Drops by 2 each turn while Angder is missing."
+      "name": "RAMPAGE",
+      "description": "If Angder is missing, deals <c=boldPink>{0}</c> hull damage to the enemy at the start of each turn. Drops by 2 each turn while Angder is missing."
     },
             "Theft": {
-        "name": "Planned heist",
+        "name": "PLANNED HEIST",
         "description" : "If Angder is missing at the start of your turn, add a 0 cost card into your hand from Angder's haul. Ticks down when activated.",
     },
                 "Fury": {
-        "name": "Fury",
+        "name": "FURY",
         "description" : "Increases Rampage by <c=boldPink>{0}</c> each turn.",
+    },
+                    "Disrupt": {
+        "name": "DISTRACTION",
+        "description" : "If Angder is missing, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> at the start of your turn. Drops by 1 each turn while Angder is missing, <c=downside> this is doubled when over 5, tripled when over 10. </c>"
+
     }
   },
   "action": {

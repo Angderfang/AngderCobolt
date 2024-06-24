@@ -15,7 +15,7 @@ internal sealed class CardExposedport : Card, IAngderCard
             Meta = new()
             {
                 deck = ModEntry.Instance.AngderstrashDeck.Deck,
-
+                upgradesTo = [Upgrade.A, Upgrade.B],
                 rarity = Rarity.common,
 
             },
@@ -26,7 +26,8 @@ internal sealed class CardExposedport : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Angder_Crates.Sprite,
+            retain = upgrade == Upgrade.A ? true : false,
+            art = ModEntry.Instance.Angder_RemoteUplink.Sprite,
             cost = 0,
             exhaust = true,
             temporary = true,
@@ -55,6 +56,27 @@ internal sealed class CardExposedport : Card, IAngderCard
 
                 };
                 /* Remember to always break it up! */
+                break;
+            case Upgrade.A:
+                actions = new()
+                {
+
+                    new AMove()
+                    {
+                        targetPlayer = false,
+                        dir = -2
+                    },
+                };
+                break;
+            case Upgrade.B:
+                actions = new()
+                {
+                    new AMove()
+                    {
+                        targetPlayer = false,
+                        dir = -3
+                    },
+                };
                 break;
         }
         return actions;

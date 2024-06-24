@@ -25,6 +25,8 @@ internal sealed class CardRam : Card, IAngderCard
     }
     public override CardData GetData(State state)
     {
+        RemoteManager.SetRemoteUnending(this, state, true);
+
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Ramcard.Sprite,

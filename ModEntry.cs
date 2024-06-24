@@ -99,19 +99,18 @@ public sealed class ModEntry : SimpleMod
     //Status entries
     internal IStatusEntry Rampage { get; }
     internal IStatusEntry Theft { get; }
+    internal IStatusEntry Disrupt { get; }
     internal IStatusEntry Fury { get; }
     internal IStatusEntry Angdermissing { get; }
     internal static IReadOnlyList<Type> Angder_StarterCard_Types { get; } = [
-        typeof(CardCleave),
         typeof(CardBoard),
         typeof(CardEntrypod),
         typeof(CardAnticipation),
-        typeof(CardEscapePod),
+        typeof(CardAnxiety),
         typeof(CardEscapePod),
     ];
     internal static IReadOnlyList<Type> Angder_CommonCard_Types { get; } = [
          typeof(CardBoardmanuvour),
-         typeof(CardShiftingShot),
          typeof(CardDeepBreaths),
          typeof(CardPunch),
          typeof(CardInstinct),
@@ -123,20 +122,20 @@ public sealed class ModEntry : SimpleMod
          typeof(CardFastReturn),
          typeof(CardBottledRage),
          typeof(CardTooAngryToDie),
-         typeof(CardAmmoDump),
          typeof(CardFasterCannons),
+         typeof(CardDiagnostic),
          typeof(CardSeeingRed),
+         typeof(CardDistractiongambit),
          /* typeof(CardIgnition) /*What even is this card supposed to be again?
           * 
           */
     ];
     internal static IReadOnlyList<Type> Angder_RareCard_Types { get; } = [
          typeof(CardRam),
-         typeof(CardFillTheSky),
          typeof(CardDeepraid),
          typeof(CardPlannedRaid),
          typeof(CardEnrage),
-         typeof(CardSnarl)
+         typeof(CardPorts),
  /* Thats the rares done?*/
     ];
     internal static IReadOnlyList<Type> Angder_Trash_Types { get; } = [
@@ -144,7 +143,8 @@ public sealed class ModEntry : SimpleMod
      typeof(CardLootPowercore),
      typeof(CardStolenMunitions),
      typeof(CardCoolRocket),
-     //typeof(CardExposedport),
+     typeof(CardDiagnosticComplete),
+     typeof(CardExposedport),
      typeof(CardAutoblastleft),
      typeof(CardHairTrigger)
     ];
@@ -163,7 +163,6 @@ public sealed class ModEntry : SimpleMod
         typeof(HairTrigger) //Balancing nightmare.
     ];
     internal static IReadOnlyList<Type> Angder_BossArtifact_Types { get; } = [
-        typeof(BurntoutFireRegulator), //OP?
         typeof(ShipsManifest)
         ];
     internal static IEnumerable<Type> Angder_AllArtifact_Types
@@ -269,9 +268,9 @@ public sealed class ModEntry : SimpleMod
         starterDeck: new StarterDeck
         {
         cards = [
-                new CardCleave(),
-                new CardShiftingShot(),
-                new CardEscapePod()
+                new CardEscapePod(),
+                new CardBoard(),
+                new CardAnxiety()
                 ]
         }  
         );
@@ -483,7 +482,17 @@ public sealed class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "Fury", "description"]).Localize
         });
 
-
+        Disrupt = helper.Content.Statuses.RegisterStatus("Disrupt", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Disrupt.png")).Sprite,
+                color = new("b500be"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "Disrupt", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "Disrupt", "description"]).Localize
+        });
 
         //Registering the trait sprites seperately for... some reason?
 
@@ -512,6 +521,7 @@ public sealed class ModEntry : SimpleMod
         _ = new RampageManager();
         _ = new FuryManager();
         _ = new TheftManager();
+        _ = new DisruptManager();
 
         _ = new CleaveManager();
         _ = new RemoteManager();

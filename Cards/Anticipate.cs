@@ -1,26 +1,28 @@
-﻿using Nickel;
+﻿using Angder.Angdermod;
+using Nickel;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using System.Reflection;
+
+
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardDistantYelling : Card, IAngderCard
+internal sealed class CardAnticipation : Card, IAngderCard
 {
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DistantYelling", new()
+        helper.Content.Cards.RegisterCard("Anticipation", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.AngderstrashDeck.Deck,
+                deck = ModEntry.Instance.AngderDeck.Deck,
 
                 rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DistantYelling", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Anticipation", "name"]).Localize
         });
     }
     public override CardData GetData(State state)
@@ -28,22 +30,48 @@ internal sealed class CardDistantYelling : Card, IAngderCard
         CardData data = new CardData()
         {
             cost = 1,
-            retain = upgrade == Upgrade.B ? true : false,
-            temporary = true,
-            exhaust = true
-        };
+            art = ModEntry.Instance.Angder_Anticipate.Sprite,
+       };
         return data;
     }
     public override List<CardAction> GetActions(State s, Combat c)
     {
-
         List<CardAction> actions = new();
-
         switch (upgrade)
         {
             case Upgrade.None:
                 actions = new()
                 {
+                    new AStatus()
+                    {
+                        status = Status.tempShield,
+                        targetPlayer = true,
+                        statusAmount = 1
+                    },
+
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Rampage.Status,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
+
+                    /* "WAIT? This is just Board but worse?
+                    Well, no, if you play this card and board in the same turn, thats 4 rampage. 
+                    If you play just two boards, you get two rampage, and a confused Angder. */
+
+                };
+                /* Remember to always break it up! */
+                break;
+            case Upgrade.A:
+                actions = new()
+                {
+                    new AStatus()
+                    {
+                        status = Status.tempShield,
+                        targetPlayer = true,
+                        statusAmount = 1
+                    },
 
                     new AStatus()
                     {
@@ -51,10 +79,9 @@ internal sealed class CardDistantYelling : Card, IAngderCard
                         statusAmount = 2,
                         targetPlayer = true
                     },
-                    //I think this might be bad, as well as bottled rage
+
 
                 };
-                /* Remember to always break it up! */
                 break;
             case Upgrade.B:
                 actions = new()
@@ -62,35 +89,15 @@ internal sealed class CardDistantYelling : Card, IAngderCard
 
                     new AStatus()
                     {
-                        status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 3,
-                        targetPlayer = true
-                    },
-                    /*
-                    new AStatus()
-                    {
                         status = Status.tempShield,
-                        statusAmount = 1,
-                        targetPlayer = true
+                        targetPlayer = true,
+                        statusAmount = 3
                     },
-                    */
-
-                };
-                break;
-            case Upgrade.A:
-                actions = new()
-                {
 
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 2,
-                        targetPlayer = true
-                    },
-                    new AStatus()
-                    {
-                        status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 2,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
                 };

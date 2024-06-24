@@ -7,11 +7,11 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardFasterCannons : Card, IAngderCard
+internal sealed class CardDiagnostic : Card, IAngderCard
 {
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("FasterCannons", new()
+        helper.Content.Cards.RegisterCard("Diagnostic", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -20,7 +20,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                 rarity = Rarity.uncommon,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "FasterCannons", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Diagnostic", "name"]).Localize
         });
     }
     public override CardData GetData(State state)
@@ -28,7 +28,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
         
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Angder_ManyBulletMuchwow.Sprite,
+            art = ModEntry.Instance.Angder_Shield.Sprite,
             cost = 2,
         };
         return data;
@@ -44,11 +44,11 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                 {
                     new AAddCard()
                     {
-                        card = new CardAutoblastleft(),
+                        card = new CardDiagnosticComplete(),
                         destination = CardDestination.Deck,
                         amount = 2,
                     },
-                    //Base card is risky, A is safe, B is hyper-aggressive.
+                    //Diagnostic? Not fitting for Angder, will ned to rename this one.
                 };
                 /* Remember to always break it up! */
                 break;
@@ -58,9 +58,9 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                 {
                     new AAddCard()
                     {
-                        card = new CardAutoblastleft(){
-                    upgrade = Upgrade.B
-                    },
+                        card = new CardDiagnosticComplete(){
+                        upgrade = Upgrade.B
+                        },
                         destination = CardDestination.Deck,
                         amount = 2,
                     },
@@ -71,7 +71,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                 {
                     new AAddCard()
                     {
-                        card = new CardAutoblastleft()
+                        card = new CardDiagnosticComplete()
                         {
                                             //upgrade = Upgrade.A
                         },
