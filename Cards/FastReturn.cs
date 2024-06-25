@@ -52,13 +52,10 @@ internal sealed class CardFastReturn : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
-                    
-                    new AStatus()
+                    new ADrawCard
                     {
-                        status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 1,
-                        targetPlayer = true
-                    },
+                        count = 1
+                    }
 
 
                 };
@@ -67,10 +64,12 @@ internal sealed class CardFastReturn : Card, IAngderCard
                 actions = new()
                 {
 
-                    new ADrawCard
+                    new AStatus()
                     {
-                        count = 1
-                    }
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
 
                 };
                 break;
