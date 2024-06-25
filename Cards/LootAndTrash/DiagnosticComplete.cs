@@ -33,7 +33,7 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
             art = ModEntry.Instance.Angder_ManyBulletMuchwow.Sprite,
             unplayable = true,
             cost = 0,
-            exhaust = true,
+            //exhaust = true,
             temporary = true,
             description = ModEntry.Instance.Localizations.Localize(["card", "DiagnosticComplete", "description", upgrade.ToString()])
         };
@@ -56,6 +56,10 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     status = Status.shield,
                     targetPlayer = true,
                 });
+                c.Queue(new ASelfExhaust()
+                {
+                    CardID = uuid
+                });
                 break;
 
             case Upgrade.A:
@@ -69,7 +73,10 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     status = Status.shield,
                     targetPlayer = true,
                 });
-
+                c.Queue(new ASelfExhaust()
+                {
+                    CardID = uuid
+                });
                 break;
             case Upgrade.B:
                 c.Queue(new AStatus()
@@ -77,6 +84,10 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     statusAmount = 4,
                     status = Status.shield,
                     targetPlayer = true,
+                });
+                c.Queue(new ASelfExhaust()
+                {
+                    CardID = uuid
                 });
                 break;
         }
@@ -101,10 +112,6 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     targetPlayer = true
                 }
                 };
-                c.Queue(new ASelfExhaust()
-                {
-                    CardID = uuid
-                });
                 break;
             case Upgrade.A:
                 actions = new()
@@ -120,10 +127,6 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     targetPlayer = true
                 }
                 };
-                c.Queue(new ASelfExhaust()
-                {
-                    CardID = uuid
-                });
                 break;
             case Upgrade.B:
                 actions = new()
@@ -135,10 +138,6 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                     targetPlayer = true
                 }
                 };
-                c.Queue(new ASelfExhaust()
-                {
-                    CardID = uuid
-                });
                 break;
         }
         return actions;
