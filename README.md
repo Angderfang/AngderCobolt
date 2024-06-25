@@ -1,4 +1,4 @@
-<h1>ANGDER Version 0.10.0 </h1>
+<h1>ANGDER Version 0.10.6 </h1>
 
 A work-in-progress Cobalt Core mod. Requires Kokoro, and nickle.
 
