@@ -32,12 +32,13 @@
     },
   },
   "card": {
+      "SiphonFuel": {"name": "Setup Siphon" },
    "Ports": {"name": "Remote uplink" },
    "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, attack <c=boldPink>{{damage}}</c> then draw a card. Exhaust.", "A": "On draw, attack <c=boldPink>{{damage2}}</c> then draw a card. Exhaust.", "B": "On draw, attack <c=boldPink>{{damage3}}</c> then draw 2 cards. Exhaust."}},
    "CoolRocket": {"name": "Cool Rocket I Found" },
    "Anxiety": {"name": "Preparation" },
    "Diagnostic": {"name": "Diagnostic" },
-   "Exposedport": {"name": "Remote Access" },
+   "Exposedport": {"name": "Remote Access"}, // {"None": "Move enemy 2", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
    "StolenMunitions": {"name": "Spare Ammunition" },
    "Powercore": {"name": "Their Spare Powercore"},
    "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
@@ -68,7 +69,11 @@
     "Ram": { "name": "Ram", "description": {
         "None": "Deal damage = to hull. Then take enemy hull as damage.",
         "A": "Deal piercing damage = to hull. Then take enemy hull as pierce damage.",
-        "B": "Deal damage = to hull. Then take enemy hull as damage." }}
+        "B": "Deal damage = to hull. Then take enemy hull as damage." }},
+    "AngderEXE":{ "name": "Angder.EXE", "description": {
+        "None": "Deal damage = to hull. Then take enemy hull as damage.",
+        "A": "Deal piercing damage = to hull. Then take enemy hull as pierce damage.",
+        "B": "Deal damage = to hull. Then take enemy hull as damage." }},
   },
   
   "trait": {
@@ -80,11 +85,19 @@
   "status": {
     "Rampage": {
       "name": "RAMPAGE",
-      "description": "If Angder is missing, deals <c=boldPink>{0}</c> hull damage to the enemy at the start of each turn. Drops by 2 each turn while Angder is missing."
+      "description": "If Angder is missing, deals <c=boldPink>{0}</c> hull damage to the enemy at the start of each turn. Decreases by 2 each turn while Angder is missing."
     },
             "Theft": {
         "name": "PLANNED HEIST",
-        "description" : "If Angder is missing at the start of your turn, add a 0 cost card into your hand from Angder's haul. Ticks down when activated.",
+        "description" : "If Angder is missing at the start of your turn, add a 0 cost card into your hand from Angder's haul. Decreases by 1 when activated.",
+    },
+                "FuelSiphon": {
+        "name": "FUEL SIPHON",
+        "description" : "If Angder is missing at the start of your turn, increases <c=status>EVADE</c> by one. Decreases by 1 when activated.",
+    },
+                "FuelDump": {
+        "name": "FUEL DUMP",
+        "description" : "If Angder is missing at the start of your turn, Apply <c=status>ENGINE STALL</c> to the enemy ship.  Decreases by 1 when activated.",
     },
                 "Fury": {
         "name": "FURY",
@@ -92,11 +105,16 @@
     },
                     "Disrupt": {
         "name": "POWER SIPHON",
-        "description" : "If Angder is missing, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> at the start of your turn. Ticks down by 1 each turn while Angder is missing, <c=downside>this is doubled when POWER SIPHON is over 5, and tripled when it's over 10.</c>"
+        "description" : "If Angder is missing, gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c> at the start of your turn. 
+<c=downside>Decreases by 1 each turn while Angder is missing, this is doubled when POWER SIPHON is over 5.</c>"
 
     }
   },
   "action": {
+    "MoveEnemy": { "nameL" : "MOVE ENEMY LEFT","nameR" : "MOVE ENEMY RIGHT",
+        "description": {
+            "Positive": "Instantly move the enemy {{number}} to the right.",
+            "Negative": "Instantly move the enemy {{number}} to the left.",             },
     "Cleave": {
         "name": {
             "Unknown": "Random Cleave",
@@ -112,8 +130,8 @@
         }
     },
     "Ramaction": {
-        "name": {"Piercing" : "Piercing Ram",
-        "normal" : "Ram"
+        "name": {"Piercing" : "PIERCING RAM",
+        "normal" : "RAM"
         },
         "description" : {
             "Damage": "Deal damage equal to your current hull. <c=downside>You then take damage equal to their remaining Hull value.</c> this attack does not require you to be facing the enemy, and cannot be dodged.",

@@ -100,6 +100,8 @@ public sealed class ModEntry : SimpleMod
     internal IStatusEntry Rampage { get; }
     internal IStatusEntry Theft { get; }
     internal IStatusEntry Disrupt { get; }
+    internal IStatusEntry FuelSiphon { get; }
+    internal IStatusEntry FuelDiscard { get; }
     internal IStatusEntry Fury { get; }
     internal IStatusEntry Angdermissing { get; }
     internal static IReadOnlyList<Type> Angder_StarterCard_Types { get; } = [
@@ -126,6 +128,7 @@ public sealed class ModEntry : SimpleMod
          typeof(CardDiagnostic),
          typeof(CardSeeingRed),
          typeof(CardDistractiongambit),
+         typeof(CardSiphonFuel),
          /* typeof(CardIgnition) /*What even is this card supposed to be again?
           * 
           */
@@ -138,6 +141,14 @@ public sealed class ModEntry : SimpleMod
          typeof(CardPorts),
  /* Thats the rares done?*/
     ];
+
+    /*
+    internal static IReadOnlyList<Type> CATEXE { get; } = [
+     typeof(CardRam),
+         typeof(AngderEXE),
+    ];
+    */
+    
     internal static IReadOnlyList<Type> Angder_Trash_Types { get; } = [
      typeof(CardDistantYelling),
      typeof(CardLootPowercore),
@@ -494,6 +505,30 @@ public sealed class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "Disrupt", "description"]).Localize
         });
 
+        FuelSiphon = helper.Content.Statuses.RegisterStatus("FuelSiphon", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FuelSiphon.png")).Sprite,
+                color = new("b500be"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "FuelSiphon", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "FuelSiphon", "description"]).Localize
+        });
+
+        FuelDiscard = helper.Content.Statuses.RegisterStatus("FuelDump", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FuelDump.png")).Sprite,
+                color = new("b500be"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "FuelDump", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "FuelDump", "description"]).Localize
+        });
+
         //Registering the trait sprites seperately for... some reason?
 
         RemoteControlSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Remotecontrol.png"));
@@ -522,6 +557,8 @@ public sealed class ModEntry : SimpleMod
         _ = new FuryManager();
         _ = new TheftManager();
         _ = new DisruptManager();
+        _ = new FuelDumpManager();
+        _ = new SiphonManager();
 
         _ = new CleaveManager();
         _ = new RemoteManager();

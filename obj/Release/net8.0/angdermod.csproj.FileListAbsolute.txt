@@ -1,0 +1,8 @@
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\bin\Release\net8.0\angdermod.deps.json
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\bin\Release\net8.0\angdermod.dll
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.csproj.AssemblyReference.cache
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.AssemblyInfoInputs.cache
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.AssemblyInfo.cs
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.csproj.CoreCompileInputs.cache
+C:\Users\vuldu\Desktop\AngderGrunanKobrette\obj\Release\net8.0\angdermod.dll
