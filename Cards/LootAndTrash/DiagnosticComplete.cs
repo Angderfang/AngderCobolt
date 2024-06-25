@@ -98,6 +98,7 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                 {
                     statusAmount = 2,
                     status = Status.shield,
+                    targetPlayer = true
                 }
                 };
                 c.Queue(new ASelfExhaust()
@@ -116,6 +117,7 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                 {
                     statusAmount = 2,
                     status = Status.shield,
+                    targetPlayer = true
                 }
                 };
                 c.Queue(new ASelfExhaust()
@@ -130,6 +132,7 @@ internal sealed class CardDiagnosticComplete : Card, IAngderCard
                 {
                     statusAmount = 4,
                     status = Status.shield,
+                    targetPlayer = true
                 }
                 };
                 c.Queue(new ASelfExhaust()

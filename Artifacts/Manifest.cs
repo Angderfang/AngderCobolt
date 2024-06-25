@@ -23,7 +23,12 @@ internal sealed class ShipsManifest : Artifact, IAngderArtifact
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "ShipsManifest", "description"]).Localize
         });
     }
-    public override void OnCombatStart(State s, Combat c)
+    
+    public override List<Tooltip>? GetExtraTooltips()
+    => StatusMeta.GetTooltips(ModEntry.Instance.Theft.Status, 3);
+    
+
+public override void OnCombatStart(State s, Combat c)
     {
         c.Queue(new AStatus
         {

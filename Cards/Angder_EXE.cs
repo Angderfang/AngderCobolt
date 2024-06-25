@@ -30,7 +30,7 @@ internal sealed class AngderEXE : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            //art = ModEntry.Instance.Angder_Shield.Sprite,
+            description = ModEntry.Instance.Localizations.Localize(["card", "AngderEXE", "description", upgrade.ToString()]),
             cost = upgrade == Upgrade.A ? 0 : 1,
 
         };
@@ -53,7 +53,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     canSkip = false,
                     inCombat = true,
                     discount = -1,
-                    dialogueSelector = ".summonAngder"
+                    //dialogueSelector = ".summonAngder"
                 }
                 };
         /* Remember to always break it up! */
@@ -70,7 +70,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     canSkip = false,
                     inCombat = true,
                     discount = -1,
-                    dialogueSelector = ".summonAngder"
+                    //dialogueSelector = ".summonAngder"
                     }
                 };
                 break;
@@ -86,7 +86,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     canSkip = false,
                     inCombat = true,
                     discount = -1,
-                    dialogueSelector = ".summonAngder"
+                    //dialogueSelector = ".summonAngder"
                     }
                 };
                 break;

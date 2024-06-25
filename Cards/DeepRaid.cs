@@ -116,7 +116,7 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     },
                     new AStatus()
                     {
-                        status = Status.overdrive,
+                        status = ModEntry.Instance.Theft.Status,
                         targetPlayer = true,
                         statusAmount = 2
                     },

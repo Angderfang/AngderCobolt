@@ -17,6 +17,10 @@ internal sealed class ChainAxe : Artifact, IAngderArtifact
         return count;
     }
 
+    
+    public override List<Tooltip>? GetExtraTooltips()
+    => StatusMeta.GetTooltips(ModEntry.Instance.Rampage.Status, 1);
+    
     public static void Register(IModHelper helper)
     {
         helper.Content.Artifacts.RegisterArtifact("ChainAxe", new()

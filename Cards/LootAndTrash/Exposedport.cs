@@ -1,7 +1,8 @@
 ﻿using Nickel;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
+using System;
 using System.Reflection;
+using Angder.Angdermod.Features;
 
 namespace Angder.Angdermod.Cards;
 
@@ -17,41 +18,40 @@ internal sealed class CardExposedport : Card, IAngderCard
                 deck = ModEntry.Instance.AngderstrashDeck.Deck,
                 upgradesTo = [Upgrade.A, Upgrade.B],
                 rarity = Rarity.common,
-
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Exposedport", "name"]).Localize
-        });
+        }); ;
     }
     public override CardData GetData(State state)
     {
         CardData data = new CardData()
         {
+           
+            //description = ModEntry.Instance.Localizations.Localize(["card", "Exposedport", "description", upgrade.ToString(), flipped.ToString()]), // BUT FLIPPABALE!
             retain = upgrade == Upgrade.A ? true : false,
             art = ModEntry.Instance.Angder_RemoteUplink.Sprite,
             cost = 0,
             exhaust = true,
             temporary = true,
-            flippable = true
+            flippable = true,
+            
         };
         return data;
     }
     public override List<CardAction> GetActions(State s, Combat c)
     {
-        //THIS CARD IS UNUSED. IT DOESN'T EVEN HAVE UPGRADES!
 
 
         List<CardAction> actions = new();
-
         switch (upgrade)
         {
             case Upgrade.None:
                 actions = new()
                 {
-
-                    new AMove()
+                    new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = -2
+                        dir = 2,
                     },
 
                 };
@@ -61,20 +61,20 @@ internal sealed class CardExposedport : Card, IAngderCard
                 actions = new()
                 {
 
-                    new AMove()
+                    new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = -2
+                        dir = 2
                     },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AMove()
+                    new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = -3
+                        dir = 3
                     },
                 };
                 break;
