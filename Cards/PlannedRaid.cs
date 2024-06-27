@@ -79,11 +79,10 @@ internal sealed class CardPlannedRaid : Card, IAngderCard
                         statusAmount = 3,
                         targetPlayer = true
                     },
-
                     new AStatus()
                     {
-                        status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 1,
+                        status = ModEntry.Instance.FuelSiphon.Status,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
                 };

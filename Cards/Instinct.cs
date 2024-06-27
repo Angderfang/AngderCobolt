@@ -30,8 +30,8 @@ internal sealed class CardInstinct : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Instinct.Sprite,
-            cost = 1,
-            exhaust = true
+            cost = upgrade == Upgrade.B ? 0 : 1,
+            //exhaust = true
        };
         return data;
     }
@@ -45,8 +45,8 @@ internal sealed class CardInstinct : Card, IAngderCard
                 {
                     new AStatus()
                     {
-                        status = Status.energyNextTurn,
-                        statusAmount = 2,
+                        status = Status.tempShield,
+                        statusAmount = 4,
                         mode = AStatusMode.Add,
                         targetPlayer = true
                     },
@@ -70,8 +70,8 @@ internal sealed class CardInstinct : Card, IAngderCard
 
                     new AStatus()
                     {
-                        status = Status.energyNextTurn,
-                        statusAmount = 3,
+                        status = Status.tempShield,
+                        statusAmount = 6,
                         mode = AStatusMode.Add,
                         targetPlayer = true
                     },
@@ -93,8 +93,8 @@ internal sealed class CardInstinct : Card, IAngderCard
 
                     new AStatus()
                     {
-                        status = Status.energyNextTurn,
-                        statusAmount = 5,
+                        status = Status.tempShield,
+                        statusAmount = 6,
                         mode = AStatusMode.Add,
                         targetPlayer = true
                     },

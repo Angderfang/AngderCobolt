@@ -30,7 +30,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
         CardData data = new CardData()
         {
             retain = true,
-            cost = 1,
+            cost = 0,
             exhaust = true,
             art = ModEntry.Instance.Angder_Bottled.Sprite
         };

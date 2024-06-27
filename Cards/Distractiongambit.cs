@@ -57,8 +57,6 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
                        xHint = 1,
                        targetPlayer = true,
                     },
-
-                    //Actually one of the least useful cards in Angder's deck IMO, and is B ever good? Eh, need to ship it anyway.
                 };
                 /* Remember to always break it up! */
                 break;

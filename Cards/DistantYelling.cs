@@ -89,7 +89,7 @@ internal sealed class CardDistantYelling : Card, IAngderCard
                     },
                     new AStatus()
                     {
-                        status = ModEntry.Instance.Disrupt.Status,
+                        status = Status.tempShield,
                         statusAmount = 2,
                         targetPlayer = true
                     },
