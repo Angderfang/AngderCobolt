@@ -15,7 +15,7 @@ internal sealed class DisruptManager : IStatusLogicHook
     {
         if (status != Instance.Disrupt.Status)
             return false;
-        if (timing != StatusTurnTriggerTiming.TurnStart)
+        if (timing != StatusTurnTriggerTiming.TurnEnd)
             return false;
 
 
@@ -24,6 +24,7 @@ internal sealed class DisruptManager : IStatusLogicHook
 
         if (ship.Get(ModEntry.Instance.Disrupt.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
         {
+            var AggressiveSiphon = state.EnumerateAllArtifacts().OfType<AggressiveSiphon>().FirstOrDefault();
             combat.Queue(new AStatus()
             {
                 status = Status.tempShield,
@@ -48,6 +49,10 @@ internal sealed class DisruptManager : IStatusLogicHook
                     statusAmount = -2,
                     targetPlayer = true
                 });
+            }
+            else if (ship.Get(ModEntry.Instance.Disrupt.Status) < 3 && AggressiveSiphon != null)
+            {
+
             }
             else
             {

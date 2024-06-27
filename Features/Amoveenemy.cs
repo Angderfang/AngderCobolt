@@ -14,7 +14,7 @@ namespace Angder.Angdermod.Features
             string key;
             string name;
             string description;
-            key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Ram::Normal";
+            key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::MoveEnemy::Normal";
             if (dir > 0)
             {
                 name = ModEntry.Instance.Localizations.Localize(["action", "MoveEnemy", "nameR"]);
@@ -25,10 +25,12 @@ namespace Angder.Angdermod.Features
                 name = ModEntry.Instance.Localizations.Localize(["action", "MoveEnemy", "nameL"]);
                 description = ModEntry.Instance.Localizations.Localize(["action", "MoveEnemy", "description", "Negative"], new { number = Math.Abs(dir) });
             }
+            //Spr iconset = GetIcon(s);
+
             List<Tooltip> tooltips = [
             new GlossaryTooltip(key)
             {
-                    //Icon = icon.Sprite,
+                    //Icon = ModEntry.Instance.icons_moveRightEnemyassign,
                     TitleColor = Colors.action,
                     Title = name,
                     Description = description

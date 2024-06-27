@@ -19,8 +19,6 @@ internal sealed class SiphonManager : IStatusLogicHook
             return false;
 
 
-        /* Theft */
-
 
         if (ship.Get(ModEntry.Instance.FuelSiphon.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
         {
