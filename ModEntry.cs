@@ -172,9 +172,9 @@ public sealed class ModEntry : SimpleMod
 
     /* Going to need to rethink these */
     internal static IReadOnlyList<Type> Angder_CommonArtifact_Types { get; } = [
-        typeof(PersonalJetpack), //Practical
+        //typeof(PersonalJetpack), // Needs complete rework.
         typeof(ChainAxe), //OPish? On paper kinda wild.
-        //typeof(Biggerbullet), //BAD, Find something better. Now part of duo artifact future planning.
+        //typeof(Biggerbullet), //BAD, Find something better. Now part of duo artifact future planning. // Nope, just cut entirely, Angder isn't cleave anymore.
         typeof(HairTrigger), //Balancing nightmare.
         typeof(AggressiveSiphon)
     ];
