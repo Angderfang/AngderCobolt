@@ -37,7 +37,7 @@
   },
   "card": {
       "SiphonFuel": {"name": "Setup Siphon" },
-   "Ports": {"name": "Remote uplink" },
+   "Ports": {"name": "Remote Uplink" },
    "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, attack <c=boldPink>{{damage}}</c> then draw a card. Exhaust.", "A": "On draw, attack <c=boldPink>{{damage2}}</c> then draw a card. Exhaust.", "B": "On draw, attack <c=boldPink>{{damage3}}</c> then draw 2 cards. Exhaust."}},
    "CoolRocket": {"name": "Cool Rocket I Found" },
    "Anxiety": {"name": "Preparation" },
@@ -46,7 +46,7 @@
    "StolenMunitions": {"name": "Spare Ammunition" },
    "Powercore": {"name": "Their Spare Powercore"},
    "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
-   "DiagnosticComplete": { "name": "Diagnostic Complete.", "description": {"None": "Shield <c=boldPink>2</c>. Draw 1. Exhaust, Immediate.", "A":  "Shield <c=boldPink>2</c>. Draw 2. Exhaust, Immediate.", "B": "Shield <c=boldPink>4</c>. Exhaust, Immediate."}},
+   "DiagnosticComplete": { "name": "Diagnostic Complete", "description": {"None": "Shield <c=boldPink>2</c>. Draw 1. Exhaust, Immediate.", "A":  "Shield <c=boldPink>2</c>. Draw 2. Exhaust, Immediate.", "B": "Shield <c=boldPink>4</c>. Exhaust, Immediate."}},
 
     "Remotecontrol":{"name": "Radio Uplink",  "description": {
     "None": "Select a card in hand, it gains Remote control.",
