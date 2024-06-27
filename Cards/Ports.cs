@@ -44,6 +44,12 @@ internal sealed class CardPorts : Card, IAngderCard
             case Upgrade.None:
                 actions = new()
                 {
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        targetPlayer = true,
+                        statusAmount = 1
+                    },
                     new AVariableHint
                     {
                         status = ModEntry.Instance.Angdermissing.Status
@@ -53,7 +59,7 @@ internal sealed class CardPorts : Card, IAngderCard
                     {
                         card = new CardExposedport(),
                         destination = CardDestination.Hand,
-                        amount = GetAngdermissingAmt(s),
+                        amount = GetAngdermissingAmt(s) + 1 + GetBoostAmt(s),
                         xHint = 1
                     },
 
@@ -63,6 +69,12 @@ internal sealed class CardPorts : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        targetPlayer = true,
+                        statusAmount = 1
+                    },
                     new AVariableHint
                     {
                         status = ModEntry.Instance.Angdermissing.Status
@@ -75,7 +87,7 @@ internal sealed class CardPorts : Card, IAngderCard
                             upgrade = Upgrade.A
                         },
                         destination = CardDestination.Hand,
-                        amount = GetAngdermissingAmt(s),
+                        amount = GetAngdermissingAmt(s) + 1 + GetBoostAmt(s),
                         xHint = 1
                     },
 
@@ -84,6 +96,12 @@ internal sealed class CardPorts : Card, IAngderCard
             case Upgrade.B:
                 actions = new()
                 {
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        targetPlayer = true,
+                        statusAmount = 1
+                    },
                     new AVariableHint
                     {
                         status = ModEntry.Instance.Angdermissing.Status
@@ -93,10 +111,10 @@ internal sealed class CardPorts : Card, IAngderCard
                     {
                         card = new CardExposedport
                         {
-                            upgrade = Upgrade.B
+                            //upgrade = Upgrade.B
                         },
                         destination = CardDestination.Hand,
-                        amount = GetAngdermissingAmt(s),
+                        amount = GetAngdermissingAmt(s) + GetBoostAmt(s),
                         xHint = 1
                     },
                 };
@@ -110,6 +128,16 @@ internal sealed class CardPorts : Card, IAngderCard
         if (s.route is Combat)
         {
             result = s.ship.Get(ModEntry.Instance.Angdermissing.Status);
+        }
+
+        return result;
+    }
+    private int GetBoostAmt(State s)
+    {
+        int result = 0;
+        if (s.route is Combat)
+        {
+            result = s.ship.Get(Status.boost);
         }
 
         return result;

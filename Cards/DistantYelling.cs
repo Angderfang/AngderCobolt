@@ -14,10 +14,9 @@ internal sealed class CardDistantYelling : Card, IAngderCard
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.AngderstrashDeck.Deck,
-
+                deck = ModEntry.Instance.AngderDeck.Deck,
                 rarity = Rarity.common,
-
+                dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DistantYelling", "name"]).Localize
@@ -25,6 +24,7 @@ internal sealed class CardDistantYelling : Card, IAngderCard
     }
     public override CardData GetData(State state)
     {
+        RemoteManager.SetRemoteUnending(this, state, true);
         CardData data = new CardData()
         {
             cost = 1,

@@ -26,6 +26,7 @@ internal sealed class CardBottledRage : Card, IAngderCard
     }
     public override CardData GetData(State state)
     {
+        RemoteManager.SetRemoteUnending(this, state, true);
         CardData data = new CardData()
         {
             retain = true,

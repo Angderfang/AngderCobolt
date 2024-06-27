@@ -30,7 +30,7 @@ internal sealed class CardRam : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Ramcard.Sprite,
-            cost = upgrade == Upgrade.A ? 2 : 3,
+            cost = 3,
         };
         return data;
     }
@@ -84,6 +84,12 @@ internal sealed class CardRam : Card, IAngderCard
                     truehull = c.otherShip.hull;
                 actions = new()
                 {
+                    new AStatus()
+                    {
+                        status = Status.tempShield,
+                        targetPlayer = true,
+                        statusAmount = 5
+                    },
                     new ARam()
                     {
                         Piercing = false,

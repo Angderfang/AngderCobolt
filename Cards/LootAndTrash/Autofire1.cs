@@ -34,7 +34,7 @@ internal sealed class CardAutoblastleft : Card, IAngderCard
             art = ModEntry.Instance.Angder_ManyBulletMuchwow.Sprite,
             unplayable = true,
             cost = 0,
-            exhaust = true,
+            //exhaust = true,
             temporary = true,
             description = ModEntry.Instance.Localizations.Localize(["card", "Autoshoot", "description", upgrade.ToString()], new { damage = Damagedealing })
         };

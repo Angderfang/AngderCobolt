@@ -15,15 +15,18 @@ internal sealed class CardExposedport : Card, IAngderCard
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.AngderstrashDeck.Deck,
                 upgradesTo = [Upgrade.A, Upgrade.B],
+                deck = ModEntry.Instance.AngderDeck.Deck,
                 rarity = Rarity.common,
+                dontOffer = true,
+
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Exposedport", "name"]).Localize
         }); ;
     }
     public override CardData GetData(State state)
     {
+        RemoteManager.SetRemoteUnending(this, state, true);
         CardData data = new CardData()
         {
            
@@ -51,7 +54,7 @@ internal sealed class CardExposedport : Card, IAngderCard
                     new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = 2,
+                        dir = 3,
                     },
 
                 };
@@ -64,7 +67,7 @@ internal sealed class CardExposedport : Card, IAngderCard
                     new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = 2
+                        dir = 3,
                     },
                 };
                 break;
@@ -74,7 +77,7 @@ internal sealed class CardExposedport : Card, IAngderCard
                     new AMoveEnemy()
                     {
                         targetPlayer = false,
-                        dir = 3
+                        dir = 4,
                     },
                 };
                 break;

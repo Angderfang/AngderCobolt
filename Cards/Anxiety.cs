@@ -52,13 +52,9 @@ internal sealed class CardAnxiety : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 1,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
-
-                    /* "WAIT? This is just Board but worse?
-                    Well, no, if you play this card and board in the same turn, thats 4 rampage. 
-                    If you play just two boards, you get two rampage, and a confused Angder. */
 
                 };
                 /* Remember to always break it up! */
@@ -76,7 +72,7 @@ internal sealed class CardAnxiety : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 1,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
 
@@ -97,7 +93,7 @@ internal sealed class CardAnxiety : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 1,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
                 };

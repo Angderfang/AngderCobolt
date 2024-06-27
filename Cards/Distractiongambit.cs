@@ -113,7 +113,7 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
         int result = 0;
         if (s.route is Combat)
         {
-            result = s.ship.Get(ModEntry.Instance.Disrupt.Status);
+            result = s.ship.Get(ModEntry.Instance.Rampage.Status);
         }
 
         return result;
