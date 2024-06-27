@@ -29,7 +29,7 @@ internal sealed class PersonalJetpack : Artifact, IAngderArtifact
     {
         if (!c.isPlayerTurn)
             return;
-        if (s.ship.Get(ModEntry.Instance.Rampage.Status) < 3 && s.ship.Get(ModEntry.Instance.FuelSiphon.Status) < 2 && s.ship.Get(ModEntry.Instance.FuelDiscard.Status) < 2 && s.ship.Get(ModEntry.Instance.Disrupt.Status) < 2 && s.ship.Get(ModEntry.Instance.Angdermissing.Status) > 0 && s.ship.Get(ModEntry.Instance.Fury.Status) == 0 && s.ship.Get(ModEntry.Instance.Theft.Status) <= 1)
+        if (s.ship.Get(ModEntry.Instance.Rampage.Status) < 3 && s.ship.Get(ModEntry.Instance.FuelSiphon.Status) < 2 && s.ship.Get(ModEntry.Instance.FuelDiscard.Status) < 1 && s.ship.Get(ModEntry.Instance.Disrupt.Status) < 1 && s.ship.Get(ModEntry.Instance.Angdermissing.Status) > 0 && s.ship.Get(ModEntry.Instance.Fury.Status) == 0 && s.ship.Get(ModEntry.Instance.Theft.Status) <= 1)
         {
             c.Queue([
                         new AStatus()
