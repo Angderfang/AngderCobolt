@@ -16,6 +16,8 @@ namespace Angder.Angdermod.Dialog
             string Angder = Instance.AngderDeck.Deck.Key();
 
             //Angder Specific
+
+            /*
             DB.story.all["Angder_BurntoutFireRegulator_Repaired"] = new()
             {
 
@@ -57,7 +59,7 @@ namespace Angder.Angdermod.Dialog
                 {
                     lines = new()
                     {
-                        /*
+                        
                         new CustomSay()
                         {
                         delay = 4,
@@ -65,7 +67,7 @@ namespace Angder.Angdermod.Dialog
                         Text = "Looks like the power to your consoles weapons is critically low.",
                         loopTag = "neutral"
                         },
-                        */
+                        
                         new CustomSay()
                         {
                         delay = 4,
@@ -109,17 +111,13 @@ namespace Angder.Angdermod.Dialog
                 new CustomSay()
                 {
                     who = Deck.peri.Key(),
-                    Text = "Hold on, let me reroute some power back to you.",
-                    loopTag = "neutral"
-                },
-                new CustomSay()
-                {
-                    who = Angder,
-                    Text = "The light just turned green!",
+                    Text = "Hold on, let me reroute some power.",
                     loopTag = "neutral"
                 },
             }
             };
+            */
+            //No more Angder cleavage.
 
             DB.story.all["Angder_ChainAxe"] = new()
             {
@@ -316,9 +314,10 @@ namespace Angder.Angdermod.Dialog
                     new CustomSay()
                     {
                         who = Angder,
-                        Text = "I think I know where their spare power core is... Send me over and I will go fetch it!",
+                        Text = "I think I know where their spare power core is... If this manifest is correct",
                         loopTag = "talk"
                     },
+                    /*
                     new SaySwitch()
                     {
                         lines = new()
@@ -337,7 +336,7 @@ namespace Angder.Angdermod.Dialog
                                 Text = "Where did you even get that?",
                                 loopTag = "neutral"
                             },
-                            /*
+                            
                             new CustomSay()
                             {
                                 delay = 3,
@@ -345,9 +344,10 @@ namespace Angder.Angdermod.Dialog
                                 Text = "They should have worked harder on their security.",
                                 loopTag = "smile"
                             },
-                            */
+                            
                         }
                     },
+                    */
                 }
 
             };
@@ -383,7 +383,7 @@ namespace Angder.Angdermod.Dialog
                     new CustomSay()
                     {
                         who = Angder,
-                        Text = "So I fire my shots into the void, and that's good?",
+                        Text = "So missing is good?",
                         loopTag = "talk"
                     },
                     new SaySwitch()
@@ -448,7 +448,7 @@ namespace Angder.Angdermod.Dialog
                             {
                                 delay = 1,
                                 who = Deck.dizzy.Key(),
-                                Text = "pretty sure we are using energy weapons.",
+                                Text = "Pretty sure we are using energy weapons.",
                                 loopTag = "explains"
                             },
                         }
@@ -469,7 +469,7 @@ namespace Angder.Angdermod.Dialog
                     new CustomSay()
                     {
                         who = Angder,
-                        Text = "wait, piercer only applies to the first shot?",
+                        Text = "Wait, piercer only applies to the first shot?",
                         loopTag = "sad"
                     },
                 }
@@ -507,6 +507,7 @@ namespace Angder.Angdermod.Dialog
                 }
 
             };
+            /*
             DB.story.all["Angder_stunCalibrater"] = new()
             {
                 type = NodeType.combat,
@@ -525,6 +526,7 @@ namespace Angder.Angdermod.Dialog
                 }
 
             };
+            */ //        :/
             
 
 

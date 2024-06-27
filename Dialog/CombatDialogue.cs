@@ -127,6 +127,8 @@ internal static class CombatDialogue
             type = NodeType.combat,
             allPresent = new() { Angder },
             maxHull = 2,
+            enemyShotJustHit = true,
+            minDamageDealtToPlayerThisTurn = 1,
             oncePerCombatTags = new() { "aboutToDie" },
             lines = new()
             {
@@ -134,6 +136,12 @@ internal static class CombatDialogue
                 {
                     who = Angder,
                     Text = "This ship is starting to look even more familiar; It's full of holes!",
+                    loopTag = "talk"
+                },
+                new CustomSay()
+                {
+                    who = Angder,
+                    Text = "Don't worry. We will be fine.",
                     loopTag = "talk"
                 },
             }
@@ -319,6 +327,7 @@ internal static class CombatDialogue
             }
         };
 
+        /*
         DB.story.all["Bighits_outgoing_Angder"] = new()
         {
             type = NodeType.combat,
@@ -357,6 +366,8 @@ internal static class CombatDialogue
                 },
             }
         };
+        */
+        //No more big hits...
 
         DB.story.all["Normalhits_outgoing_Angder"] = new()
         {
@@ -413,7 +424,6 @@ internal static class CombatDialogue
             allPresent = new() { Angder },
             minDamageDealtToEnemyThisTurn = 1,
             playerShotJustMissed = true,
-            whoDidThat = Instance.AngderDeck.Deck,
             lines = new()
             {
                 new SaySwitch()
@@ -423,22 +433,8 @@ internal static class CombatDialogue
                         new CustomSay()
                         {
                         who = Angder,
-                        Text = "If I fill the air with bullets, I can't actually miss.",
+                        Text = "If we fill the air with bullets, I can't actually miss.",
                         loopTag = "talk"
-                        },
-
-                        new CustomSay()
-                        {
-                        who = Angder,
-                        Text = "The advantages of blanketting an area...",
-                        loopTag = "talk"
-                        },
-
-                        new CustomSay()
-                        {
-                        who = Deck.eunice.Key(),
-                        Text = "Careful, I think you might accidentally be hitting them.",
-                        loopTag = "neutral"
                         },
 
                     }

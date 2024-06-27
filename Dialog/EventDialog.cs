@@ -928,7 +928,13 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.peri.Key(),
-                    Text = "Just try to be a bit more considerate of the rest of us. Some of us actually want the loops to end at some point.",
+                    Text = "Some of us actually want the loops to end Angder.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Not all of us enjoy fighting as much as you do.",
                     loopTag = "neutral"
                 },
             }
