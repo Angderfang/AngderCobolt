@@ -115,6 +115,7 @@
         "description": {
             "Positive": "Instantly move the enemy {{number}} to the right.",
             "Negative": "Instantly move the enemy {{number}} to the left.",             },
+    },
     "Cleave": {
         "name": {
             "Unknown": "Random Cleave",
