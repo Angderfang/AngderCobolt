@@ -72,7 +72,9 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_ShiftShot { get; }
     internal ISpriteEntry Angder_Ramcard { get; }
     internal ISpriteEntry Angder_Instinct { get; }
-    //
+
+    //Move enemy
+    //internal Spr  icons_moveRightEnemyassign { get;  }
 
     //traitstuff
     internal ICardTraitEntry RemoteControl { get; private set; } = null!;
@@ -97,6 +99,8 @@ public sealed class ModEntry : SimpleMod
     internal ICharacterEntry Angderchar { get; }
 
     //Status entries
+    //internal ISpriteEntry MoveEnemyLeft { get; }
+    //internal ISpriteEntry MoveEnemyRight { get; }
     internal IStatusEntry Rampage { get; }
     internal IStatusEntry Theft { get; }
     internal IStatusEntry Disrupt { get; }
@@ -171,7 +175,8 @@ public sealed class ModEntry : SimpleMod
         typeof(PersonalJetpack), //Practical
         typeof(ChainAxe), //OPish? On paper kinda wild.
         //typeof(Biggerbullet), //BAD, Find something better. Now part of duo artifact future planning.
-        typeof(HairTrigger) //Balancing nightmare.
+        typeof(HairTrigger), //Balancing nightmare.
+        typeof(AggressiveSiphon)
     ];
     internal static IReadOnlyList<Type> Angder_BossArtifact_Types { get; } = [
         typeof(ShipsManifest)
@@ -580,6 +585,6 @@ public sealed class ModEntry : SimpleMod
         RamPierce = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/RamPierce.png"));
         MGPatches.Apply(Harmony);
 
-
+       // icons_moveRightEnemyassign = Spr.icons_moveRightEnemy;
     }
 }

@@ -23,6 +23,8 @@ internal sealed class PersonalJetpack : Artifact, IAngderArtifact
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "PersonalJetpack", "description"]).Localize
         });
     }
+    public override List<Tooltip>? GetExtraTooltips()
+=> StatusMeta.GetTooltips(ModEntry.Instance.Fury.Status, 1);
     public override void OnTurnStart(State s, Combat c)
     {
         if (!c.isPlayerTurn)
