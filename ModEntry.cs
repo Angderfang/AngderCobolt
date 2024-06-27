@@ -7,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Angder.Angdermod.Artifacts.Duo;
 using Nickel.Common;
 
 
