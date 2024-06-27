@@ -16,7 +16,7 @@ internal sealed class AggressiveSiphon : Artifact, IAngderArtifact
             Meta = new()
             {
                 owner = ModEntry.Instance.AngderDeck.Deck,
-                pools = [ArtifactPool.Boss]
+                pools = [ArtifactPool.Common]
             },
             Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/artifacts/AggressiveSiphon.png")).Sprite,
             Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "AggressiveSiphon", "name"]).Localize,
