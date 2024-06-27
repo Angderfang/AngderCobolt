@@ -125,7 +125,7 @@ public sealed class ModEntry : SimpleMod
     /* common cards */
     internal static IReadOnlyList<Type> Angder_UnCommonCard_Types { get; } = [
          typeof(CardFastReturn),
-         typeof(CardBottledRage),
+         //typeof(CardBottledRage),
          typeof(CardTooAngryToDie),
          typeof(CardFasterCannons),
          typeof(CardDiagnostic),
