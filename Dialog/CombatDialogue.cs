@@ -45,6 +45,7 @@ internal static class CombatDialogue
         {
             type = NodeType.combat,
             allPresent = new() { },
+            oncePerCombat = true,
             //oncePerCombatTags = new() { "angderWentMissing" },
             lastTurnPlayerStatuses = new() { ModEntry.Instance.Angdermissing.Status },
             lines = new()
@@ -79,16 +80,23 @@ internal static class CombatDialogue
                             Text = "Try not to die.",
                             loopTag = "neutral"
                         },
+                        /*
                         new CustomSay()
                         {
                             who = Deck.goat.Key(),
-                            Text = "He should be wearing a helmet, right?",
+                            Text = "Shouldn't he be wearing a helmet?",
                             loopTag = "panic"
-                        },
+                        }, */
                         new CustomSay()
                         {
                             who = Deck.goat.Key(),
                             Text = "Is he gone?",
+                            loopTag = "neutral"
+                        },
+                        new CustomSay()
+                        {
+                            who = Deck.goat.Key(),
+                            Text = "Angder...?",
                             loopTag = "neutral"
                         },
                         new CustomSay()

@@ -12,11 +12,11 @@
   "artifact": {
     "PersonalJetpack": {
       "name": "PERSONAL JETPACK",
-      "description": "If you have no status's that trigger when <c=status>\"Angder is missing\"</c>, and no <c=status>FURY</c>, <c=status>\"Angder is missing\"</c> will reduce by 1 each turn ."
+      "description": "Unused"
     },
      "AggressiveSiphon": {
       "name": "SHIELD DIVERTER",
-      "description": "Gives you 2 <c=status>POWER SIPHON</c> at the start of each combat. <c=status>POWER SIPHON</c> can never be reduced below 2."
+      "description": "Gives you 2 <c=status>POWER SIPHON</c> at the start of each combat. <c=status>POWER SIPHON</c> does not decay below 2."
     },
         "ChainAxe": {
       "name": "CHAINSAW AXE",

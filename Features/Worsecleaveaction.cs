@@ -103,7 +103,7 @@ public class CleaveAction : CardAction
         }
         else
         {
-            icon = ModEntry.Instance.Cleaveshortleft;
+            icon = ModEntry.Instance.Cleaveshortright;
             key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::unknown";
             name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Unknown"]);
             description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Unknown"], new { Long = Length + 1, truedamage });

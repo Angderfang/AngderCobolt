@@ -15,7 +15,7 @@ internal sealed class FuelDumpManager : IStatusLogicHook
     {
         if (status != Instance.FuelDiscard.Status)
             return false;
-        if (timing != StatusTurnTriggerTiming.TurnStart)
+        if (timing != StatusTurnTriggerTiming.TurnEnd)
             return false;
 
 
