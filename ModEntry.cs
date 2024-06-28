@@ -129,9 +129,9 @@ public sealed class ModEntry : SimpleMod
          typeof(CardTooAngryToDie),
          typeof(CardFasterCannons),
          typeof(CardDiagnostic),
-         typeof(CardSeeingRed),
-         typeof(CardDistractiongambit),
+         typeof(CardPorts),
          typeof(CardSiphonFuel),
+         typeof(CardSeeingRed),
          /* typeof(CardIgnition) /*What even is this card supposed to be again?
           * 
           */
@@ -141,7 +141,7 @@ public sealed class ModEntry : SimpleMod
          typeof(CardDeepraid),
          typeof(CardPlannedRaid),
          typeof(CardEnrage),
-         typeof(CardPorts),
+         typeof(CardDistractiongambit),
  /* Thats the rares done?*/
     ];
 
@@ -153,7 +153,7 @@ public sealed class ModEntry : SimpleMod
     */
     
     internal static IReadOnlyList<Type> Angder_Trash_Types { get; } = [
-     typeof(CardDistantYelling),
+     //typeof(CardDistantYelling),
      typeof(CardLootPowercore),
      typeof(CardStolenMunitions),
      typeof(CardCoolRocket),
