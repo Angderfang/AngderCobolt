@@ -33,17 +33,10 @@ internal sealed class CardSeeingRed : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Red.Sprite,
-            cost = upgrade == Upgrade.B ? 3 : 1,
+            cost = upgrade == Upgrade.B ? 2 : 1,
             exhaust = upgrade == Upgrade.A ? false : true,
         };
         return data;
-    }
-    private int GetRmpageamountspecial(State state)
-    {
-        var x = state.ship.Get(ModEntry.Instance.Rampage.Status);
-        if (ModEntry.Instance.TyAndSashaApi is { } api)
-            x += state.ship.Get(api.XFactorStatus);
-        return x;
     }
     public override List<CardAction> GetActions(State s, Combat c)
     {
@@ -98,21 +91,16 @@ internal sealed class CardSeeingRed : Card, IAngderCard
                     {
                         status = ModEntry.Instance.Rampage.Status
                     },
-
-                    new CleaveAction()
+                    new AAttack()
                     {
-                        DamageAlt = GetDmg(s, GetRmpageamountspecial(s)),
-                        Ignoresoverdrive = false,
-                        Damage = GetRmpageamountspecial(s),
-                        Xcard = 1,
-                        Length = 2,
-                        Thiscard = this,
-                        Direction = right,
-                        xHint = 1
-                        //Devestatingly powerful gamewinner. Get 10 Rampage, deal 30 damage Deserving of 3 cost?
-
-                        //Might be OP in decks with Bottled rage. But bottled rage is kinda bad otherwise?
-                    }
+                       damage = GetDmg(s, GetRampageAmt(s)),
+                       xHint = 1
+                    },
+                    new AAttack()
+                    {
+                       damage = GetDmg(s, GetRampageAmt(s)),
+                       xHint = 1
+                    },
                 };
                 break;
         }

@@ -48,7 +48,7 @@ internal sealed class CardSiphonFuel : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.FuelSiphon.Status,
-                        statusAmount = 3,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
                     //Stealing fuel!
@@ -62,7 +62,7 @@ internal sealed class CardSiphonFuel : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.FuelSiphon.Status,
-                        statusAmount = 6,
+                        statusAmount = 4,
                         targetPlayer = true
                     },
 
