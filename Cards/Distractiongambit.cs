@@ -17,7 +17,7 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -47,13 +47,13 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
                 {
                     new AVariableHint
                     {
-                        status = ModEntry.Instance.Rampage.Status
+                        status = ModEntry.Instance.Disrupt.Status
                     },
 
                     new AStatus()
                     {
                        statusAmount = GetDisruptAmt(s),
-                       status = ModEntry.Instance.Disrupt.Status,
+                       status = ModEntry.Instance.Rampage.Status,
                        xHint = 1,
                        targetPlayer = true,
                     },
@@ -65,13 +65,13 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
                 {
                     new AVariableHint
                     {
-                        status = ModEntry.Instance.Rampage.Status
+                        status = ModEntry.Instance.Disrupt.Status
                     },
 
                     new AStatus()
                     {
                        statusAmount = GetDisruptAmt(s),
-                       status = ModEntry.Instance.Disrupt.Status,
+                       status = ModEntry.Instance.Rampage.Status,
                        xHint = 1,
                        targetPlayer = true,
                     },
@@ -83,20 +83,20 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
                 {
                     new AVariableHint
                     {
-                        status = ModEntry.Instance.Rampage.Status,
+                        status = ModEntry.Instance.Disrupt.Status,
                     },
 
                     new AStatus()
                     {
                        statusAmount = GetDisruptAmt(s) * 2,
-                       status = ModEntry.Instance.Disrupt.Status,
+                       status = ModEntry.Instance.Rampage.Status,
                        xHint = 2,
                        targetPlayer = true,
                     },
                     new AStatus()
                     {
                        statusAmount = 0,
-                       status = ModEntry.Instance.Rampage.Status,
+                       status = ModEntry.Instance.Disrupt.Status,
                        mode = AStatusMode.Set,
                        targetPlayer = true,
                     },
@@ -111,7 +111,7 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
         int result = 0;
         if (s.route is Combat)
         {
-            result = s.ship.Get(ModEntry.Instance.Rampage.Status);
+            result = s.ship.Get(ModEntry.Instance.Disrupt.Status);
         }
 
         return result;

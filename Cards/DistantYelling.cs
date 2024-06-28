@@ -16,7 +16,7 @@ internal sealed class CardDistantYelling : Card, IAngderCard
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
                 rarity = Rarity.common,
-                dontOffer = true,
+                //dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DistantYelling", "name"]).Localize
@@ -48,7 +48,7 @@ internal sealed class CardDistantYelling : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 2,
+                        statusAmount = 6,
                         targetPlayer = true
                     },
                     //I think this might be bad, as well as bottled rage
@@ -84,12 +84,6 @@ internal sealed class CardDistantYelling : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 2,
-                        targetPlayer = true
-                    },
-                    new AStatus()
-                    {
-                        status = Status.tempShield,
                         statusAmount = 2,
                         targetPlayer = true
                     },
