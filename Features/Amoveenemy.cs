@@ -27,16 +27,21 @@ namespace Angder.Angdermod.Features
             }
             //Spr iconset = GetIcon(s);
 
+                   //dir > 0 ? new TTGlossary(Modentry.MoveEnemyRightGlossary!.Head, dir) : new TTGlossary(Modentry.MoveEnemyLeftGlossary!.Head, -dir)
+
             List<Tooltip> tooltips = [
             new GlossaryTooltip(key)
             {
-                    //Icon = ModEntry.Instance.icons_moveRightEnemyassign,
+                
+                    Icon = dir > 0 ? ModEntry.Instance.MoveenemyRight.Sprite :ModEntry.Instance.MoveenemyLeft.Sprite,
                     TitleColor = Colors.action,
                     Title = name,
                     Description = description
             }
+
             ];
             return tooltips;
             }
+
     }
 }

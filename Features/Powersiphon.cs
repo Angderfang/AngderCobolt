@@ -22,7 +22,7 @@ internal sealed class DisruptManager : IStatusLogicHook
         /* Theft */
 
 
-        if (ship.Get(ModEntry.Instance.Disrupt.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
+        if (ship.Get(ModEntry.Instance.Disrupt.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0 && ship.Get(ModEntry.Instance.Rampage.Status) > 0)
         {
             var AggressiveSiphon = state.EnumerateAllArtifacts().OfType<AggressiveSiphon>().FirstOrDefault();
             combat.Queue(new AStatus()
@@ -46,9 +46,10 @@ internal sealed class DisruptManager : IStatusLogicHook
                 combat.Queue(new AStatus()
                 {
                     status = ModEntry.Instance.Disrupt.Status,
-                    statusAmount = -2,
+                    statusAmount = 5,
+                    mode = AStatusMode.Set,
                     targetPlayer = true
-                });
+                }) ;
             }
             else if (ship.Get(ModEntry.Instance.Disrupt.Status) < 3 && AggressiveSiphon != null)
             {

@@ -103,10 +103,20 @@ public class CleaveAction : CardAction
         }
         else
         {
-            icon = ModEntry.Instance.Cleaveshortright;
-            key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::unknown";
-            name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Unknown"]);
-            description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Unknown"], new { Long = Length + 1, truedamage });
+            if (Length > 3)
+            {
+                icon = ModEntry.Instance.Cleavelongright;
+                key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::unknown";
+                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Unknown"]);
+                description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Unknown"], new { Long = Length + 1, truedamage });
+            }
+            else
+            {
+                icon = ModEntry.Instance.Cleaveshortright;
+                key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::unknown";
+                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Unknown"]);
+                description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Unknown"], new { Long = Length + 1, truedamage });
+            }
         }
 
         if (Ignoresoverdrive == true)// && BurntoutFireRegulatorpresent == null)
@@ -286,12 +296,6 @@ public class CleaveAction : CardAction
     //Used when calling the function. Does not respect Right click sometimes.
         public static int AngderCleaveDmg(State s, int baseDamage, Card cardused, bool ignore, int DamageAlternate, int? Xcard)
         {
-            //var Regulator = s.EnumerateAllArtifacts().OfType<BurntoutFireRegulator>().FirstOrDefault();
-
-            //if (Xcard != null) //Regulator is not null
-            //{
-            //    return DamageAlternate - baseDamage;
-            //}
             if (ignore == false)
                 return DamageAlternate;
 

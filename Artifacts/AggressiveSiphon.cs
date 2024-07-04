@@ -30,6 +30,7 @@ internal sealed class AggressiveSiphon : Artifact, IAngderArtifact
 
 public override void OnCombatStart(State s, Combat c)
     {
+        Pulse();
         c.Queue(new AStatus
         {
             status = ModEntry.Instance.Disrupt.Status,

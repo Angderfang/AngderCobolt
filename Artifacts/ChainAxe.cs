@@ -31,11 +31,25 @@ internal sealed class ChainAxe : Artifact, IAngderArtifact
                 owner = ModEntry.Instance.AngderDeck.Deck,
                 pools = [ArtifactPool.Common]
             },
-            Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/artifacts/ChainAxe.png")).Sprite,
+            Sprite = ModEntry.Instance.ChainAxe2.Sprite,
             Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "ChainAxe", "name"]).Localize,
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "ChainAxe", "description"]).Localize
         });
     }
+    
+    public override Spr GetSprite()
+    {
+        if (cappedamount == 3)
+        {
+
+            return ModEntry.Instance.ChainAxe2.Sprite;
+        }
+        else
+        {
+            return ModEntry.Instance.ChainAxe1.Sprite;
+        }
+    }
+    
     public override void OnPlayerPlayCard(int energyCost, Deck deck, Card card, State state, Combat combat, int handPosition, int handCount)
     {
         if (deck != ModEntry.Instance.AngderDeck.Deck && deck != ModEntry.Instance.AngderstrashDeck.Deck && cappedamount < 3)
