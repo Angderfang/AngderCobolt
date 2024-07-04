@@ -108,7 +108,7 @@
     },
                 "FuelDump": {
         "name": "FUEL DUMP",
-        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn: Applies <c=status>ENGINE STALL</c> to the enemy ship, <c=downside>then decreases by 1.</c>",
+        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn: Applies <c=status>ENGINE LOCK</c> to the enemy ship, <c=downside>then decreases by 1.</c>",
     },
                 "Fury": {
         "name": "FURY",
