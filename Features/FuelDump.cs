@@ -26,7 +26,7 @@ internal sealed class FuelDumpManager : IStatusLogicHook
         {
             combat.Queue(new AStatus()
             {
-                status = Status.engineStall,
+                status = Status.lockdown,
                 statusAmount = 1,
                 targetPlayer = false
             });
