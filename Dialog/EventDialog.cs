@@ -33,8 +33,8 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Aghh. What... what is going on? Where am I?",
-                    loopTag = "talk"
+                    Text = "...what is going on? Where am I?",
+                    loopTag = "grumpy"
                 },
                 new CustomSay()
                 {
@@ -262,7 +262,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Oh, of course. the loop. Which means we are about to be attacked.",
-                    loopTag = "talk"
+                    loopTag = "serious"
                 },
                 new CustomSay()
                 {
@@ -345,7 +345,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "It's high tech but you should be familiar with it, right?",
-                    loopTag = "talk" // Serious
+                    loopTag = "serious" // Serious
                 },
                 new CustomSay()
                 {
@@ -382,7 +382,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = "comp",
-                    Text = "In the back, grabbing some food I think.",
+                    Text = "In the back, grabbing some food.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -406,13 +406,13 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "DrH-36... What does that... Why have I never heard of this sort of suit before?",
+                    Text = "Why have I never heard of this sort of suit before?",
                     loopTag = "squint"
                 },
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "What does DrH even stand fo~",
+                    Text = "D.R.H, it's an acronym.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -442,13 +442,13 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "The D stands for Dizzy.",
+                    Text = "The D stands for Dizzy's.",
                     loopTag = "serious" //Shocked?
                 },
             }
         };
         */
-         //Not happy with how Dizzy sounds here.
+        //Not happy with how Dizzy sounds here.
 
         //Riggs
 
@@ -626,7 +626,7 @@ internal static class EventDialogue
             }
         };
 
-        //Max
+        //Eunice
 
         DB.story.all["angder_Intro_eunice"] = new()
         {
@@ -665,7 +665,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Were you including yourself in that assessment?",
+                    Text = "Did that include you?",
                     loopTag = "smug"
                 },
                 new CustomSay()
@@ -710,7 +710,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.eunice.Key(),
-                    Text = "I have had worse team-mates",
+                    Text = "I have had worse",
                     loopTag = "squint"
                 },
                 new CustomSay()
@@ -939,7 +939,6 @@ internal static class EventDialogue
                 },
             }
         };
-        
 
 
         //No more Story

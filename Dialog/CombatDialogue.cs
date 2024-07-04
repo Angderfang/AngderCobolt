@@ -441,7 +441,7 @@ internal static class CombatDialogue
                         new CustomSay()
                         {
                         who = Angder,
-                        Text = "If we fill the air with bullets, I can't actually miss.",
+                        Text = "If we fill the air with bullets, we can't actually miss.",
                         loopTag = "talk"
                         },
 
