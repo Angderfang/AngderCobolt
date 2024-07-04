@@ -115,7 +115,7 @@ internal sealed class CardPorts : Card, IAngderCard, IHasCustomCardTraits
                             //upgrade = Upgrade.B
                         },
                         destination = CardDestination.Hand,
-                        amount = GetAngdermissingAmt(s) + GetBoostAmt(s),
+                        amount = GetAngdermissingAmt(s) + 1 + GetBoostAmt(s),
                         xHint = 1
                     },
                 };
