@@ -30,7 +30,7 @@ internal sealed class CardEnrage : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Enraged.Sprite,
-            cost = upgrade == Upgrade.B ? 4 : 3,
+            cost = upgrade == Upgrade.B ? 5 : 4,
             exhaust = true
         };
         return data;
