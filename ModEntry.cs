@@ -17,7 +17,6 @@ public sealed class ModEntry : SimpleMod
 {
     internal static ModEntry Instance { get; private set; } = null!;
     internal IKokoroApi KokoroApi { get; }
-    internal ITyAndSashaApi? TyAndSashaApi { get; private set; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
 
@@ -35,6 +34,8 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_Neutral { get; }
     internal ISpriteEntry Angder_Droop { get; }
     internal ISpriteEntry Angder_Droop_talk { get; }
+    internal ISpriteEntry Angder_Serious { get; }
+    internal ISpriteEntry Angder_Serious_talk { get; }
 
     internal ISpriteEntry Angder_Nervous { get; }
     internal ISpriteEntry Angder_Nervoustalk1 { get; }
@@ -49,7 +50,6 @@ public sealed class ModEntry : SimpleMod
 
 
     //Angder Card arts
-
 
     internal ISpriteEntry Angder_CleaveArt { get; }
     internal ISpriteEntry Angder_RemoteUplink { get; }
@@ -82,12 +82,20 @@ public sealed class ModEntry : SimpleMod
 
     //Cleave images
 
+    internal ISpriteEntry EnergySiphon3 { get; }
+    internal ISpriteEntry EnergySiphon2 { get; }
+    internal ISpriteEntry ChainAxe1 { get; }
+    internal ISpriteEntry ChainAxe2 { get; }
     internal ISpriteEntry Cleaveshortleft { get; }
     internal ISpriteEntry Cleavelongleft { get; }
     internal ISpriteEntry Cleaveshortright { get; }
     internal ISpriteEntry Cleavelongright { get; }
+    internal ISpriteEntry MoveenemyLeft { get; }
+    internal ISpriteEntry MoveenemyRight { get; }
+    internal ISpriteEntry StunSmallIcon { get; }
     internal ISpriteEntry Overdriveno { get; }
-
+    internal ISpriteEntry Angdermissingin { get; }
+    internal ISpriteEntry Angdermissingun { get; } //YES I AM MISSING MY GUN. I USED TO FIRE 10 SHOTS A CARDS DARN IT!
     //Ram
     internal ISpriteEntry Ram { get; }
     internal ISpriteEntry RamPierce { get; }
@@ -113,6 +121,7 @@ public sealed class ModEntry : SimpleMod
         typeof(CardAnticipation),
         typeof(CardAnxiety),
         typeof(CardEscapePod),
+        typeof(CardCreateMap),
     ];
     internal static IReadOnlyList<Type> Angder_CommonCard_Types { get; } = [
          typeof(CardBoardmanuvour),
@@ -125,11 +134,11 @@ public sealed class ModEntry : SimpleMod
     /* common cards */
     internal static IReadOnlyList<Type> Angder_UnCommonCard_Types { get; } = [
          typeof(CardFastReturn),
+         typeof(CardExtractionflare),
          //typeof(CardBottledRage),
          typeof(CardTooAngryToDie),
          typeof(CardFasterCannons),
          typeof(CardDiagnostic),
-         typeof(CardPorts),
          typeof(CardSiphonFuel),
          typeof(CardSeeingRed),
          /* typeof(CardIgnition) /*What even is this card supposed to be again?
@@ -137,11 +146,13 @@ public sealed class ModEntry : SimpleMod
           */
     ];
     internal static IReadOnlyList<Type> Angder_RareCard_Types { get; } = [
+         typeof(CardPorts),
          typeof(CardRam),
          typeof(CardDeepraid),
          typeof(CardPlannedRaid),
          typeof(CardEnrage),
          typeof(CardDistractiongambit),
+        //typeof(CardPowertransfer) //SYMBOL WON'T WORK
  /* Thats the rares done?*/
     ];
 
@@ -160,7 +171,8 @@ public sealed class ModEntry : SimpleMod
      typeof(CardDiagnosticComplete),
      typeof(CardExposedport),
      typeof(CardAutoblastleft),
-     typeof(CardHairTrigger)
+     typeof(CardHairTrigger),
+     typeof(EnergySiphon)
     ];
     internal static IEnumerable<Type> AngderMod_AllCard_Types
         => Angder_StarterCard_Types
@@ -189,6 +201,9 @@ public sealed class ModEntry : SimpleMod
         Instance = this;
         Harmony = new(package.Manifest.UniqueName);
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
+
+        
+        
         /* These localizations lists help us organize our mod's text and messages by language.
          * For general use, prefer AnyLocalizations, as that will provide an easier time to potential localization submods that are made for your mod 
          * IMPORTANT: These localizations are found in the i18n folder (short for internationalization). The Demo Mod comes with a barebones en.json localization file that you might want to check out before continuing 
@@ -234,6 +249,16 @@ public sealed class ModEntry : SimpleMod
         Angder_squint = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Squint.png"));
         Angder_squinttalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Squint_talk.png"));
 
+        Angder_Serious = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Serious.png"));
+        Angder_Serious_talk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Serious_talk.png"));
+
+        EnergySiphon3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/EnergySiphon3.png"));
+        EnergySiphon2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/EnergySiphon2.png"));
+
+
+        ChainAxe1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/ChainAxe.png"));
+        ChainAxe2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/ChainAxeExhaust.png"));
+
 
         //Angder Card Art
         Angder_CleaveArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Cleave.png"));
@@ -263,7 +288,7 @@ public sealed class ModEntry : SimpleMod
             Definition = new DeckDef()
             {
                 color = new Color("3A4999"),
-                titleColor = new Color("000000")
+                titleColor = new Color("D8FFFF")
             },
             DefaultCardArt = Angder_Character_CardBackground.Sprite,
             BorderSprite = Angder_Character_CardFrame.Sprite,
@@ -287,7 +312,7 @@ public sealed class ModEntry : SimpleMod
             Definition = new DeckDef()
             {
                 color = new Color("3A4999"),
-                titleColor = new Color("000000")
+                titleColor = new Color("D8FFFF")
             },
             /* We give it a default art and border some Sprite types by adding '.Sprite' at the end of the ISpriteEntry definitions we made above. */
             DefaultCardArt = Angder_Character_CardBackground.Sprite,
@@ -391,6 +416,20 @@ public sealed class ModEntry : SimpleMod
                 Angder_grumpy.Sprite,
                 Angder_grumpytalk.Sprite,
                 Angder_grumpy.Sprite,
+            }
+        });
+
+        helper.Content.Characters.RegisterCharacterAnimation(new CharacterAnimationConfiguration()
+        {
+            Deck = AngderDeck.Deck,
+            LoopTag = "serious",
+            Frames = new[]
+    {
+                Angder_Serious.Sprite,
+                Angder_Serious_talk.Sprite,
+                Angder_Serious.Sprite,
+                Angder_Serious_talk.Sprite,
+                Angder_Serious.Sprite,
             }
         });
 
@@ -548,17 +587,13 @@ public sealed class ModEntry : SimpleMod
 
 
         Angdermissing = Angderchar.MissingStatus;
-        /* Check this out in Features/Rampage.cs */
-        _ = new RampageManager();
-        _ = new FuryManager();
-        _ = new TheftManager();
-        _ = new DisruptManager();
-        _ = new FuelDumpManager();
-        _ = new SiphonManager();
 
-        _ = new CleaveManager();
-        _ = new RemoteManager();
-        /* */
+        StunSmallIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/stunShipsmallIcon.png"));
+        Angdermissingin = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Angdermissingin.png"));
+        Angdermissingun = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Angdermissingun.png"));
+
+        MoveenemyLeft = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/moveLeftEnemy.png"));
+        MoveenemyRight = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/moveRightEnemy.png"));
 
         /* Cleave symbols */
         Cleaveshortleft = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/CleaveLeft.png"));
@@ -576,6 +611,18 @@ public sealed class ModEntry : SimpleMod
         RamPierce = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/RamPierce.png"));
         MGPatches.Apply(Harmony);
 
-       // icons_moveRightEnemyassign = Spr.icons_moveRightEnemy;
+
+        /* Check this out in Features/Rampage.cs */
+        _ = new RampageManager();
+        _ = new FuryManager();
+        _ = new TheftManager();
+        _ = new DisruptManager();
+        _ = new FuelDumpManager();
+        _ = new SiphonManager();
+
+        _ = new CleaveManager();
+        _ = new RemoteManager();
+        /* */
+        // icons_moveRightEnemyassign = Spr.icons_moveRightEnemy;
     }
 }
