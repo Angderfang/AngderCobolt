@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardDistractiongambit : Card, IAngderCard
+internal sealed class CardDistractiongambit : Card, IAngderCard, IHasCustomCardTraits
 {
     public static void Register(IModHelper helper)
     {
@@ -24,9 +24,9 @@ internal sealed class CardDistractiongambit : Card, IAngderCard
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Distractiongambit", "name"]).Localize
         });
     }
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) => new HashSet<ICardTraitEntry>() { ModEntry.Instance.RemoteControl };
     public override CardData GetData(State state)
     {
-        RemoteManager.SetRemoteUnending(this, state, true);
         CardData data = new CardData()
         {
 

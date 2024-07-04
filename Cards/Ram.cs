@@ -7,8 +7,9 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardRam : Card, IAngderCard
+internal sealed class CardRam : Card, IAngderCard, IHasCustomCardTraits
 {
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) => new HashSet<ICardTraitEntry>() { ModEntry.Instance.RemoteControl };
     public static void Register(IModHelper helper)
     {
         helper.Content.Cards.RegisterCard("Ram", new()

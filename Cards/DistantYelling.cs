@@ -5,8 +5,11 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardDistantYelling : Card, IAngderCard
+internal sealed class CardDistantYelling : Card, IAngderCard, IHasCustomCardTraits
 {
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) => new HashSet<ICardTraitEntry>() { ModEntry.Instance.RemoteControl };
+
     public static void Register(IModHelper helper)
     {
         helper.Content.Cards.RegisterCard("DistantYelling", new()

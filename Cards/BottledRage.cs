@@ -6,8 +6,10 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardBottledRage : Card, IAngderCard
+internal sealed class CardBottledRage : Card, IAngderCard, IHasCustomCardTraits
 {
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) => new HashSet<ICardTraitEntry>() { ModEntry.Instance.RemoteControl };
+
     public static void Register(IModHelper helper)
     {
         helper.Content.Cards.RegisterCard("BottledRage", new()

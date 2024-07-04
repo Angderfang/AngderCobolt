@@ -42,18 +42,19 @@ internal sealed class CardAnticipation : Card, IAngderCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AStatus()
-                    {
-                        status = Status.tempShield,
-                        targetPlayer = true,
-                        statusAmount = 1
-                    },
 
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
                         statusAmount = 1,
                         targetPlayer = true
+                    },
+
+                    new AStatus()
+                    {
+                        status = Status.tempShield,
+                        targetPlayer = true,
+                        statusAmount = 2
                     },
 
                     /* "WAIT? This is just Board but worse?
@@ -68,16 +69,15 @@ internal sealed class CardAnticipation : Card, IAngderCard
                 {
                     new AStatus()
                     {
-                        status = Status.tempShield,
-                        targetPlayer = true,
-                        statusAmount = 1
-                    },
-
-                    new AStatus()
-                    {
                         status = ModEntry.Instance.Rampage.Status,
                         statusAmount = 2,
                         targetPlayer = true
+                    },
+                    new AStatus()
+                    {
+                        status = Status.tempShield,
+                        targetPlayer = true,
+                        statusAmount = 2
                     },
 
 
@@ -89,16 +89,16 @@ internal sealed class CardAnticipation : Card, IAngderCard
 
                     new AStatus()
                     {
-                        status = Status.tempShield,
-                        targetPlayer = true,
-                        statusAmount = 3
+                        status = ModEntry.Instance.Rampage.Status,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
 
                     new AStatus()
                     {
-                        status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 1,
-                        targetPlayer = true
+                        status = Status.shield,
+                        targetPlayer = true,
+                        statusAmount = 2
                     },
                 };
                 break;

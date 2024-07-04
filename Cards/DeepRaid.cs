@@ -58,9 +58,10 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     {
                         status = Status.energyNextTurn,
                         targetPlayer = true,
-                        statusAmount = 4
+                        statusAmount = 3
                     },
                     //Deep raid has gone through a lot of buffs and nerfs. I have a lot to say. But first a word from my sponsor. Raid shadow leg~
+                    /* no but seriously. This shit was busted.*/
                 };
                 /* Remember to always break it up! */
                 break;
@@ -85,7 +86,7 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     {
                         status = Status.energyNextTurn,
                         targetPlayer = true,
-                        statusAmount = 5
+                        statusAmount = 3
                     },
 
 

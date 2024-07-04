@@ -43,16 +43,16 @@ internal sealed class CardPunch : Card, IAngderCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack()
-                    {
-                        damage = GetDmg(s, 3)
-                    },
-
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
                         statusAmount = 1,
                         targetPlayer = true
+                    },
+
+                    new AAttack()
+                    {
+                        damage = GetDmg(s, 3)
                     },
                     //Punch it! Wait no you broke the button!
 
@@ -62,32 +62,32 @@ internal sealed class CardPunch : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack()
-                    {
-                        damage = GetDmg(s, 3)
-                    },
-
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
                         statusAmount = 2,
                         targetPlayer = true
                     },
+
+                    new AAttack()
+                    {
+                        damage = GetDmg(s, 3)
+                    },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack()
-                    {
-                        damage = GetDmg(s, 5)
-                    },
-
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
                         statusAmount = 1,
                         targetPlayer = true
+                    },
+
+                    new AAttack()
+                    {
+                        damage = GetDmg(s, 5)
                     },
                 };
                 break;

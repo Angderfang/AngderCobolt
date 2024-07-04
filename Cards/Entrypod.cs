@@ -44,13 +44,14 @@ internal sealed class CardEntrypod : Card, IAngderCard
                     {
                         damage = GetDmg(s, 2)
                     },
-
+                    
                     new AStatus()
                     {
                         status = ModEntry.Instance.Angdermissing.Status,
                         targetPlayer = true,
                         statusAmount = 1
                     },
+                    
                     new AEnergy()
                     {
                         changeAmount = 1,
@@ -69,13 +70,14 @@ internal sealed class CardEntrypod : Card, IAngderCard
                         damage = GetDmg(s, 2),
                         piercing = true
                     },
-
+                    
                     new AStatus()
                     {
                         status = ModEntry.Instance.Angdermissing.Status,
                         targetPlayer = true,
                         statusAmount = 1
                     },
+                    
                     new AEnergy()
                     {
                         changeAmount = 1,

@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardRemotecontrol : Card, IAngderCard
+internal sealed class CardRemotecontrol : Card, IAngderCard, IHasCustomCardTraits
 {
     public static void Register(IModHelper helper)
     {
@@ -25,6 +25,7 @@ internal sealed class CardRemotecontrol : Card, IAngderCard
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Remotecontrol", "name"]).Localize
         });
     }
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) => new HashSet<ICardTraitEntry>() { ModEntry.Instance.RemoteControl };
     public override CardData GetData(State state)
     {
         RemoteManager.SetRemoteUnending(this, state, true);
