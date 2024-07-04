@@ -4,7 +4,7 @@
       "name": "Angder",
       "Trash" : "Angder's Haul",
       "description": [ 
-          "<c=151F72>ANGDER</c>",
+          "<c=3A4999>ANGDER</c>",
           "Angder is chaotic, violent, and has a love of combat. He often goes <c=boldPink>missing</c> for extended periods in order to steal from and damage the enemy ship."
       ]
     }
@@ -13,6 +13,10 @@
     "PersonalJetpack": {
       "name": "PERSONAL JETPACK",
       "description": "Unused"
+    },
+    "EnergySiphon": {
+      "name": "ENERGY SIPHON",
+      "description": "The first time each turn <c=3A4999>Angder</c> goes missing, gain 1 <c=energy>ENERGY</c>."
     },
      "AggressiveSiphon": {
       "name": "SHIELD DIVERTER",
@@ -36,6 +40,9 @@
     },
   },
   "card": {
+      "CreateMap": {"name": "Map ship" },
+      "Powertransfer": {"name": "Total power transfer" },
+      "Extractionflare": {"name": "Extraction Flare" },
       "SiphonFuel": {"name": "Setup Siphon" },
    "Ports": {"name": "Remote Uplink" },
    "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, attack <c=boldPink>{{damage}}</c> then draw a card. Exhaust.", "A": "On draw, attack <c=boldPink>{{damage2}}</c> then draw a card. Exhaust.", "B": "On draw, attack <c=boldPink>{{damage3}}</c> then draw 2 cards. Exhaust."}},
@@ -109,7 +116,7 @@
     },
                     "Disrupt": {
         "name": "POWER SIPHON",
-        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn: gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c>, <c=downside>then decreases by 1. If over 5, decreases by 2 instead.</c>"
+        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn, and you have at least 1 <c=status>RAMPAGE</c>: gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c>, <c=downside>then decreases by 1. If it's over 5, it decreases down to 5.</c>"
 
     }
   },
