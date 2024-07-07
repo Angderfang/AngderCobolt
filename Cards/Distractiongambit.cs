@@ -31,7 +31,7 @@ internal sealed class CardDistractiongambit : Card, IAngderCard, IHasCustomCardT
         {
 
             art = ModEntry.Instance.Angder_Deepbreath.Sprite,
-            cost = upgrade == Upgrade.A ?  1 : 2,
+            cost = upgrade == Upgrade.A ?  1 : upgrade == Upgrade.B ? 3 : 2,
             exhaust = true,
         };
         return data;
