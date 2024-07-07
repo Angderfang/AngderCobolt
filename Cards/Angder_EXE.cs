@@ -20,7 +20,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                 deck = Deck.colorless,
 
                 rarity = Rarity.common,
-
+                
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "AngderEXE", "name"]).Localize
@@ -31,8 +31,9 @@ internal sealed class AngderEXE : Card, IAngderCard
         CardData data = new CardData()
         {
             description = ModEntry.Instance.Localizations.Localize(["card", "AngderEXE", "description", upgrade.ToString()]),
+            //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
             cost = upgrade == Upgrade.A ? 0 : 1,
-
+            exhaust = true
         };
         return data;
     }
@@ -54,7 +55,15 @@ internal sealed class AngderEXE : Card, IAngderCard
                     inCombat = true,
                     discount = -1,
                     //dialogueSelector = ".summonAngder"
-                }
+                },
+                new AAddCard()
+                    {
+                    card = new CardAngderBot(){
+                    //upgrade = Upgrade.B
+                    },
+                        destination = CardDestination.Hand,
+                        amount = 1,
+                    },
                 };
         /* Remember to always break it up! */
         break;
@@ -73,6 +82,15 @@ internal sealed class AngderEXE : Card, IAngderCard
                     //dialogueSelector = ".summonAngder"
                     }
                 };
+                new AAddCard()
+                {
+                    card = new CardAngderBot()
+                    {
+                    },
+                    destination = CardDestination.Hand,
+                    amount = 1,
+                };
+
                 break;
             case Upgrade.B:
                 actions = new()
@@ -89,7 +107,15 @@ internal sealed class AngderEXE : Card, IAngderCard
                     //dialogueSelector = ".summonAngder"
                     }
                 };
-                break;
+                new AAddCard()
+                {
+                    card = new CardAngderBot()
+                    {
+                    },
+                    destination = CardDestination.Hand,
+                    amount = 1,
+                };
+        break;
         }
         return actions;
     }

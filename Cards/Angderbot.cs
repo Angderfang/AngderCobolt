@@ -3,34 +3,34 @@ using Nickel;
 using System.Collections.Generic;
 using System.Reflection;
 
-
-
 namespace Angder.Angdermod.Cards;
 
-internal sealed class CardAnxiety : Card, IAngderCard
+internal sealed class CardAngderBot : Card, IAngderCard
 {
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Anxiety", new()
+        helper.Content.Cards.RegisterCard("AngderBot", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
-
                 rarity = Rarity.common,
-
+                dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Anxiety", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "AngderBot", "name"]).Localize
         });
     }
     public override CardData GetData(State state)
     {
         CardData data = new CardData()
         {
-            cost = 1,
-            art = ModEntry.Instance.Angder_Crates.Sprite,
+            retain =  true,
+            cost = 0,
+            temporary = true,
+            exhaust = true
+
        };
         return data;
     }
@@ -42,18 +42,10 @@ internal sealed class CardAnxiety : Card, IAngderCard
             case Upgrade.None:
                 actions = new()
                 {
-                    /*
                     new AStatus()
                     {
-                        status = Status.shield,
-                        targetPlayer = true,
-                        statusAmount = 1
-                    },
-                    */
-                    new AStatus()
-                    {
-                        status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 2,
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
 
@@ -65,35 +57,25 @@ internal sealed class CardAnxiety : Card, IAngderCard
                 {
                     new AStatus()
                     {
-                        status = Status.shield,
-                        targetPlayer = true,
-                        statusAmount = 1
-                    },
-
-                    new AStatus()
-                    {
-                        status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 2,
+                        status = ModEntry.Instance.Rampage.Status,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
-
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.Angdermissing.Status,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
 
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-
                     new AStatus()
                     {
-                        status = Status.tempShield,
-                        targetPlayer = true,
-                        statusAmount = 2
-                    },
-
-                    new AStatus()
-                    {
-                        status = ModEntry.Instance.Disrupt.Status,
+                        status = ModEntry.Instance.Angdermissing.Status,
                         statusAmount = 2,
                         targetPlayer = true
                     },

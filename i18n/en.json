@@ -12,15 +12,15 @@
   "artifact": {
     "PersonalJetpack": {
       "name": "PERSONAL JETPACK",
-      "description": "Unused"
+      "description": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>Angder Goes missing at the start of every turn, if he isn't missing already.</c>"
     },
     "EnergySiphon": {
       "name": "ENERGY SIPHON",
-      "description": "The first time each turn <c=3A4999>Angder</c> goes missing, gain 1 <c=energy>ENERGY</c>."
+      "description": "The first two times each turn you gain <c=status>Angder goes missing</c>, gain 1 <c=energy>ENERGY</c>."
     },
      "AggressiveSiphon": {
       "name": "SHIELD DIVERTER",
-      "description": "Gives you 2 <c=status>POWER SIPHON</c> at the start of each combat. <c=status>POWER SIPHON</c> does not decay below 2."
+      "description": "Gives you 2 <c=status>POWER SIPHON</c> at the start of each combat, every time <c=status>POWER SIPHON</c> triggers, reduce enemy shields by 2."
     },
         "ChainAxe": {
       "name": "CHAINSAW AXE",
@@ -32,7 +32,7 @@
     },
     "HairTrigger": {
       "name": "HAIRTRIGGER",
-      "description": "At the start of each combat, add at least one <c=card>\"Slight nudge\"</c> card to your discard pile. <c=boldPink>the number of cards generated scales with a larger deck, capping at 4 with 25 cards</c>. <c=downside>Not recommended for drone users.</c>"
+      "description": "At the start of each combat, add at least one <c=card>\"Slight nudge\"</c> card to your discard pile. <c=boldPink>generates more cards if you have a larger deck, up to a maximum of 4 if you have 25 cards</c>."
     },
     "ShipsManifest": {
       "name": "SHIPS MANIFEST",
@@ -40,6 +40,7 @@
     },
   },
   "card": {
+      "AngderBot": {"name": "AngderBot" },
       "CreateMap": {"name": "Map ship" },
       "Powertransfer": {"name": "Total power transfer" },
       "Extractionflare": {"name": "Extraction Flare" },
@@ -50,7 +51,7 @@
    "Anxiety": {"name": "Preparation" },
    "Diagnostic": {"name": "Diagnostic" },
    "Exposedport": {"name": "Remote Access"}, // {"None": "Move enemy 2", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
-   "StolenMunitions": {"name": "Spare Ammunition" },
+   "StolenMunitions": {"name": "Spare Bullets" },
    "Powercore": {"name": "Their Spare Powercore"},
    "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
    "DiagnosticComplete": { "name": "Diagnostic Complete", "description": {"None": "Shield <c=boldPink>2</c>. Draw 1. Exhaust, Immediate.", "A":  "Shield <c=boldPink>2</c>. Draw 2. Exhaust, Immediate.", "B": "Shield <c=boldPink>4</c>. Exhaust, Immediate."}},
@@ -82,9 +83,9 @@
         "A": "Deal piercing damage = to hull. Then take enemy hull as pierce damage.",
         "B": "Deal damage = to hull. Then take enemy hull as damage." }},
     "AngderEXE":{ "name": "Angder.EXE", "description": {
-        "None": "Deal damage = to hull. Then take enemy hull as damage.",
-        "A": "Deal piercing damage = to hull. Then take enemy hull as pierce damage.",
-        "B": "Deal damage = to hull. Then take enemy hull as damage." }},
+        "None": "Add 1 of 2 <c=cardtrait>discount, temp</c> <c=3A4999>Angder</c> cards and an <c=card>AngderBot</c> to hand.",
+        "A": "Add 1 of 2 <c=cardtrait>discount, temp</c> <c=3A4999>Angder</c> cards and an <c=card>AngderBot</c> to hand.",
+        "B": "Add 1 of 3 <c=cardtrait>discount, temp</c> <c=3A4999>Angder</c> cards and an <c=card>AngderBot</c> to hand." }},
   },
   
   "trait": {
@@ -116,7 +117,7 @@
     },
                     "Disrupt": {
         "name": "POWER SIPHON",
-        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn, and you have at least 1 <c=status>RAMPAGE</c>: gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c>, <c=downside>then decreases by 1. If it's over 5, it decreases down to 5.</c>"
+        "description" : "If <c=3A4999>Angder</c> is missing at end of your turn: gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c>, <c=downside>then decreases by 1. If it's over 5, it decreases down to 5.</c>"
 
     }
   },

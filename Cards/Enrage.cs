@@ -30,8 +30,8 @@ internal sealed class CardEnrage : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Angder_Enraged.Sprite,
-            cost = upgrade == Upgrade.B ? 5 : 4,
-            exhaust = true
+            cost = upgrade == Upgrade.A ? 3 : 4,
+            exhaust = upgrade == Upgrade.B ? false : true,
         };
         return data;
     }
@@ -50,7 +50,7 @@ internal sealed class CardEnrage : Card, IAngderCard
                         statusAmount = 1,
                         targetPlayer = true
                     },
-                    //A bit too good. might bring it to 4 cost base.
+                    //A bit too good. might bring it to 4 cost base. -- YUP
 
                 };
                 /* Remember to always break it up! */
@@ -65,13 +65,6 @@ internal sealed class CardEnrage : Card, IAngderCard
                         statusAmount = 1,
                         targetPlayer = true
                     },
-                    new AStatus()
-                    {
-                        status = ModEntry.Instance.Disrupt.Status,
-                        statusAmount = 3,
-                        targetPlayer = true
-                    },
-
 
                 };
                 break;
@@ -81,7 +74,7 @@ internal sealed class CardEnrage : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Fury.Status,
-                        statusAmount = 2,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
 

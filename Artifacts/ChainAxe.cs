@@ -55,11 +55,11 @@ internal sealed class ChainAxe : Artifact, IAngderArtifact
         if (deck != ModEntry.Instance.AngderDeck.Deck && deck != ModEntry.Instance.AngderstrashDeck.Deck && cappedamount < 3)
         {
             count++;
-            Pulse();
         }
 
         if (count >= 3)
         {
+            Pulse();
             combat.QueueImmediate(new AStatus
             {
                 status = ModEntry.Instance.Rampage.Status,

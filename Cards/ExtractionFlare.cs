@@ -19,7 +19,7 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
             {
                 deck = ModEntry.Instance.AngderDeck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },

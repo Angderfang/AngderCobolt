@@ -16,7 +16,7 @@ internal sealed class PersonalJetpack : Artifact, IAngderArtifact
             Meta = new()
             {
                 owner = ModEntry.Instance.AngderDeck.Deck,
-                pools = [ArtifactPool.Common]
+                pools = [ArtifactPool.Boss]
             },
             Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/artifacts/PersonalJetpack.png")).Sprite,
             Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "PersonalJetpack", "name"]).Localize,
@@ -24,23 +24,33 @@ internal sealed class PersonalJetpack : Artifact, IAngderArtifact
         });
     }
     public override List<Tooltip>? GetExtraTooltips()
-=> StatusMeta.GetTooltips(ModEntry.Instance.Fury.Status, 1);
+=> StatusMeta.GetTooltips(ModEntry.Instance.Angdermissing.Status, 1);
     public override void OnTurnStart(State s, Combat c)
     {
         if (!c.isPlayerTurn)
             return;
-        if (s.ship.Get(ModEntry.Instance.Rampage.Status) < 3 && s.ship.Get(ModEntry.Instance.FuelSiphon.Status) < 2 && s.ship.Get(ModEntry.Instance.FuelDiscard.Status) < 1 && s.ship.Get(ModEntry.Instance.Disrupt.Status) < 1 && s.ship.Get(ModEntry.Instance.Angdermissing.Status) > 0 && s.ship.Get(ModEntry.Instance.Fury.Status) == 0 && s.ship.Get(ModEntry.Instance.Theft.Status) <= 1)
+        if (s.ship.Get(ModEntry.Instance.Angdermissing.Status) < 1)
         {
+            Pulse();
             c.Queue([
-                        new AStatus()
+                    new AStatus()
                     {
                         status = ModEntry.Instance.Angdermissing.Status,
                         targetPlayer = true,
-                        statusAmount = -1,
+                        statusAmount = 1,
                         artifactPulse = Key()
                     },
             ]);
 
         }
+    }
+    public override void OnReceiveArtifact(State state)
+    {
+        state.ship.baseEnergy++;
+    }
+
+    public override void OnRemoveArtifact(State state)
+    {
+        state.ship.baseEnergy--;
     }
 }

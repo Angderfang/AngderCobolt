@@ -25,7 +25,7 @@ internal sealed class AggressiveSiphon : Artifact, IAngderArtifact
     }
     
     public override List<Tooltip>? GetExtraTooltips()
-    => StatusMeta.GetTooltips(ModEntry.Instance.Disrupt.Status, 2);
+    => StatusMeta.GetTooltips(ModEntry.Instance.Disrupt.Status, 5);
     
 
 public override void OnCombatStart(State s, Combat c)

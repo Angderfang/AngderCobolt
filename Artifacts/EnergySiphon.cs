@@ -9,6 +9,7 @@ namespace Angder.Angdermod.Artifacts;
 internal sealed class EnergySiphon : Artifact, IAngderArtifact
 {
     bool stateset;
+    int count;
     public static void Register(IModHelper helper)
     {
         helper.Content.Artifacts.RegisterArtifact("EnergySiphon", new()
@@ -19,7 +20,7 @@ internal sealed class EnergySiphon : Artifact, IAngderArtifact
                 owner = ModEntry.Instance.AngderDeck.Deck,
                 pools = [ArtifactPool.Boss]
             },
-                Sprite = ModEntry.Instance.EnergySiphon2.Sprite,
+                Sprite = ModEntry.Instance.EnergySiphon3.Sprite,
         Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "EnergySiphon", "name"]).Localize,
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "EnergySiphon", "description"]).Localize
         });
@@ -27,7 +28,7 @@ internal sealed class EnergySiphon : Artifact, IAngderArtifact
 
     public override Spr GetSprite()
     {
-        if (stateset == true)
+        if (stateset == false)
         {
 
             return ModEntry.Instance.EnergySiphon3.Sprite;
@@ -38,29 +39,38 @@ internal sealed class EnergySiphon : Artifact, IAngderArtifact
         }
     }
     public override List<Tooltip>? GetExtraTooltips()
-    => StatusMeta.GetTooltips(ModEntry.Instance.Angdermissing.Status, 3);
+    => StatusMeta.GetTooltips(ModEntry.Instance.Angdermissing.Status, 1); //.Concat(StatusMeta.GetTooltips(ModEntry.Instance.Rampage.Status, 1));
 
     public override void AfterPlayerStatusAction(State state, Combat combat, Status status, AStatusMode mode, int statusAmount)
     {
-        if (status == ModEntry.Instance.Angdermissing.Status && mode == AStatusMode.Add && statusAmount > 0 && stateset == true)
+        if (status == ModEntry.Instance.Angdermissing.Status && mode == AStatusMode.Add && statusAmount > 0 && stateset == false)
         {
-            stateset = false;
+            count++;
+            //stateset = true;
             Pulse();
             combat.QueueImmediate(new AEnergy
             {
                 changeAmount = 1
             });
+            combat.QueueImmediate(new AStatus
+            {
+                status = ModEntry.Instance.Rampage.Status,
+                statusAmount = 1,
+                targetPlayer = true
+            });
+            if (count == 2)
+                stateset = true;
         }
     }
     public override void OnTurnStart(State s, Combat c)
     {
-        stateset = true;
+        count = 0;
+        stateset = false;
     }
     public override void OnCombatStart(State s, Combat c)
     {
-        stateset = true;
+        stateset = false;
         /*
-        Pulse();
         c.Queue(new AStatus
         {
             status = ModEntry.Instance.Angdermissing.Status,
