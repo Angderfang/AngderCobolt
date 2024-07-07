@@ -72,8 +72,6 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_Ramcard { get; }
     internal ISpriteEntry Angder_Instinct { get; }
 
-    //Move enemy
-    //internal Spr  icons_moveRightEnemyassign { get;  }
 
     //traitstuff
     internal ICardTraitEntry RemoteControl { get; private set; } = null!;
@@ -95,7 +93,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry StunSmallIcon { get; }
     internal ISpriteEntry Overdriveno { get; }
     internal ISpriteEntry Angdermissingin { get; }
-    internal ISpriteEntry Angdermissingun { get; } //YES I AM MISSING MY GUN. I USED TO FIRE 10 SHOTS A CARDS DARN IT!
+    internal ISpriteEntry Angdermissingun { get; } //YES I AM MISSING MY GUN. I USED TO FIRE 10 SHOTS A CARD DARN IT!
     //Ram
     internal ISpriteEntry Ram { get; }
     internal ISpriteEntry RamPierce { get; }
@@ -121,13 +119,13 @@ public sealed class ModEntry : SimpleMod
         typeof(CardAnticipation),
         typeof(CardAnxiety),
         typeof(CardEscapePod),
-        typeof(CardCreateMap),
     ];
     internal static IReadOnlyList<Type> Angder_CommonCard_Types { get; } = [
          typeof(CardBoardmanuvour),
          typeof(CardDeepBreaths),
          typeof(CardPunch),
          typeof(CardInstinct),
+         typeof(CardCreateMap),
          //typeof(CardRemotecontrol) /*cut for being bad */
     ];
 
@@ -162,7 +160,7 @@ public sealed class ModEntry : SimpleMod
          typeof(AngderEXE),
     ];
     */
-    
+
     internal static IReadOnlyList<Type> Angder_Trash_Types { get; } = [
      //typeof(CardDistantYelling),
      typeof(CardLootPowercore),
@@ -172,25 +170,30 @@ public sealed class ModEntry : SimpleMod
      typeof(CardExposedport),
      typeof(CardAutoblastleft),
      typeof(CardHairTrigger),
-     typeof(EnergySiphon)
+    ];
+    internal static IReadOnlyList<Type> Angder_EXE_Types { get; } = [
+     typeof(CardAngderBot),
+     typeof(AngderEXE)
     ];
     internal static IEnumerable<Type> AngderMod_AllCard_Types
         => Angder_StarterCard_Types
         .Concat(Angder_CommonCard_Types)
         .Concat(Angder_UnCommonCard_Types)
         .Concat(Angder_RareCard_Types)
-        .Concat(Angder_Trash_Types);
+        .Concat(Angder_Trash_Types)
+        .Concat(Angder_EXE_Types);
 
     /* Going to need to rethink these */
     internal static IReadOnlyList<Type> Angder_CommonArtifact_Types { get; } = [
-        //typeof(PersonalJetpack), // Needs complete rework.
         typeof(ChainAxe), //OPish? On paper kinda wild.
         //typeof(Biggerbullet), //BAD, Find something better. Now part of duo artifact future planning. // Nope, just cut entirely, Angder isn't cleave anymore.
         typeof(HairTrigger), //Balancing nightmare.
         typeof(AggressiveSiphon)
     ];
     internal static IReadOnlyList<Type> Angder_BossArtifact_Types { get; } = [
-        typeof(ShipsManifest)
+        typeof(ShipsManifest),
+        typeof(PersonalJetpack),
+        //typeof(EnergySiphon),
         ];
     internal static IEnumerable<Type> Angder_AllArtifact_Types
         => Angder_CommonArtifact_Types.Concat(Angder_BossArtifact_Types);
@@ -220,7 +223,7 @@ public sealed class ModEntry : SimpleMod
         Localizations = new MissingPlaceholderLocalizationProvider<IReadOnlyList<string>>(
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
-        //This is where I would put Angders face. If I had it.
+
         //Oh hey, I found his face.
         Angder_Trash_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_Trashcardframe.png"));
         Angder_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_cardbackground.png"));
@@ -252,9 +255,11 @@ public sealed class ModEntry : SimpleMod
         Angder_Serious = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Serious.png"));
         Angder_Serious_talk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Serious_talk.png"));
 
+
+
+        //Artifact art
         EnergySiphon3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/EnergySiphon3.png"));
         EnergySiphon2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/EnergySiphon2.png"));
-
 
         ChainAxe1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/ChainAxe.png"));
         ChainAxe2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/ChainAxeExhaust.png"));
@@ -290,6 +295,7 @@ public sealed class ModEntry : SimpleMod
                 color = new Color("3A4999"),
                 titleColor = new Color("D8FFFF")
             },
+
             DefaultCardArt = Angder_Character_CardBackground.Sprite,
             BorderSprite = Angder_Character_CardFrame.Sprite,
             Name = this.AnyLocalizations.Bind(["character", "Angder", "name"]).Localize,
@@ -312,7 +318,7 @@ public sealed class ModEntry : SimpleMod
             Definition = new DeckDef()
             {
                 color = new Color("3A4999"),
-                titleColor = new Color("D8FFFF")
+                titleColor = new Color("000000")
             },
             /* We give it a default art and border some Sprite types by adding '.Sprite' at the end of the ISpriteEntry definitions we made above. */
             DefaultCardArt = Angder_Character_CardBackground.Sprite,
@@ -476,6 +482,7 @@ public sealed class ModEntry : SimpleMod
                     new CardEscapePod()
                     ],
             },
+            ExeCardType = typeof(AngderEXE),
             BorderSprite = Angder_Character_Panel.Sprite,
             Description = AnyLocalizations.Bind(["character", "Angder", "description"]).Localize,
 
@@ -559,10 +566,13 @@ public sealed class ModEntry : SimpleMod
                 icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FuelDump.png")).Sprite,
                 color = new("b500be"),
                 isGood = true
+
             },
             Name = AnyLocalizations.Bind(["status", "FuelDump", "name"]).Localize,
-            Description = AnyLocalizations.Bind(["status", "FuelDump", "description"]).Localize
-        });
+            Description = AnyLocalizations.Bind(["status", "FuelDump", "description"]).Localize,
+           
+
+    });
 
         //Registering the trait sprites seperately for... some reason?
 
@@ -575,7 +585,7 @@ public sealed class ModEntry : SimpleMod
             Icon = (_, _) => RemoteControlSprite.Sprite,
             Name = AnyLocalizations.Bind(["trait", "Remotecontrol", "name"]).Localize,
             Tooltips = (_, _) => [
-                new GlossaryTooltip($"cardtrait.{Package.Manifest.UniqueName}::Synergized")
+                new GlossaryTooltip($"cardtrait.{Package.Manifest.UniqueName}::Remotecontrol")
                     {
                         Icon = RemoteControlSprite.Sprite,
                         TitleColor = Colors.cardtrait,
