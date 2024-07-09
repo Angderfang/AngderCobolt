@@ -46,7 +46,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                 actions = new()
                 {
                 new ACardOffering
-                {
+                    {
                     amount = 2,
                     limitDeck = ModEntry.Instance.AngderDeck.Deck,
                     makeAllCardsTemporary = true,
@@ -55,7 +55,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     inCombat = true,
                     discount = -1,
                     //dialogueSelector = ".summonAngder"
-                },
+                    },
                 new AAddCard()
                     {
                     card = new CardAngderBot(){
@@ -80,15 +80,13 @@ internal sealed class AngderEXE : Card, IAngderCard
                     inCombat = true,
                     discount = -1,
                     //dialogueSelector = ".summonAngder"
-                    }
-                };
+                    },
                 new AAddCard()
                 {
-                    card = new CardAngderBot()
-                    {
-                    },
+                    card = new CardAngderBot(),
                     destination = CardDestination.Hand,
                     amount = 1,
+                }
                 };
 
                 break;
@@ -105,8 +103,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     inCombat = true,
                     discount = -1,
                     //dialogueSelector = ".summonAngder"
-                    }
-                };
+                    },
                 new AAddCard()
                 {
                     card = new CardAngderBot()
@@ -114,6 +111,7 @@ internal sealed class AngderEXE : Card, IAngderCard
                     },
                     destination = CardDestination.Hand,
                     amount = 1,
+                }
                 };
         break;
         }

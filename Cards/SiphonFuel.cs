@@ -32,7 +32,7 @@ internal sealed class CardSiphonFuel : Card, IAngderCard
         {
             art = ModEntry.Instance.Angder_Crates.Sprite,
             cost = upgrade == Upgrade.B ? 2 : 1,
-            exhaust = upgrade == Upgrade.B ? true : false,
+            //exhaust = upgrade == Upgrade.B ? true : false,
         };
         return data;
     }
@@ -71,10 +71,18 @@ internal sealed class CardSiphonFuel : Card, IAngderCard
             case Upgrade.B:
                 actions = new()
                 {
+
+                    new AStatus()
+                    {
+                        status = ModEntry.Instance.FuelSiphon.Status,
+                        statusAmount = 2,
+                        targetPlayer = true
+                    },
+
                     new AStatus()
                     {
                         status = ModEntry.Instance.FuelDiscard.Status,
-                        statusAmount = 3,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
 
