@@ -17,108 +17,6 @@ namespace Angder.Angdermod.Dialog
 
             //Angder Specific
 
-            /*
-            DB.story.all["Angder_BurntoutFireRegulator_Repaired"] = new()
-            {
-
-                type = NodeType.combat,
-                allPresent = new() { Angder },
-                lastTurnPlayerStatuses = new() { Status.powerdrive },
-                hasArtifacts = ["Angder.Angdermod::BurntoutFireRegulator"],
-                oncePerCombatTags = new() { "AngderRepair" },
-                oncePerRun = true,
-                lines = new()
-            {
-
-                new CustomSay()
-                {
-                who = Angder,
-                Text = "The red blinky light is now green. Our weapons are now fully online.",
-                loopTag = "neutral"
-                },
-
-            }
-            };
-            DB.story.all["Angder_BurntoutFireRegulator"] = new()
-            {
-                type = NodeType.combat,
-                allPresent = new() { Angder },
-                hasArtifacts = ["Angder.Angdermod::BurntoutFireRegulator"],
-                doesNotHaveArtifacts = ["BerserkerDrive"],
-                oncePerRun = true,
-                lines = new()
-            {
-                new CustomSay()
-                {
-                    who = Angder,
-                    Text = "I think I broke something. The blinky light is now red.",
-                    loopTag = "sad"
-
-                },
-                new SaySwitch()
-                {
-                    lines = new()
-                    {
-                        
-                        new CustomSay()
-                        {
-                        delay = 4,
-                        who = Deck.riggs.Key(),
-                        Text = "Looks like the power to your consoles weapons is critically low.",
-                        loopTag = "neutral"
-                        },
-                        
-                        new CustomSay()
-                        {
-                        delay = 4,
-                        who = Deck.dizzy.Key(),
-                        Text = "I'm getting a little extra power on my end.",
-                        loopTag = "neutral"
-                        },
-                        new CustomSay()
-                        {
-                        delay = 6,
-                        who = Deck.peri.Key(),
-                        Text = "The safety has kicked in to stop you overloading the cannons.",
-                        loopTag = "neutral"
-                        },
-                        new CustomSay()
-                        {
-                        delay = 4,
-                        who = Deck.eunice.Key(),
-                        Text = "Get yourself some overdrive, that should fix it.",
-                        loopTag = "sly"
-                        },
-                    }
-                }
-            }
-            };
-            DB.story.all["Angder_BurntoutFireRegulator_beserker"] = new()
-            {
-                type = NodeType.combat,
-                allPresent = new() { Angder, Deck.peri.Key() },
-                hasArtifacts = ["Angder.Angdermod::BurntoutFireRegulator", "BerserkerDrive"],
-                oncePerRunTags = new() { "AngderRepair" },
-                oncePerRun = true,
-                lines = new()
-            {
-                new CustomSay()
-                {
-                    who = Angder,
-                    Text = "I think I broke something. The blinky light is now red.",
-                    loopTag = "sad"
-                },
-                new CustomSay()
-                {
-                    who = Deck.peri.Key(),
-                    Text = "Hold on, let me reroute some power.",
-                    loopTag = "neutral"
-                },
-            }
-            };
-            */
-            //No more Angder cleavage.
-
             DB.story.all["Angder_ChainAxe"] = new()
             {
                 type = NodeType.combat,
@@ -294,7 +192,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         delay = 0.5,
                         who = Angder,
-                        Text = "This jetpack should make it easier to get back once I have wrecked the place.",
+                        Text = "I can now visit the enemy ship whenever I feel like it!",
                         loopTag = "talk"
                     },
 
@@ -314,7 +212,7 @@ namespace Angder.Angdermod.Dialog
                     new CustomSay()
                     {
                         who = Angder,
-                        Text = "I think I know where their spare power core is... If this manifest is correct",
+                        Text = "Wow, this ship has a ton of supplies they just are not using!",
                         loopTag = "talk"
                     },
                     /*
@@ -578,7 +476,7 @@ namespace Angder.Angdermod.Dialog
                     new CustomSay()
                     {
                         who = Angder,
-                        Text = "This packaging... it's such a waste of resources",
+                        Text = "This packaging... it's such a waste of resources.",
                         loopTag = "sad"
                     },
                 }

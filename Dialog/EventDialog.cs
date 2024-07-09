@@ -302,7 +302,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = angder,
-                    Text = "Oh this, it's a DrH-36 or something.",
+                    Text = "Oh this, it's a DRA-5 or something.",
                     loopTag = "talk"
                 },
                 new CustomSay()
@@ -361,9 +361,9 @@ internal static class EventDialogue
                 },
             }
         };
+        
         /*
-
-        DB.story.all["angder_Final_Dizzy"] = new()
+        DB.story.all["angder_Final_Set_Dizzy"] = new()
         {
             type = NodeType.@event,
             lookup = new() { "zone_three" },
@@ -412,7 +412,7 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "D.R.H, it's an acronym.",
+                    Text = "D.R.A, it's an acronym.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
