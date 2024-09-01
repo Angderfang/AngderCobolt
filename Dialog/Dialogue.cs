@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Angder.Angdermod.Dialog;
+using Angder.EchoesOfTheFuture.Dialog;
 using Microsoft.Extensions.Logging;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 internal static class Dialogue
 {
     private static ModEntry Instance => ModEntry.Instance;
 
     internal static void Inject()
     {
+        EventDialogueMaid.Inject();
         EventDialogue.Inject();
         CombatDialogue.Inject();
+        CombatDialogueMaid.Inject();
         ArtifactsDialogue.Inject();
         EnemyDialogue.Inject();
         /*

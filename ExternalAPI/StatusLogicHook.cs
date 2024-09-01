@@ -1,4 +1,4 @@
-﻿namespace Angder.Angdermod;
+﻿namespace Angder.EchoesOfTheFuture;
 public partial interface IKokoroApi
 {
     void RegisterStatusLogicHook(IStatusLogicHook hook, double priority);

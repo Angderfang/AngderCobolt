@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 
 //I HAVE NO IDEA WHAT THIS DOES. I JUST COPIED IT FROM SHOCKAH TO MAKE DIALOG WORK. I AM A FRAUD, A THIEF. AN IMPOSTER.

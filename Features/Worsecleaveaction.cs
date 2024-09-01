@@ -5,9 +5,7 @@ using Nickel;
 using System.Collections.Generic;
 using System.Linq;
 
-using Angder.Angdermod.Artifacts;
-
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 //This is called "worseCleaveAction" because originally it was meant to be replaced. Then the rpelacement fell through and I patched this to be not as awful.
 

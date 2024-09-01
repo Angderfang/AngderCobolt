@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Angder.Angdermod.Dialog
+namespace Angder.EchoesOfTheFuture.Dialog
 {
     internal class ArtifactsDialogue
     {
@@ -22,7 +22,7 @@ namespace Angder.Angdermod.Dialog
                 type = NodeType.combat,
                 allPresent = new() { Angder
                 },
-                hasArtifacts = ["Angder.Angdermod::ChainAxe"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::ChainAxe"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -30,7 +30,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "YES! I have the coolest axe! look at this thing!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                     new SaySwitch()
                     {
@@ -72,7 +72,7 @@ namespace Angder.Angdermod.Dialog
                     //Apparantly you can't say three things at once. So no extended conversations.
                         who = Angder,
                         Text = "I can't wait to use this thing!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
 
                     }, 
                     */
@@ -85,7 +85,7 @@ namespace Angder.Angdermod.Dialog
                 oncePerRunTags = new() { "AngderTrigger" },
                 type = NodeType.combat,
                 allPresent = new() { Angder, Deck.riggs.Key() },
-                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::HairTrigger"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -118,7 +118,7 @@ namespace Angder.Angdermod.Dialog
                 oncePerRunTags = new() { "AngderTrigger" },
                 type = NodeType.combat,
                 allPresent = new() { Angder, Deck.peri.Key() },
-                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::HairTrigger"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -150,7 +150,7 @@ namespace Angder.Angdermod.Dialog
                 oncePerRunTags = new() { "AngderTrigger" },
                 type = NodeType.combat,
                 allPresent = new() { Angder, Deck.goat.Key() },
-                hasArtifacts = ["Angder.Angdermod::HairTrigger"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::HairTrigger"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -184,7 +184,7 @@ namespace Angder.Angdermod.Dialog
                 type = NodeType.combat,
                 allPresent = new() { Angder
                 },
-                hasArtifacts = ["Angder.Angdermod::PersonalJetpack"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::PersonalJetpack"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -193,7 +193,7 @@ namespace Angder.Angdermod.Dialog
                         delay = 0.5,
                         who = Angder,
                         Text = "I can now visit the enemy ship whenever I feel like it!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
 
                 }
@@ -205,7 +205,7 @@ namespace Angder.Angdermod.Dialog
                 type = NodeType.combat,
                 allPresent = new() { Angder
                 },
-                hasArtifacts = ["Angder.Angdermod::ShipsManifest"],
+                hasArtifacts = ["Angder.EchoesOfTheFuture::ShipsManifest"],
                 oncePerRun = true,
                 lines = new()
                 {
@@ -213,7 +213,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "Wow, this ship has a ton of supplies they just are not using!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                     /*
                     new SaySwitch()
@@ -264,7 +264,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "Without our upgraded hull, we would be dead by now!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                 }
 
@@ -282,7 +282,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "So missing is good?",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                     new SaySwitch()
                     {
@@ -328,7 +328,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "Dodging is much more fun when powered by bullets!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                     new SaySwitch()
                     {
@@ -386,7 +386,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "Hah, who needs accuracy when you have lasers that hit when they miss!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                     new SaySwitch()
                     {
@@ -419,13 +419,13 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "With the stun Calibrater, I will have to be careful what I shoot",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                 }
 
             };
             */ //        :/
-            
+
 
 
             DB.story.all["Angder_GlassCannon"] = new()
@@ -459,7 +459,7 @@ namespace Angder.Angdermod.Dialog
                     {
                         who = Angder,
                         Text = "The ship feels lighter and easier to handle.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                     },
                 }
 

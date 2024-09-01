@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 internal static class EventDialogue
 {
@@ -38,6 +38,7 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "You just came out of Cryosleep.",
                     loopTag = "neutral"
@@ -56,12 +57,14 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "I suppose that depends...",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Do you want it to be?",
                     loopTag = "neutral"
@@ -70,10 +73,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Yes?",
-                    loopTag = "grumpy"
+                    loopTag = "serious"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Then how about helping us defend it, before we all explode again.",
                     loopTag = "neutral"
@@ -104,10 +108,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Back here again?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Yes. we are in a timeloop.",
                     loopTag = "neutral"
@@ -116,10 +121,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I thought we were on a ship.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "...",
                     loopTag = "squint"
@@ -128,10 +134,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Just go to the bridge already.",
                     loopTag = "squint"
@@ -153,16 +160,18 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I think I am starting to get used to this cycle of waking up here, fighting, and then exploding.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "It actually took less time for you than most.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Though you also took considerably longer to arrive for the first time.",
                     loopTag = "neutral"
@@ -171,10 +180,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...Like I arrived late to the party.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "Which is suprising as that implies the passage of external time.",
                     loopTag = "neutral"
@@ -183,7 +193,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I would rather just blow some people up rather than think about what that implies.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
             }
         };
@@ -203,7 +213,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Another day... or is it the same day?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -215,7 +225,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...Then how come things change?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -227,7 +237,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...And we do that by fighting?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
             }
         };
@@ -235,7 +245,7 @@ internal static class EventDialogue
 
         //Dizzy Story
 
-        
+
         DB.story.all["angder_Intro_Dizzy"] = new()
         {
             type = NodeType.@event,
@@ -254,6 +264,7 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.dizzy.Key(),
                     Text = "You are awake.",
                     loopTag = "neutral"
@@ -268,10 +279,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Which is closer, the Bridge or the airlock?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.dizzy.Key(),
                     Text = "Definitely the bridge, and please don't check the map.",
                     loopTag = "serious"
@@ -301,9 +313,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "Oh this, it's a DRA-5 or something.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -313,9 +326,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "A helmet? Why would I need one, the Personal forcefield. keeps it all inside.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -325,9 +339,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "In that little disc on the back.",
-                    loopTag = "talk" // NEED IMAGE OF ANGDER showing thing
+                    loopTag = "neutral" // NEED IMAGE OF ANGDER showing thing
                 },
                 new CustomSay()
                 {
@@ -337,12 +352,14 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "You know, quantum compression, Transdimensional storage.",
-                    loopTag = "talk" // NEED IMAGE OF ANGDER showing thing
+                    loopTag = "serious" // NEED IMAGE OF ANGDER showing thing
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "It's high tech but you should be familiar with it, right?",
                     loopTag = "serious" // Serious
@@ -361,7 +378,7 @@ internal static class EventDialogue
                 },
             }
         };
-        
+
         /*
         DB.story.all["angder_Final_Set_Dizzy"] = new()
         {
@@ -472,7 +489,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I prefer it to waking up normally.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -490,7 +507,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I also think I know you, even before the loops... Your voice is familiar.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -523,16 +540,17 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "This cockpit... it's familiar.",
-                    loopTag = "grumpy"
+                    loopTag = "serious"
                 },
                 new CustomSay()
                 {
                     who = angder,
                     Text = "I mean, the tech is all different, but the seats? the furniture? This stain?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.riggs.Key(),
                     Text = "Maybe your ship was of the same design?",
                     loopTag = "neutral"
@@ -541,10 +559,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Down to the same stains?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.riggs.Key(),
                     Text = "...Maybe it's just very stainable?",
                     loopTag = "neutral"
@@ -579,16 +598,17 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I have... another theory about this ship",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = angder,
                     Text = "I think it is my ship",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.riggs.Key(),
                     Text = "...No?",
                     loopTag = "neutral"
@@ -597,16 +617,17 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Think about it, we are like, looping in some kind of micro-dimension? So like, maybe I am from a different other dimension?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = angder,
                     Text = "And in that Dimension, this was like... my ship, and you had a different ship.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.riggs.Key(),
                     Text = "But why would you have stained it in the same place?",
                     loopTag = "squint"
@@ -615,13 +636,13 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = angder,
                     Text = "I don't know.",
-                    loopTag = "nervous"
+                    loopTag = "serious"
                 },
             }
         };
@@ -642,16 +663,18 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Drake? Aren't you supposed to be against us.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "Sometimes.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "Other times I end up here.",
                     loopTag = "neutral"
@@ -670,6 +693,7 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "...",
                     loopTag = "reallymad"
@@ -680,12 +704,6 @@ internal static class EventDialogue
                     who = Deck.eunice.Key(),
                     Text = "honk",
                     loopTag = "sadEyesClosed"
-                },
-                new CustomSay()
-                {
-                    who = "comp",
-                    Text = "We have an incoming hostile vessel.",
-                    loopTag = "neutral"
                 },
                 */
             }
@@ -705,10 +723,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "We make quite a team!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "I have had worse",
                     loopTag = "squint"
@@ -717,10 +736,11 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "It's funny, you... aren't famous or anything are you?",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "Why are you asking?",
                     loopTag = "blush"
@@ -729,16 +749,18 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Just... I think I have seen you before somewhere. Before the loops I mean.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "I am a pretty well known pirate.",
                     loopTag = "sly"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = Deck.eunice.Key(),
                     Text = "Prehaps you have seen the wanted posters?",
                     loopTag = "sly"
@@ -747,7 +769,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "...That could be it",
-                    loopTag = "talk"
+                    loopTag = "serious"
                 },
                 new CustomSay()
                 {
@@ -867,6 +889,7 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "what is it?",
                     loopTag = "sad"
@@ -879,9 +902,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "What are you talking about? I am always taking this seriously.",
-                    loopTag = "grumpy"
+                    loopTag = "serious"
                 },
                 new CustomSay()
                 {
@@ -903,9 +927,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "I mean yea. I enjoy fighting. Is that really a problem? I do plenty of damage!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -915,9 +940,10 @@ internal static class EventDialogue
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = angder,
                     Text = "Yea, that's how I fight. Up close, personal. blood rushing through my veins.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -946,7 +972,7 @@ internal static class EventDialogue
         {
             who = angder,
             Text = "I suppose it might be for the best...",
-            loopTag = "talk"
+            loopTag = "neutral"
         });
         DB.story.all[$"CrystallizedFriendEvent_{angder}"] = new()
         {
@@ -964,7 +990,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Isn't anyone else worried about the implications that our pods are just floating in space? No? Ok then.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 }
             }
         };
@@ -972,7 +998,7 @@ internal static class EventDialogue
         {
             who = angder,
             Text = "Food?",
-            loopTag = "talk"
+            loopTag = "neutral"
         });
         DB.story.all[$"LoseCharacterCard_{angder}"] = new()
         {
@@ -986,7 +1012,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Aww. I needed that",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -1008,7 +1034,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Hey, a shop.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -1043,7 +1069,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "Amazing! I have never been attacked by so many people!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new Jump()
                 {
@@ -1070,7 +1096,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "HI!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new Jump()
                 {
@@ -1090,7 +1116,7 @@ internal static class EventDialogue
                 {
                     who = angder,
                     Text = "I think I have a cool new idea!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -1105,7 +1131,7 @@ internal static class EventDialogue
         {
             who = angder,
             Text = "BALL!",
-            loopTag = "talk"
+            loopTag = "neutral"
         });
         */
 

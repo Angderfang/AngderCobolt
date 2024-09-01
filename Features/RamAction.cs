@@ -1,7 +1,7 @@
 ﻿using Nickel;
 using System.Collections.Generic;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 public class ARam : CardAction
 {

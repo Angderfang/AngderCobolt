@@ -1,9 +1,4 @@
-﻿using Angder.Angdermod;
-using Angder.Angdermod.Artifacts;
-using System;
-using System.Linq;
-
-namespace Angder.Angdermod;
+﻿namespace Angder.EchoesOfTheFuture;
 
 internal static class CombatDialogue
 {
@@ -29,7 +24,7 @@ internal static class CombatDialogue
             oncePerRun = true,
             lastTurnPlayerStatuses = new() { ModEntry.Instance.Theft.Status },
             priority = true,
-            doesNotHaveArtifacts = ["Angder.Angdermod::ShipsManifest"],
+            doesNotHaveArtifacts = ["Angder.EchoesOfTheFuture::ShipsManifest"],
             lines = new()
             {
                 new CustomSay()
@@ -144,13 +139,13 @@ internal static class CombatDialogue
                 {
                     who = Angder,
                     Text = "This ship is starting to look even more familiar; It's full of holes!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     who = Angder,
                     Text = "Don't worry. We will be fine.",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
             }
         };
@@ -203,7 +198,7 @@ internal static class CombatDialogue
                         {
                             who = Angder,
                             Text = "We hit them, they hit us. It's a good day.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                     }
                 }
@@ -227,19 +222,19 @@ internal static class CombatDialogue
                         {
                             who = Angder,
                             Text = "Wouldn't be a proper dogfight without a few bruises.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                             who = Angder,
                             Text = "relax, A little damage never killed anyone.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                             who = Angder,
                             Text = "Fighting is only fun if it's a little challenging.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                     }
                 }
@@ -261,19 +256,19 @@ internal static class CombatDialogue
                         {
                             who = Angder,
                             Text = "...Was that supposed to hurt us?",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                             who = Angder,
                             Text = "Their weapons seem pretty useless.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                             who = Angder,
                             Text = "I hope we can hit harder than they can.",
-                            loopTag = "talk"
+                            loopTag = "neutral"
                         },
                     }
                 }
@@ -293,7 +288,7 @@ internal static class CombatDialogue
                 {
                     who = Angder,
                     Text = "BALL!",
-                    loopTag = "talk"
+                    loopTag = "neutral"
                 },
             }
         };
@@ -313,14 +308,14 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "I hit!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
 
                         new CustomSay()
                         {
                         who = Angder,
                         Text = "I wish I had more bullets.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
 
                         new CustomSay()
@@ -353,14 +348,14 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "Just warming up!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
 
                         new CustomSay()
                         {
                         who = Angder,
                         Text = "Sadly I don't think they will survive all the volleys I want to fire at them.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
 
                         new CustomSay()
@@ -382,6 +377,7 @@ internal static class CombatDialogue
             type = NodeType.combat,
             allPresent = new() { Angder },
             playerShotJustHit = true,
+            oncePerCombat = true,
             lines = new()
             {
                 new SaySwitch()
@@ -392,25 +388,26 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "We want another couple of hits like that!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
+                        
                         },
                         new CustomSay()
                         {
                         who = Angder,
                         Text = "That's a hit!",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                         who = Angder,
                         Text = "Keep the pressure on them.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                         new CustomSay()
                         {
                         who = Angder,
                         Text = "Yes! Destroy them.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                         new CustomSay()
                         {
@@ -442,7 +439,7 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "If we fill the air with bullets, we can't actually miss.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
 
                     }
@@ -530,7 +527,7 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "Shooting them is going to be a pain.",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                     }
                 },
@@ -681,7 +678,7 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = "So... we have limitless Ammo now?",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                     }
                 },
@@ -704,14 +701,14 @@ internal static class CombatDialogue
                         {
                         who = Angder,
                         Text = ".",
-                        loopTag = "talk"
+                        loopTag = "neutral"
                         },
                     }
                 },
             }
         };
         */
-   
+
 
     }
 }

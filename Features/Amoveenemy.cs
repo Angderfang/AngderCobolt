@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Angder.Angdermod.Features
+namespace Angder.EchoesOfTheFuture.Features
 {
     public class AMoveEnemy : AMove
     {

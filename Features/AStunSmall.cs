@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Angder.Angdermod.IKokoroApi.IActionCostApi;
+using static Angder.EchoesOfTheFuture.IKokoroApi.IActionCostApi;
 
-namespace Angder.Angdermod.Features;
+namespace Angder.EchoesOfTheFuture.Features;
 
     public class AStunEnemySmallicon : AStunShip
     {

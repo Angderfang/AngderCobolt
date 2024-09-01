@@ -1,5 +1,5 @@
 ﻿
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 
 public interface IMoreDifficultiesApi

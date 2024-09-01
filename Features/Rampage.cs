@@ -1,8 +1,9 @@
-﻿using Angder.Angdermod.Artifacts;
-using Angder.Angdermod.Cards;
+﻿using Angder.EchoesOfTheFuture.Artifacts;
+using Angder.EchoesOfTheFuture.Cards;
+using System;
 using System.Linq;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 internal sealed class RampageManager : IStatusLogicHook
 {
     public static ModEntry Instance => ModEntry.Instance;
@@ -14,7 +15,7 @@ internal sealed class RampageManager : IStatusLogicHook
     public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
     {
         if (status != Instance.Rampage.Status)
-            return false; //Tried removing this, made the game throw out like, 50 things.
+            return false;
         if (timing != StatusTurnTriggerTiming.TurnStart)
             return false;
 
@@ -28,7 +29,7 @@ internal sealed class RampageManager : IStatusLogicHook
                     targetPlayer = !ship.isPlayerShip,
                     hurtAmount = amount,
                 });
-                amount = amount - 2;
+                amount = amount / 2;
             };
         }
         return false;

@@ -1,8 +1,8 @@
-﻿using Angder.Angdermod.Artifacts;
-using Angder.Angdermod.Cards;
+﻿using Angder.EchoesOfTheFuture.Artifacts.AngderArtifacts;
+using Angder.EchoesOfTheFuture.Cards;
 using System.Linq;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 internal sealed class DisruptManager : IStatusLogicHook
 {
     public static ModEntry Instance => ModEntry.Instance;

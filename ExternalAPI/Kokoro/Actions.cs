@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 public partial interface IKokoroApi
 {

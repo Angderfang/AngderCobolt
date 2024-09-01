@@ -1,9 +1,9 @@
-﻿using Angder.Angdermod;
+﻿using Angder.EchoesOfTheFuture;
 using FMOD;
 using System;
 using System.Linq;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 internal static class EnemyDialogue
 {

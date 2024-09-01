@@ -1,5 +1,5 @@
 ﻿
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 public class ARemoteuplink : CardAction
 {
     public int count = 1;
