@@ -1,6 +1,6 @@
 ﻿using Nickel;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 
 internal interface IAngderCard

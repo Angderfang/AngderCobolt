@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 //TAKEN FROM SHOCKAH. I am going to need to make sure that's OK before release. if this code isn't "active" in your version, it's probably because I was told not to use it.
 

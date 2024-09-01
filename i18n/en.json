@@ -1,4 +1,5 @@
 {
+
   "character": {
     "Angder": {
       "name": "Angder",
@@ -7,9 +8,43 @@
           "<c=3A4999>ANGDER</c>",
           "Angder is chaotic, violent, and has a love of combat. He often goes <c=boldPink>missing</c> for extended periods in order to steal from and damage the enemy ship."
       ]
+    },
+    "Butler": {
+      "name": "D26 Droid",
+      "Trash" : "D26 Service Droid",
+      "description": [ 
+          "<c=3A4999>D26 Droid</c>",
+          "D26 Service Droid. A model of service droid built to do factory work, or to clean. They clean by <c=boldPink>Exhausting cards.</c>"
+      ]
     }
   },
+
+
   "artifact": {
+
+
+    "SalvageArm":{
+        "name": "CLAW",
+        "description": "Every third turn after the start of combat, Move a card of your choice from your exhaust pile, to your hand."
+    },
+    "VacuumCleaner":{
+        "name": "VACUUM",
+        "description": "Everytime you create or are given a card in combat, it goes straight into your echaust pile."
+    },
+    "LeakyPipe":{
+        "name": "LEAKING PIPE",
+        "description": "Adds a <c=card>FUME</c> card to your hand every other turn."
+    },
+    "FreeWill":{
+        "name": "FREE WILL",
+        "description": "When your hull is damaged, increases <c=status>THE OLD CODE</c> by 1."
+    },
+    "Accellerant":{
+        "name": "SMOOTH COGS",
+        "description": "Draw an extra card each turn. <c=downside>Shuffling your deck disables this artifact for the rest of the combat.</c>"
+    },
+
+
     "PersonalJetpack": {
       "name": "PERSONAL JETPACK",
       "description": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>Angder Goes missing at the start of every turn, if he isn't missing already.</c>"
@@ -32,7 +67,7 @@
     },
     "HairTrigger": {
       "name": "HAIRTRIGGER",
-      "description": "At the start of each combat, add at least one <c=card>\"Slight nudge\"</c> card to your discard pile. <c=boldPink>generates more cards if you have a larger deck, up to a maximum of 4 if you have 25 cards</c>."
+      "description": "At the start of each combat, At the start of combat, add a <c=card>Slight Nudge</c> to your discard pile. Add 1 more for every 5 cards in your deck past 10."
     },
     "ShipsManifest": {
       "name": "SHIPS MANIFEST",
@@ -40,6 +75,31 @@
     },
   },
   "card": {
+      "Garbage": {"name": "Garbage" },
+
+      "ScrapCannon": {"name": "Scrap Cannon" },
+      "SystemCleanout": {"name": "Power Extraction" },
+      "ResetShields": {"name": "Reset Shields" },
+      "Codepurge": {"name": "Garbage Disposal" },
+      "QuickClean": {"name": "Quick Clean" },
+      "Cleave": {"name": "Removal Service" },
+      "Alightdusting": {"name": "Remote Cleaning" },
+      "Ammodump": {"name": "Clean Firing Tubes" },
+      "ShiftingShot": {"name": "Clean Escape" },
+      "FieldOfFumes": {"name": "Interference Field", "description": {"None": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your discard pile.", "A": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your discard pile.", "B": "Gain 6 <c=status>shield</c>, add 3 <c=card>Comm Jam</c> cards to your discard pile."}},
+      "Replace": {"name": "Replace" },
+      "Busywork": {"name": "Busywork", "description": {"None": "Add 1 <c=card>Trash</c> directly to your <c=cardtrait>Exhaust</c> pile. Gain 1 <c=status>shield</c>.", "A": "Add 2 <c=card>Trash</c> directly to your <c=cardtrait>Exhaust</c> pile. Gain 1 <c=status>shield</c>.", "B": "Add 3 <c=card>Fumes</c> to your draw pile. Gain 2 <c=status>shield</c>."}},
+      "Orginization": {"name": "Weightless Drift"},
+      "Disposal": {"name": "Proper Handling"},
+      "BioEngine": {"name": "Trashfire"},
+      "Littering": {"name": "It's Not Littering"},
+      "DisposalChute": {"name": "Disposal Chute"},
+      "ShatterTheSky": {"name": "Kessler Protocol"},
+      "PlayExhaust": {"name": "Trash Inspection", "description": {"None": "Pick a card from your Exhaust pile and play it for free.", "A": "Pick a card from your Exhaust pile and play it for free.", "B": "Pick a card from your Exhaust pile and play it for free."}},
+      "OldCode": {"name": "Error: [Awaken]"},
+      "OldestCode": {"name": "Error: [Origin]", "description": {"None": "Add 2 <c=cardtrait>Single use</c>, <c=card>Debris</c> cards to Exhaust. Attack for <c=boldPink>{{damage1}}</c>.", "A": "Add 2 <c=cardtrait>Single use</c>, <c=card>Debris</c> cards to Exhaust. Attack for <c=boldPink>{{damage2}}</c>.", "B": "Add 1 <c=cardtrait>Single use</c>, <c=card>Garbage</c> card to Exhaust. Attack for <c=boldPink>{{damage3}}</c>."}},
+
+
       "AngderBot": {"name": "AngderBot" },
       "CreateMap": {"name": "Map ship" },
       "Powertransfer": {"name": "Total power transfer" },
@@ -49,7 +109,7 @@
    "HairTrigger": { "name": "Slight Nudge", "description": {"None": "On draw, attack <c=boldPink>{{damage}}</c> then draw a card. Exhaust.", "A": "On draw, attack <c=boldPink>{{damage2}}</c> then draw a card. Exhaust.", "B": "On draw, attack <c=boldPink>{{damage3}}</c> then draw 2 cards. Exhaust."}},
    "CoolRocket": {"name": "Cool Rocket I Found" },
    "Anxiety": {"name": "Preparation" },
-   "Diagnostic": {"name": "Diagnostic" },
+   "Diagnostic": {"name": "Diagnostic", "description": {"None": "Add 2 <c=card>Diagnostic Complete</c> cards to your draw pile.", "A": "Add 3 <c=card>Diagnostic Complete</c> cards to your draw pile.", "B": "Add 2 <c=card>Diagnostic Complete B</c> cards to your draw pile."}},
    "Exposedport": {"name": "Remote Access"}, // {"None": "Move enemy 2", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
    "StolenMunitions": {"name": "Spare Bullets" },
    "Powercore": {"name": "Their Spare Powercore"},
@@ -63,7 +123,8 @@
     "SeeingRed": {"name": "Seeing Red"},
     "Enrage": {"name": "Impatience"},
     "EscapePod": {"name": "Escape Pod"},
-    "FasterCannons": {"name": "Overcharge Cannon"},
+    "FasterCannons": {"name": "Overcharge Cannon", "description": {"None": "Add 2 <c=card>Accidental Overload</c> cards to your draw pile.", "A": "Add 3 <c=card>Accidental Overload</c> cards to your draw pile.", "B": "Add 2 <c=card>Accidental Overload B</c> cards to your draw pile."}},
+
     "Plannedraid": {"name": "Plan Raid" },
     "Instinct": {"name": "Instinct" },
     "DistantYelling": {"name": "Distant Yelling" },
@@ -97,11 +158,15 @@
   "status": {
     "Rampage": {
       "name": "RAMPAGE",
-      "description": "If <c=3A4999>Angder</c> is missing at start of your turn: Deals <c=boldPink>{0}</c> hull damage to the enemy, <c=downside>then decreases by 2.</c>"
+      "description": "If <c=3A4999>Angder</c> is missing at start of your turn: Deals <c=boldPink>{0}</c> hull damage to the enemy, <c=downside>and then loses half it's stacks</c>"
     },
             "Theft": {
         "name": "PLANNED HEIST",
         "description" : "If <c=3A4999>Angder</c> is missing at start of your turn: add a 0 cost card into your hand from Angder's haul, <c=downside>then decreases by 1.</c>",
+    },
+                    "DisposalProcess": {
+        "name": "Disposal Process",
+        "description" : "Every time you play a card from the trash deck, draw {0}.",
     },
                 "FuelSiphon": {
         "name": "FUEL SIPHON",
@@ -119,14 +184,56 @@
         "name": "POWER SIPHON",
         "description" : "If <c=3A4999>Angder</c> is missing at end of your turn: gain <c=boldPink>{0}</c> <c=status>TEMP SHIELD</c>, <c=downside>then decreases by 1. If it's over 5, it decreases down to 5.</c>"
 
-    }
+    },
+                        "Exhaustover3": {
+        "name": "Exhausted cards, divided by 3.",
+        "description" : "Always rounded down. Could alternatively be written as one for every 3 exhausted cards."
+
+    },
+                        "Exhaustover6": {
+        "name": "Exhausted cards, divided by 6.",
+        "description" : "Always rounded down. Could alternatively be written as one for every 6 exhausted cards."
+    },
+                        "Exhaustover5": {
+        "name": "Exhausted cards, divided by 5.",
+        "description" : "Always rounded down. Could alternatively be written as one for every 5 exhausted cards."
+
+    },
+                        "Exhaustover10": {
+        "name": "Exhausted cards, divided by 10.",
+        "description" : "Always rounded down. Could alternatively be written as one for every 10 exhausted cards."
+
+    },
+    "Warmode": {
+        "name": "The Old code.",
+        "description" : "Every time you play a card from the trash deck, attack for {0}.",
+
+    },
   },
   "action": {
     "MoveEnemy": { "nameL" : "MOVE ENEMY LEFT","nameR" : "MOVE ENEMY RIGHT",
         "description": {
             "Positive": "Instantly move the enemy {{number}} to the right.",
-            "Negative": "Instantly move the enemy {{number}} to the left.",             },
-    },
+            "Negative": "Instantly move the enemy {{number}} to the left.",             
+                        },
+                 },
+    "AVariableHintExhaustThree" : {
+        "name": "",
+        "description": "<c=action>X</c> = 1 for every 3 Exhausted cards."
+                                }, 
+    "AVariableHintExhaustSix" : {
+        "name": "",
+        "description": "<c=action>X</c> = 1 for every 6 Exhausted cards."
+                                }, 
+    "AVariableHintExhaustFive" : {
+        "name": "",
+        "description": "<c=action>X</c> = 1 for every 5 Exhausted cards."
+                                }, 
+
+        "AVariableHintExhaustTen" : {
+        "name": "",
+        "description": "<c=action>X</c> = 1 for every 10 Exhausted cards."
+                                }, 
     "Cleave": {
         "name": {
             "Unknown": "Random Cleave",
@@ -134,26 +241,40 @@
             "Right": "Cleave Right",
             "LeftLong": "Long Cleave Left",
             "RightLong": "Long Cleave Right"
-        },
+                },
         "description": {
             "Right": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further to the Right",
             "Left": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further to the Left",
             "Unknown": "Fire <c=boldPink>{{Long}}</c> shots, dealing <c=boldPink>{{truedamage}}</c> damage each. Each shot drifts further in a random, but consistant, direction.",
-        }
-    },
+                       }
+              },
+    "Dontplaycardsearch": {
+        "name": {
+        "normal" : "EXHAUST A CARD"
+                },
+        "description" :{ "Hand" : "Pick a card in your hand, <c=downside>Exhaust it.</c>",  "Deck" : "Pick a card in your Deck, <c=downside>Exhaust it.</c>",  "Discard" : "Pick a card in your discard pile, <c=downside>Exhaust it.</c>", "Draw" : "Pick a card in your draw pile, <c=downside>Exhaust it.</c>",
+                        }
+        },
     "Ramaction": {
         "name": {"Piercing" : "PIERCING RAM",
         "normal" : "RAM"
-        },
+                },
         "description" : {
             "Damage": "Deal damage equal to your current hull. <c=downside>You then take damage equal to their remaining Hull value.</c> this attack does not require you to be facing the enemy, and cannot be dodged.",
             "Piercing": "Deal damage equal to your current hull, bypassing their shields. <c=downside>You then take piercing damage equal to their remaining Hull value.</c> this attack does not require you to be facing the enemy, and cannot be dodged.",
-             }
+                        }
     },
     "Overdriveno": {
         "name": "Reliable",
         "description" : {
             "Damage": "This action deals a set amount of damage per shot, it cannot be modified by status effects or artifacts.",
              }
+  }
+  },
+    "Midrow": {
+    "Trashbag": {
+      "name": "Trashbag",
+      "description": "Will block one attack. When destroyed, puts a <c=card>TRASH</c> into your hand."
     },
-}
+  }
+

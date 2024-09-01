@@ -1,10 +1,10 @@
 {
-  "UniqueName": "Angder.Angdermod",
-  "Version": "0.12.1",
+  "UniqueName": "Angder.EchoesOfTheFuture",
+  "Version": "0.13",
   "Author": "Angder",
-  "Description": "Angder. Adds a violent, aggressive, character to the game.",
+  "Description": "Adds two new violent characters to the game.",
   "RequiredApiVersion": "0.6.0",
-  "EntryPointAssembly": "Angdermod.dll",
+  "EntryPointAssembly": "EchoesOfTheFuture.dll",
   "Dependencies": [
     {
       "UniqueName": "Shockah.Kokoro",

@@ -1,11 +1,11 @@
 ﻿/*Thank you Randall, A lot of this code came from studying you. */
 
-using Angder.Angdermod.Cards;
+using Angder.EchoesOfTheFuture.Cards;
 using FMOD.Studio;
 using HarmonyLib;
 using System;
 
-namespace Angder.Angdermod;
+namespace Angder.EchoesOfTheFuture;
 
 
 
