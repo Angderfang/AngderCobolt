@@ -13,7 +13,8 @@ using System.Xml;
 using Angder.EchoesOfTheFuture.Patches;
 using Angder.EchoesOfTheFuture.Cards.Butlercards;
 using Angder.EchoesOfTheFuture.Artifacts.ButlerArtifacts;
-
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Angder.EchoesOfTheFuture;
 
@@ -232,6 +233,11 @@ public sealed class ModEntry : SimpleMod
 
     internal ISpriteEntry ButlerSquintBright { get; }
 
+
+    internal ISpriteEntry ButlerGlitch { get; }
+    internal ISpriteEntry ButlerGlitch2 { get; }
+    internal ISpriteEntry ButlerGlitch3 { get; }
+    internal ISpriteEntry ButlerGlitch4 { get; }
     internal IDeckEntry ButlerDeck { get; }
     internal IDeckEntry ButlerstrashDeck { get; }
     internal ICharacterEntryV2 Butlerchar { get; }
@@ -303,6 +309,15 @@ public sealed class ModEntry : SimpleMod
         ];
     internal static IEnumerable<Type> Butler_AllArtifact_Types
         => Butler_CommonArtifact_Types.Concat(Butler_BossArtifact_Types);
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum DroidNames
+    {
+        D26,
+        Dan,
+        Dorithy,
+        spike
+    }
 
     #endregion
 
@@ -734,7 +749,10 @@ public sealed class ModEntry : SimpleMod
         ButlerAngerMid = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/MaidAngerMid.png"));
         ButlerAngerBright = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/MaidAngerBright.png"));
         //Malfunctionsprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Malfunction.png"));
-
+        ButlerGlitch = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch.png"));
+        ButlerGlitch2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch2.png"));
+        ButlerGlitch3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch3.png"));
+        ButlerGlitch4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch4.png"));
 
 
 
@@ -770,7 +788,7 @@ public sealed class ModEntry : SimpleMod
             starterDeck: new StarterDeck
             {
                 cards = [
-                    new CardQuickClean(),
+                    new CardCodepurge(),
                     new CardCleave(),
                     ]
             }
@@ -814,13 +832,35 @@ public sealed class ModEntry : SimpleMod
                 ButlerSquint.Sprite,
             }
         });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Butlerglitch", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::ButlerDeck",
+            LoopTag = "glitch",
+            Frames = new[]
+            {
+                ButlerNeutral.Sprite,
+                ButlerGlitch.Sprite,
+                ButlerGlitch2.Sprite,
+                ButlerGlitch4.Sprite,
+                ButlerGlitch3.Sprite,
+                ButlerGlitch.Sprite,
+                ButlerGlitch4.Sprite,
+                ButlerGlitch3.Sprite,
+                ButlerGlitch2.Sprite,
+                ButlerGlitch.Sprite,
+                ButlerGlitch3.Sprite,
+                ButlerGlitch2.Sprite,
+                ButlerGlitch4.Sprite,
+                ButlerNeutral.Sprite,
+            }
+        });
         Butlerchar = helper.Content.Characters.V2.RegisterPlayableCharacter("Butler", new PlayableCharacterConfigurationV2()
                 {
                 Deck = ButlerDeck.Deck,
                 Starters = new StarterDeck
                 {
                     cards = [new CardScrapCannon(),
-                    new CardBusywork()
+                    new CardQuickClean()
                         ],
                 }, 
                 //ExeCardType = typeof(AngderEXE),
