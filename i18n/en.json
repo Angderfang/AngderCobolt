@@ -10,11 +10,11 @@
       ]
     },
     "Butler": {
-      "name": "D26 Droid",
+      "name": "D26",
       "Trash" : "D26 Service Droid",
       "description": [ 
-          "<c=3A4999>D26 Droid</c>",
-          "D26 Service Droid. A model of service droid built to do factory work, or to clean. They clean by <c=boldPink>Exhausting cards.</c>"
+          "<c=3A4999>D26</c>",
+          "D26. A model of service droid built to do factory work, or to clean. They clean by <c=boldPink>Exhausting cards.</c>"
       ]
     }
   },
@@ -25,11 +25,11 @@
 
     "SalvageArm":{
         "name": "CLAW",
-        "description": "Every third turn after the start of combat, Move a card of your choice from your exhaust pile, to your hand."
+        "description": "Every third turn after the start of combat, Move a card of your choice from your exhaust pile to your hand."
     },
     "VacuumCleaner":{
         "name": "VACUUM",
-        "description": "Everytime you create or are given a card in combat, it goes straight into your echaust pile."
+        "description": "The first card you play each turn is exhausted."
     },
     "LeakyPipe":{
         "name": "LEAKING PIPE",
@@ -59,7 +59,7 @@
     },
         "ChainAxe": {
       "name": "CHAINSAW AXE",
-      "description": "For every 3 cards played in one turn that are not from Angder or his lootstash, gain 1 rampage. <c=downside>Capped at three activations per turn.</c>"
+      "description": "If you play 3 cards in a row, in one turn, that are not from Angder or his lootstash, gain 1 rampage. <c=downside>Count Resets if you play one of Angder's cards, can only trigger once per turn.</c>"
     },
     "Biggerbullets": {
       "name": "BIGGER SHELLS",
@@ -86,9 +86,9 @@
       "Alightdusting": {"name": "Remote Cleaning" },
       "Ammodump": {"name": "Clean Firing Tubes" },
       "ShiftingShot": {"name": "Clean Escape" },
-      "FieldOfFumes": {"name": "Interference Field", "description": {"None": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your discard pile.", "A": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your discard pile.", "B": "Gain 6 <c=status>shield</c>, add 3 <c=card>Comm Jam</c> cards to your discard pile."}},
+      "FieldOfFumes": {"name": "Interference Field", "description": {"None": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your hand.", "A": "Gain 4 <c=status>shield</c>, add 2 <c=card>Comm Jam</c> cards to your hand.", "B": "Gain 6 <c=status>shield</c>, add 3 <c=card>Comm Jam</c> cards to your discard pile."}},
       "Replace": {"name": "Replace" },
-      "Busywork": {"name": "Busywork", "description": {"None": "Add 1 <c=card>Trash</c> directly to your <c=cardtrait>Exhaust</c> pile. Gain 1 <c=status>shield</c>.", "A": "Add 2 <c=card>Trash</c> directly to your <c=cardtrait>Exhaust</c> pile. Gain 1 <c=status>shield</c>.", "B": "Add 3 <c=card>Fumes</c> to your draw pile. Gain 2 <c=status>shield</c>."}},
+      "Busywork": {"name": "Busywork", "description": {"None": "Add 1 <c=card>Fumes</c> directly to your <c=cardtrait>Hand</c>. Gain 1 <c=status>shield</c>.", "A": "Add 1 <c=card>Fumes</c> directly to your <c=cardtrait>Hand</c>. Gain 1 <c=status>shield</c>.", "B": "Add 2 <c=card>Fumes</c> to your draw pile. Gain 2 <c=status>shield</c>."}},
       "Orginization": {"name": "Weightless Drift"},
       "Disposal": {"name": "Proper Handling"},
       "BioEngine": {"name": "Trashfire"},

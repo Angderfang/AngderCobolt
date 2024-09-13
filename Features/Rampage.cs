@@ -29,7 +29,8 @@ internal sealed class RampageManager : IStatusLogicHook
                     targetPlayer = !ship.isPlayerShip,
                     hurtAmount = amount,
                 });
-                amount = amount / 2;
+                amount = ((amount + 1) / 2);
+                //amount = (int)double.Ceiling ((double)amount / 2);
             };
         }
         return false;

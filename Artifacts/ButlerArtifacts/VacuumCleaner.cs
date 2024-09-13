@@ -1,5 +1,6 @@
 ﻿using Angder.EchoesOfTheFuture.Cards;
 using Nickel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -28,7 +29,6 @@ internal sealed class VacuumCleaner : Artifact, IAngderArtifact
     }
     public override void OnPlayerRecieveCardMidCombat(State state, Combat combat, Card card)
     {
-
         Pulse();
         combat.QueueImmediate(new ASelfExhaust()
         {

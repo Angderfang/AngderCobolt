@@ -39,7 +39,7 @@ internal sealed class ChainAxe : Artifact, IAngderArtifact
 
     public override Spr GetSprite()
     {
-        if (cappedamount == 3)
+        if (cappedamount == 1)
         {
 
             return ModEntry.Instance.ChainAxe2.Sprite;
@@ -52,9 +52,13 @@ internal sealed class ChainAxe : Artifact, IAngderArtifact
 
     public override void OnPlayerPlayCard(int energyCost, Deck deck, Card card, State state, Combat combat, int handPosition, int handCount)
     {
-        if (deck != ModEntry.Instance.AngderDeck.Deck && deck != ModEntry.Instance.AngderstrashDeck.Deck && cappedamount < 3)
+        if (deck != ModEntry.Instance.AngderDeck.Deck && deck != ModEntry.Instance.AngderstrashDeck.Deck && cappedamount < 1)
         {
             count++;
+        }
+        else
+        {
+            count = 0;
         }
 
         if (count >= 3)
