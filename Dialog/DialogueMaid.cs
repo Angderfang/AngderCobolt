@@ -33,7 +33,7 @@ internal static class CombatDialogueMaid
                 new CustomSay()
                 {
                     who = Maid,
-                    Text = "Our hull badly requires repairs.",
+                    Text = "Our hull requires repairs.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -72,7 +72,13 @@ internal static class CombatDialogueMaid
                 new CustomSay()
                 {
                     who = Maid,
-                    Text = "...More damage...",
+                    Text = "I request that you try to keep me safe.",
+                    loopTag = "squint"
+                },
+                new CustomSay()
+                {
+                    who = Maid,
+                    Text = "Shall I repurpose the engine as a crematorium?",
                     loopTag = "squint"
                 },
             }
@@ -127,19 +133,19 @@ internal static class CombatDialogueMaid
                     {
                         new CustomSay()
                         {
-                            who = Angder,
+                            who = Maid,
                             Text = "...I am going to need to scrub the hull.",
                             loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Angder,
-                            Text = "I think they are actually doing my job for me.",
+                            who = Maid,
+                            Text = "I don't think they know how to [Attack].",
                             loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Angder,
+                            who = Maid,
                             Text = "Don't scratch the paint.",
                             loopTag = "anger"
                         },
@@ -165,17 +171,36 @@ internal static class CombatDialogueMaid
                         new CustomSay()
                         {
                         who = Maid,
-                        Text = "Cleaning pattern delta.",
+                        Text = "My programming does not allow for [Violence]. Please log an error report with [unknown].",
+                        loopTag = "glitch"
+                        },
+
+                        new CustomSay()
+                        {
+                        who = Maid,
+                        Text = "I am not responsible for any violence that takes place.",
+                        loopTag = "neutral"
+                        },
+                        new CustomSay()
+                        {
+                        who = Maid,
+                        Text = "Cleaning pattern delta in effect.",
                         loopTag = "neutral"
                         },
 
                         new CustomSay()
                         {
                         who = Maid,
-                        Text = "A hole has been detected.",
+                        Text = "The enemy ship is classified as scrap.",
                         loopTag = "neutral"
                         },
 
+                        new CustomSay()
+                        {
+                        who = Maid,
+                        Text = "I will send extra lasers to aid in their repairs.",
+                        loopTag = "anger"
+                        },
 
                     }
                 },
@@ -199,7 +224,7 @@ internal static class CombatDialogueMaid
                         new CustomSay()
                         {
                         who = Maid,
-                        Text = "Excess matter. Purging.",
+                        Text = "Excess matter sighted. Purging.",
                         loopTag = "anger"
                         },
 
@@ -252,7 +277,7 @@ internal static class CombatDialogueMaid
         DB.story.all["Miss_Maid"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Angder },
+            allPresent = new() { Maid },
             playerShotJustMissed = true,
             whoDidThat = Instance.ButlerDeck.Deck,
             doesNotHaveArtifacts = ["Recalibrator"],
@@ -275,14 +300,8 @@ internal static class CombatDialogueMaid
                         Text = "Dangerous projectile will impact innocent ship in; [UNKNOWN TIMEFRAME].",
                         loopTag = "neutral"
                         },
-                        /*
-                        new CustomSay()
-                        {
-                        who = Deck.peri.Key(),
-                        Text = "With how you use our Cannons, I am worried we will run out of ammunition",
-                        loopTag = "squint"
-                        },
-                        */
+                       
+                        
 
                     }
                 },
@@ -352,6 +371,12 @@ internal static class CombatDialogueMaid
                         {
                         who = Maid,
                         Text = "I can't [PURGE GRIME] from this far away.",
+                        loopTag = "anger"
+                        },
+                        new CustomSay()
+                        {
+                        who = Maid,
+                        Text = "Avoiding violence is always the better option. [TAKE US BACK].",
                         loopTag = "anger"
                         },
             }

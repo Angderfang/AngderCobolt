@@ -35,7 +35,7 @@ internal sealed class CardBusywork : Card, IAngderCard
             //art = ModEntry.Instance.Angder_Enraged.Sprite,
             cost = 1,
             infinite = true,
-            //exhaust = true
+            retain = upgrade == Upgrade.A ? true : false,
         };
         return data;
     }
@@ -52,9 +52,9 @@ internal sealed class CardBusywork : Card, IAngderCard
                 {
                     new AAddCard
                     {
-                        card = new ColorlessTrash(),
+                        card = new TrashFumes(),
                         amount = 1,
-                        destination = CardDestination.Exhaust
+                        destination = CardDestination.Hand
                     },
                     new AStatus()
                     {
@@ -70,9 +70,9 @@ internal sealed class CardBusywork : Card, IAngderCard
                 {
                     new AAddCard
                     {
-                        card = new ColorlessTrash(),
-                        amount = 2,
-                        destination = CardDestination.Exhaust
+                        card = new TrashFumes(),
+                        amount = 1,
+                        destination = CardDestination.Hand
                     },
                     new AStatus()
                     {
@@ -89,7 +89,7 @@ internal sealed class CardBusywork : Card, IAngderCard
                     new AAddCard
                     {
                         card = new TrashFumes(),
-                        amount = 3,
+                        amount = 2,
                         destination = CardDestination.Deck
                     },
                     new AStatus()

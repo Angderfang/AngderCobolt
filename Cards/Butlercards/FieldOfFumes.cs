@@ -33,7 +33,7 @@ internal sealed class CardFieldOfFumes : Card, IAngderCard
             description = ModEntry.Instance.Localizations.Localize(["card", "FieldOfFumes", "description", upgrade.ToString()]),
             art = ModEntry.Instance.Maid_Dusting.Sprite,
             cost =  upgrade == Upgrade.A ? 0 : 1,
-            exhaust = true
+            //exhaust = true
         };
         return data;
     }
@@ -58,7 +58,7 @@ internal sealed class CardFieldOfFumes : Card, IAngderCard
                     {
                         card = new TrashUnplayable(),
                         amount = 2,
-                        destination = CardDestination.Discard,
+                        destination = CardDestination.Hand,
                     },
                 };
         /* Remember to always break it up! */
@@ -76,7 +76,7 @@ internal sealed class CardFieldOfFumes : Card, IAngderCard
                     {
                         card = new TrashUnplayable(),
                         amount = 2,
-                        destination = CardDestination.Discard,
+                        destination = CardDestination.Hand,
                     },
 
                 };

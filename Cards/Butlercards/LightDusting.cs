@@ -64,7 +64,7 @@ internal sealed class CardAlightdusting : Card, IAngderCard
                         Direction = right,
                         Ignoresoverdrive = false,
                         DamageAlt = GetDmg(s, 0), // If your going to complain about me having two different damage things. Blame Max. Right click forced me to grab "Getdmg" BEFORE I actually reached the bit of code which uses it.
-                        Damage = 1,
+                        Damage = 0,
                     },
 
                 };
@@ -80,7 +80,7 @@ internal sealed class CardAlightdusting : Card, IAngderCard
                         Direction = right,
                         Ignoresoverdrive = false,
                         DamageAlt = GetDmg(s, 0),
-                        Damage = 1,
+                        Damage = 0,
                     },
                     new CleaveAction()
                     {
@@ -89,7 +89,7 @@ internal sealed class CardAlightdusting : Card, IAngderCard
                         Direction = left,
                         Ignoresoverdrive = false,
                         DamageAlt = GetDmg(s, 0),
-                        Damage = 1,
+                        Damage = 0,
                     }
 
                 };
@@ -105,7 +105,7 @@ internal sealed class CardAlightdusting : Card, IAngderCard
                         Direction = right,
                         Ignoresoverdrive = false,
                         DamageAlt = GetDmg(s, 0),
-                        Damage = 1,
+                        Damage = 0,
                     }
 
                 };

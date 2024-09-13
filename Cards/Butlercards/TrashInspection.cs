@@ -50,16 +50,10 @@ internal sealed class CardPlayExhaust : Card, IAngderCard
                 {
                 new ACardSelect
                 {
-                    browseAction = new ChooseCardToPutInHand(),
+                    browseAction = new PlayTrash(),
                     browseSource = CardBrowse.Source.ExhaustPile,
                     filterUUID = uuid
                 },
-                new APlayOtherCard
-                {
-                    handPosition = c.hand.Count -1,
-                    timer = 0.5,
-                    exhaustThisCardAfterwards = false
-                }
         };
         /* Remember to always break it up! */
         break;

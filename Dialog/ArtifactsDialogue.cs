@@ -12,7 +12,7 @@ namespace Angder.EchoesOfTheFuture.Dialog
 
         internal static void Inject()
         {
-
+            string Maid = Instance.ButlerDeck.Deck.Key();
             string Angder = Instance.AngderDeck.Deck.Key();
 
             //Angder Specific
@@ -64,6 +64,15 @@ namespace Angder.EchoesOfTheFuture.Dialog
                                 Text = "...Watch where you swing that thing.",
                                 loopTag = "neutral"
                             },
+                            /*
+                            new CustomSay()
+                            {
+                                delay = 0.5,
+                                who = Maid,
+                                Text = ".",
+                                loopTag = "neutral"
+                            },
+                            */
                         }
                     },
                     /*
@@ -479,6 +488,70 @@ namespace Angder.EchoesOfTheFuture.Dialog
                         Text = "This packaging... it's such a waste of resources.",
                         loopTag = "sad"
                     },
+                }
+
+            };
+
+            DB.story.all["Maid_Pipe"] = new()
+            {
+                type = NodeType.combat,
+                allPresent = new() { Maid
+                },
+                hasArtifacts = ["Angder.EchoesOfTheFuture::LeakyPipe"],
+                oncePerRun = true,
+                lines = new()
+                {
+                    new CustomSay()
+                    {
+                        delay = 0.5,
+                        who = Maid,
+                        Text = "Someone fix that leak.",
+                        loopTag = "anger"
+                    },
+
+                }
+
+            };
+
+            DB.story.all["Maid_ScrapArm"] = new()
+            {
+                type = NodeType.combat,
+                allPresent = new() { Maid
+                },
+                hasArtifacts = ["Angder.EchoesOfTheFuture::ScrapArm"],
+                oncePerRun = true,
+                lines = new()
+                {
+                    new CustomSay()
+                    {
+                        delay = 0.5,
+                        who = Maid,
+                        Text = "If it's not being used it is trash. If you change your mind, that's what the claw is for.",
+                        loopTag = "anger"
+                    },
+
+                }
+
+            };
+
+
+            DB.story.all["Maid_Cogs"] = new()
+            {
+                type = NodeType.combat,
+                allPresent = new() { Maid
+                },
+                hasArtifacts = ["Angder.EchoesOfTheFuture::Accellerant"],
+                oncePerRun = true,
+                lines = new()
+                {
+                    new CustomSay()
+                    {
+                        delay = 0.5,
+                        who = Maid,
+                        Text = "Smoother Cogs, faster spinning.",
+                        loopTag = "neutral"
+                    },
+
                 }
 
             };

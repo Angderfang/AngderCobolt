@@ -70,14 +70,14 @@ internal sealed class CardAnticipation : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Rampage.Status,
-                        statusAmount = 2,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
                     new AStatus()
                     {
                         status = Status.tempShield,
                         targetPlayer = true,
-                        statusAmount = 2
+                        statusAmount = 3
                     },
 
 

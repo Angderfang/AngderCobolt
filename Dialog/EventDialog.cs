@@ -328,7 +328,7 @@ internal static class EventDialogue
                 {
                     flipped = true,
                     who = angder,
-                    Text = "A helmet? Why would I need one, the Personal forcefield. keeps it all inside.",
+                    Text = "A helmet? Why would I need one, the Personal forcefield keeps the oxygen inside.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -379,7 +379,7 @@ internal static class EventDialogue
             }
         };
 
-        /*
+        
         DB.story.all["angder_Final_Set_Dizzy"] = new()
         {
             type = NodeType.@event,
@@ -393,11 +393,12 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "CAT where is Angder?",
+                    Text = "CAT, where is Angder?",
                     loopTag = "neutral"
                 },
                 new CustomSay()
                 {
+                    flipped = true,
                     who = "comp",
                     Text = "In the back, grabbing some food.",
                     loopTag = "neutral"
@@ -459,12 +460,30 @@ internal static class EventDialogue
                 new CustomSay()
                 {
                     who = Deck.dizzy.Key(),
-                    Text = "The D stands for Dizzy's.",
+                    Text = "...I designed this?",
                     loopTag = "serious" //Shocked?
+                },
+                new CustomSay()
+                {
+                    who = Deck.dizzy.Key(),
+                    Text = "...",
+                    loopTag = "serious" //Shocked?
+                },
+                new CustomSay()
+                {
+                    who = Deck.dizzy.Key(),
+                    Text = "...",
+                    loopTag = "serious" //Shocked?
+                },
+                new CustomSay()
+                {
+                    who = Deck.dizzy.Key(),
+                    Text = "...Well may as well take some notes.",
+                    loopTag = "neutral" //Shocked?
                 },
             }
         };
-        */
+        
         //Not happy with how Dizzy sounds here.
 
         //Riggs

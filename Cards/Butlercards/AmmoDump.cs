@@ -80,7 +80,7 @@ internal sealed class CardAmmoDump : Card, IAngderCard
                     {
                         card = new ColorlessTrash(),
                         amount = 1,
-                        destination = CardDestination.Deck
+                        destination = CardDestination.Hand
                     },
 
                 };
@@ -113,7 +113,7 @@ internal sealed class CardAmmoDump : Card, IAngderCard
                     {
                         card = new TrashFumes(),
                         amount = 1,
-                        destination = CardDestination.Deck
+                        destination = CardDestination.Hand
                     },
                 };
                 break;
@@ -152,7 +152,7 @@ internal sealed class CardAmmoDump : Card, IAngderCard
                     {
                         card = new ColorlessTrash(),
                         amount = 4,
-                        destination = CardDestination.Deck
+                        destination = CardDestination.Hand
                     },
                 };
                 break;
