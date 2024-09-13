@@ -67,7 +67,7 @@
     },
     "HairTrigger": {
       "name": "HAIRTRIGGER",
-      "description": "At the start of each combat, At the start of combat, add a <c=card>Slight Nudge</c> to your discard pile. Add 1 more for every 5 cards in your deck past 10."
+      "description": "At the start of combat, add a <c=card>Slight Nudge</c> to your discard pile. Add 1 more for every 5 cards in your deck past 10."
     },
     "ShipsManifest": {
       "name": "SHIPS MANIFEST",
