@@ -55,11 +55,11 @@
     },
      "AggressiveSiphon": {
       "name": "SHIELD DIVERTER",
-      "description": "Gives you 2 <c=status>POWER SIPHON</c> at the start of each combat, every time <c=status>POWER SIPHON</c> triggers, reduce enemy shields by 2."
+      "description": "Gain 2 <c=status>POWER SIPHON</c> at the start of each combat, every time <c=status>POWER SIPHON</c> triggers, reduce enemy shields by 2."
     },
         "ChainAxe": {
       "name": "CHAINSAW AXE",
-      "description": "If you play 3 cards in a row, in one turn, that are not from Angder or his lootstash, gain 1 rampage. <c=downside>Count Resets if you play one of Angder's cards, can only trigger once per turn.</c>"
+      "description": "The first time each turn you play 3 cards in a row, that are not from Angder or his lootstash, gain 1 rampage."
     },
     "Biggerbullets": {
       "name": "BIGGER SHELLS",
@@ -71,7 +71,7 @@
     },
     "ShipsManifest": {
       "name": "SHIPS MANIFEST",
-      "description": "At the start of combat, gain 3 <c=status>PLANNED HEIST</c>. <c=status>PLANNED HEIST</c> grants an extra card."
+      "description": "At the start of combat, gain 3 <c=status>PLANNED HEIST</c>. <c=status>PLANNED HEIST</c> grants an extra card when triggered."
     },
   },
   "card": {
