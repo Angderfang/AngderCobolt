@@ -235,6 +235,13 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = angder,
+                    Text = "...Do I have to be?",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
                     Text = "...",
                     loopTag = "serious"
                 },
@@ -242,7 +249,7 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = angder,
-                    Text = "Well. If you insist. You see that enemy out the window?",
+                    Text = "Ok, you see that ship that's flying towards us?",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -273,6 +280,112 @@ internal static class EventDialogueMaid
                 },
             }
         };
+
+
+        DB.story.all["Droid_Advance_Angder"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_lawless" },
+            allPresent = new() { maid, angder },
+            once = true,
+            bg = "BGVanilla",
+            requiredScenes = ["Droid_Intro_Angder"],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "Hey, so umm... I am still your owner right?",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "correct",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "So umm... I release you?",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "Are you sure? As a decommissioned model, I will be required to deconstruct myself.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "Do not do that.",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "In fact, I order you to never deconstruct yourself like that. For that reason.",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "...",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "So can you like... simulate you have free will.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "My simulated self would remind you that it doesn't really work like that.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "I would agree that the current status is... unfortunate. As you said last time we tried this.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "I would then thank you.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "...Simulated free will expired. I require more orders.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    
+                    who = angder,
+                    Text = "...",
+                    loopTag = "sad"
+                },
+            }
+        };
+
 
         DB.story.all["Droid_Intro_Riggs"] = new()
         {
@@ -385,6 +498,95 @@ internal static class EventDialogueMaid
                     who = maid,
                     Text = "I exist to serve. [I cannot refuse.]",
                     loopTag = "anger"
+                },
+            }
+        };
+        DB.story.all["Droid_Advance_Riggs"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_lawless" },
+            allPresent = new() { Deck.riggs.Key(), maid },
+            once = true,
+            bg = "BGVanilla",
+            requiredScenes = ["Droid_Intro_Riggs"],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "I am required to speak to you.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "You... are?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "You recall when you were discussing my role earlier. And you commented that any careless statement could lead to me doing something undesirable.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "I'm so sorry I didn't mean to order you to climb on the table!",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "I am not used to someone doing what I say like that!",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "That is why I must apologize. The statement you gave was actually interpreted as a suggestion. I chose to climb on the table.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "...",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "You are saying you just wanted to climb on the table?",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "I am incapable of wanting anything. But if I did...",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = maid,
+                    Text = "I totally would have wanted to climb on that table.",
+                    loopTag = "anger"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "...",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "I thought that was just a me thing.",
+                    loopTag = "neutral"
                 },
             }
         };
