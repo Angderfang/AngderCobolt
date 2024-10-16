@@ -15,11 +15,11 @@ internal static class EventDialogueMaid
 
         DB.story.GetNode("AbandonedShipyard_Repaired")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
         {
-            
+
             who = maid,
             Text = "Damage Threshold Increased.",
             loopTag = "talk"
-            
+
         });
 
         //Intros, Not plots
@@ -209,8 +209,14 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = angder,
-                    Text = "Call me Angder instead.",
+                    Text = "I am Angder. Not your... owner.",
                     loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    who = maid,
+                    Text = "Incorrect. You are my designated owner. I will refer to you as Angder.",
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -222,7 +228,21 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = angder,
-                    Text = "You see that enemy out the window?",
+                    Text = "...That is extremely uncomfortable.",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "...",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "Well. If you insist. You see that enemy out the window?",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -268,7 +288,7 @@ internal static class EventDialogueMaid
                 {
 
                     who = Deck.riggs.Key(),
-                    Text = "So, your D26 right?",
+                    Text = "So, you are D26 right?",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -317,7 +337,7 @@ internal static class EventDialogueMaid
                 {
 
                     who = Deck.riggs.Key(),
-                    Text = "Boba Tea, warm, standard Boba Tea ingredients",
+                    Text = "Boba Tea, slightly warmer than standard, standard Boba Tea ingredients",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -344,7 +364,7 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = maid,
-                    Text = "A warm star is defined as having a temperature over 3,500K, the only way to achieve a warm Boba Tea is to detonate the engines at the exact right time to cook the tea to the correct temperature.",
+                    Text = "A standard star is defined as having a temperature over 3,500K, the only way to achieve a warm Boba Tea is to detonate the engines at the exact right time to cook the tea to the correct temperature.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -417,7 +437,7 @@ internal static class EventDialogueMaid
                 },
             }
         };
-        
+
         DB.story.all["Droid_Advance_Goat"] = new()
         {
             type = NodeType.@event,
@@ -489,7 +509,7 @@ internal static class EventDialogueMaid
                     flipped = true,
                     who = maid,
                     Text = "You do a fine job naming things.",
-                    loopTag = "glitch"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
@@ -498,10 +518,51 @@ internal static class EventDialogueMaid
                     Text = "...If you are viewing this Dialog, something has gone seriously wrong with the universe.",
                     loopTag = "-"
                 },
-                //new ChoiceFunc() RenameDroidCombatChoices()
+                /*
+                new Choice
+                {
+                    new Choice
+                    {
+                        label = Loc.T("Droid_Midcombat_George", "Dorithy."),
+                        key = "Spike_Midcombat_Dorithy",
+                        actions = { (CardAction)new ARenameDroid
+                        {
+                            droidname = ModEntry.DroidNames.Dorithy
+                        } }
+                    },
+                    new Choice
+                    {
+                        label = Loc.T("Droid_Midcombat_Riggs", "Dan."),
+                        key = "Spike_Midcombat_Dan",
+                        actions = { (CardAction)new ARenameDroid
+                        {
+                            droidname = ModEntry.DroidNames.Dan
+                        } }
+                    },
+
+                    new Choice
+                    {
+                        label = Loc.T("Droid_Midcombat_RiggsTwo", "Riggs."),
+                        key = "Droid_Midcombat_RiggsTwo",
+                        actions = { (CardAction)new ARenameSpike
+                        {
+                            spikeName = StoryVars.SpikeNames.spiketwo
+                        } }
+                    },
+
+                    new Choice
+                    {
+                        label = Loc.T("Droid_Midcombat_SpikeTwo", "Spike."),
+                        key = "Droid_Midcombat_SpikeTwo",
+                        actions = { (CardAction)new ARenameDroid
+                        {
+                            droidname = ModEntry.DroidNames.spike
+                        } }
+                    }
+                } */
             }
         };
-        /* HOW? 
+        /*
         static List<Choice> RenameDroidCombatChoices()
         {
             return new List<Choice>
@@ -524,7 +585,7 @@ internal static class EventDialogueMaid
                     droidname = ModEntry.DroidNames.Dan
                 } }
             },
-            
+
             new Choice
             {
                 label = Loc.T("Droid_Midcombat_RiggsTwo", "Riggs."),
@@ -534,7 +595,7 @@ internal static class EventDialogueMaid
                     spikeName = StoryVars.SpikeNames.spiketwo
                 } }
             },
-            
+
             new Choice
             {
                 label = Loc.T("Droid_Midcombat_SpikeTwo", "Spike."),
@@ -543,11 +604,11 @@ internal static class EventDialogueMaid
                 {
                     droidname = ModEntry.DroidNames.spike
                 } }
+                }
             }
-            };
         };
         */
-        
+
         //End of story//
 
         DB.story.GetNode("CrystallizedFriendEvent")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
