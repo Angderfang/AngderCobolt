@@ -60,6 +60,13 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Maid_Dusting { get; }
     internal ISpriteEntry Maid_Littering { get; }
     internal ISpriteEntry Maid_Chute { get; }
+    internal ISpriteEntry Maid_Awaken { get; }
+    internal ISpriteEntry Maid_Origin { get; }
+    internal ISpriteEntry Maid_Quickclean { get; }
+    internal ISpriteEntry Maid_Reset { get; }
+    internal ISpriteEntry Maid_Field { get; }
+    internal ISpriteEntry Maid_Scrap { get; }
+
     internal ISpriteEntry Angder_CleaveArt { get; }
     internal ISpriteEntry Angder_RemoteUplink { get; }
     internal ISpriteEntry Angder_Airlock { get; }
@@ -210,6 +217,13 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry TrashbagMidrow { get; }
     internal ISpriteEntry TrashbagIcon { get; }
 
+    internal ISpriteEntry ShieldIcon { get; }
+    internal ISpriteEntry ShieldNormalShine { get; }
+    internal ISpriteEntry ShieldNormal { get; }
+    internal ISpriteEntry ShieldNormalCracked1 { get; }
+    internal ISpriteEntry ShieldNormalCracked2 { get; }
+    internal ISpriteEntry ShieldNormalCracked3 { get; }
+    internal ISpriteEntry ShieldNormalCracked4 { get; }
     internal ISpriteEntry Butler_Character_CardBackground { get; }
     internal ISpriteEntry Butler_Trash_CardFrame { get; }
     internal ISpriteEntry Butler_Character_CardFrame { get; }
@@ -265,6 +279,7 @@ public sealed class ModEntry : SimpleMod
         typeof(CardReplace),
         typeof(CardResetShields),
         typeof(CardAlightdusting),
+        //typeof(CardShieldtest),
     ];
 
     /* common cards */
@@ -304,7 +319,7 @@ public sealed class ModEntry : SimpleMod
 ];
     internal static IReadOnlyList<Type> Butler_BossArtifact_Types { get; } = [
         typeof(ScrapArm),
-        //typeof(VacuumCleaner),
+        typeof(VacuumCleaner),
         //typeof(EnergySiphon),
         ];
     internal static IEnumerable<Type> Butler_AllArtifact_Types
@@ -717,15 +732,30 @@ public sealed class ModEntry : SimpleMod
         #endregion
         #region butlerstuff
 
+        Maid_Scrap = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/scrapCannon.png"));
         Maid_Trashfire = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Trashfire.png"));
         Maid_Littering = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Littering.png"));
         Maid_Dusting = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Lightdusting.png"));
         Maid_Chute = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Chute.png"));
+        Maid_Origin = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/ErrorOrigin.png"));
+        Maid_Awaken = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/ErrorAwaken.png"));
+        Maid_Quickclean = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Quickclean.png"));
+        Maid_Reset = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Reset.png"));
+        Maid_Field = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Interferencefield.png"));
+
 
         HandExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustFromhand.png"));
         DeckExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustDraw.png"));
         DiscardExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustDiscard.png"));
         DrawExhaustone = DeckExhaustone;
+
+        ShieldIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FlyingShield.png"));
+        ShieldNormalShine = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldShine.png"));
+        ShieldNormal = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldFull.png"));
+        ShieldNormalCracked1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCracked.png"));
+        ShieldNormalCracked2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedTwo.png"));
+        ShieldNormalCracked3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedThree.png"));
+        ShieldNormalCracked4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedAlot.png"));
 
         TrashbagMidrow = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/trashbag.png"));
         TrashbagIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/trashbag.png"));
