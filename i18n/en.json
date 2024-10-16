@@ -37,7 +37,7 @@
     },
     "FreeWill":{
         "name": "FREE WILL",
-        "description": "After your hull is damaged, increase <c=status>TEMP PAYBACK</c> by the amount of damage taken."
+        "description": "After your hull is damaged, increase <c=status>THE OLD CODE</c> by the amount of hull damage taken."
     },
     "Accellerant":{
         "name": "SMOOTH COGS",
@@ -113,7 +113,7 @@
    "Exposedport": {"name": "Remote Access"}, // {"None": "Move enemy 2", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
    "StolenMunitions": {"name": "Spare Bullets" },
    "Powercore": {"name": "Their Spare Powercore"},
-   "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave <c=boldPink>{{damage}}</c> in both directions. Exhaust. Immediate. Reliable."}},
+   "Autoshoot": { "name": "Accidental Overload", "description": {"None": "Cleave <c=boldPink>{{damage}}</c>. Draw 1. Exhaust, Immediate. Reliable.", "A": "Cleave <c=boldPink>{{damage}}</c>. Draw 2. Exhaust, Immediate. Reliable.", "B": "Long Cleave twice <c=boldPink>{{damage}}</c>. Exhaust. Immediate. Reliable."}},
    "DiagnosticComplete": { "name": "Diagnostic Complete", "description": {"None": "Shield <c=boldPink>2</c>. Draw 1. Exhaust, Immediate.", "A":  "Shield <c=boldPink>2</c>. Draw 2. Exhaust, Immediate.", "B": "Shield <c=boldPink>4</c>. Exhaust, Immediate."}},
 
     "Remotecontrol":{"name": "Radio Uplink",  "description": {
