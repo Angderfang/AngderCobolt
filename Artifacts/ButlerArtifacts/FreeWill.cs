@@ -10,7 +10,7 @@ internal sealed class FreeWill : Artifact, IAngderArtifact
 {
 
     public override List<Tooltip>? GetExtraTooltips()
-    => StatusMeta.GetTooltips(Status.tempPayback, 1);
+    => StatusMeta.GetTooltips(ModEntry.Instance.Warmode.Status, 1);
 
     public static void Register(IModHelper helper)
     {
@@ -33,7 +33,7 @@ internal sealed class FreeWill : Artifact, IAngderArtifact
         Pulse();
         combat.QueueImmediate(new AStatus()
         {
-            status = Status.tempPayback,
+            status = ModEntry.Instance.Warmode.Status,
             statusAmount = amount,
             targetPlayer = true,
         });

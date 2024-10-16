@@ -59,6 +59,10 @@ internal sealed class VacuumCleaner : Artifact, IAngderArtifact
         {
             Instance.Helper.Content.Cards.SetCardTraitOverride(state, item, Instance.Helper.Content.Cards.ExhaustCardTrait, null, false);
         }
+        foreach (Card item in combat.exhausted)
+        {
+            Instance.Helper.Content.Cards.SetCardTraitOverride(state, item, Instance.Helper.Content.Cards.ExhaustCardTrait, null, false);
+        }
     }
     public override void OnReceiveArtifact(State state)
     {
