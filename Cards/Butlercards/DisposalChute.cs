@@ -32,7 +32,7 @@ internal sealed class CardDisposalChute : Card, IAngderCard
         {
             art = ModEntry.Instance.Maid_Chute.Sprite,
             cost = 0,
-            recycle = true,
+            recycle = upgrade == Upgrade.A ? true : false,
             retain = true
         };
         return data;

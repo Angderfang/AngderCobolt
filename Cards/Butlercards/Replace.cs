@@ -32,7 +32,7 @@ internal sealed class CardReplace : Card, IAngderCard
             art = ModEntry.Instance.Maid_Chute.Sprite,
             cost = 0,
             exhaust = true,
-            retain = true
+            retain = upgrade == Upgrade.A ? true : false,
         };
         return data;
     }
@@ -68,7 +68,7 @@ internal sealed class CardReplace : Card, IAngderCard
                     },
                     new ADrawCard()
                     {
-                        count = 2,
+                        count = 1,
                     },
 
                 };

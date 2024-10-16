@@ -35,7 +35,7 @@ internal sealed class CardOldCode : Card, IAngderCard
         {
             flippable = true,
             //description = ModEntry.Instance.Localizations.Localize(["card", "PlayExhaust", "description", upgrade.ToString()]),
-            art = ModEntry.Instance.Maid_Trashfire.Sprite,
+            art = ModEntry.Instance.Maid_Awaken.Sprite,
             cost = 2,
             exhaust = true,
         };

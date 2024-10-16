@@ -40,6 +40,7 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
         List<CardAction> actions = new();
         switch (upgrade)
         {
+            //THIS CARD IS KINDA BAD TBH
 
             case Upgrade.None:
                 actions = new()
@@ -105,7 +106,7 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
                     ),
                     new AAttack()
                     {
-                        damage = GetDmg(s, 3)
+                        damage = GetDmg(s, 4)
                     }
                 ),
                 ModEntry.Instance.KokoroApi.ActionCosts.Make(

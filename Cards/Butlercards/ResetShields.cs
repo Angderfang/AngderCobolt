@@ -29,7 +29,7 @@ internal sealed class CardResetShields : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Maid_Chute.Sprite,
+            art = ModEntry.Instance.Maid_Reset.Sprite,
             cost = upgrade == Upgrade.B ? 1 : 0,
 
         };

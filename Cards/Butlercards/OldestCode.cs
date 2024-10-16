@@ -30,9 +30,9 @@ internal sealed class CardOldestCode : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            description = ModEntry.Instance.Localizations.Localize(["card", "OldestCode", "description", upgrade.ToString()], new { damage3 = GetDmg(state, 12), damage2 = GetDmg(state, 10), damage1 = GetDmg(state, 7) }),
-            art = ModEntry.Instance.Maid_Trashfire.Sprite,
-            cost = 2,
+            description = ModEntry.Instance.Localizations.Localize(["card", "OldestCode", "description", upgrade.ToString()], new { damage3 = GetDmg(state, 7), damage2 = GetDmg(state, 7), damage1 = GetDmg(state, 7) }),
+            art = ModEntry.Instance.Maid_Origin.Sprite,
+            cost = upgrade == Upgrade.B ? 0 : 2,
             //exhaust = true
         };
         return data;
@@ -49,9 +49,8 @@ internal sealed class CardOldestCode : Card, IAngderCard
                 {
                     new AAddCard
                     {
-                        card = new NonTempTrash()
+                        card = new CardGarbage()
                             {
-                            temporaryOverride = false,
                             singleUseOverride = true
                             },
                         amount = 2,
@@ -69,10 +68,8 @@ internal sealed class CardOldestCode : Card, IAngderCard
                 {
                     new AAddCard
                     {
-                        card = new NonTempTrash()
+                        card = new TrashAnnoyance()
                             {
-                            temporaryOverride = false,
-                            singleUseOverride = true
                             },
                         amount = 2,
                         destination = CardDestination.Exhaust
@@ -80,7 +77,7 @@ internal sealed class CardOldestCode : Card, IAngderCard
                     },
                     new AAttack()
                     {
-                       damage = GetDmg(s, 10),
+                       damage = GetDmg(s, 7),
                        //piercing = true
                     },
                 };
@@ -90,17 +87,17 @@ internal sealed class CardOldestCode : Card, IAngderCard
                 {
                     new AAddCard
                     {
-                        card = new CardGarbage()
+                        card = new NonTempTrash()
                             {
                             temporaryOverride = false,
-                            singleUseOverride = true
+                            //singleUseOverride = true
                             },
                         amount = 1,
                         destination = CardDestination.Exhaust
                     },
                     new AAttack()
                     {
-                       damage = GetDmg(s, 12),
+                       damage = GetDmg(s, 7),
                     },
                 };
                 break;

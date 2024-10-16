@@ -62,7 +62,7 @@ internal sealed class CardFasterCannons : Card, IAngderCard
                     upgrade = Upgrade.B
                     },
                         destination = CardDestination.Deck,
-                        amount = 2,
+                        amount = 1,
                     },
                 };
                 break;

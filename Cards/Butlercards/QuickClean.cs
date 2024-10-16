@@ -30,7 +30,7 @@ internal sealed class CardQuickClean : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Maid_Chute.Sprite,
+            art = ModEntry.Instance.Maid_Quickclean.Sprite,
             cost = 1,
             //exhaust = true
         };

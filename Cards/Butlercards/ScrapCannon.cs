@@ -86,7 +86,7 @@ internal sealed class CardScrapCannon : Card, IAngderCard
             case Upgrade.B:
                 actions = new()
                 {
-                    new AVariableHintExhaustFive
+                    new AVariableHintExhaustThree
                     {
                         status = ModEntry.Instance.Exhaustover3.Status
                     },
