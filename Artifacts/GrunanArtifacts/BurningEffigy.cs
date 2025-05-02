@@ -31,7 +31,7 @@ internal sealed class BurningEffigy : Artifact, IAngderArtifact
     }
     public override void OnCombatStart(State s, Combat c)
     {
-        Countup = 0;
+        //Countup = 0;
     }
 
     public override void OnPlayerPlayCard(int energyCost, Deck deck, Card card, State state, Combat combat, int handPosition, int handCount)
