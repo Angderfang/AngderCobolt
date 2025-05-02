@@ -17,6 +17,7 @@ internal static class CombatDialogue
 
         //Angder Specific
         string Maid = Instance.ButlerDeck.Deck.Key();
+        string Grunan = Instance.GrunanDeck.Deck.Key();
         string Angder = Instance.AngderDeck.Deck.Key();
         DB.story.all["Theft_Angder"] = new()
         {
@@ -60,6 +61,18 @@ internal static class CombatDialogue
                         {
                             who = Maid,
                             Text = "Crew reduction logged.",
+                            loopTag = "neutral"
+                        },
+                        new CustomSay()
+                        {
+                            who = Grunan,
+                            Text = "...Have fun.",
+                            loopTag = "neutral"
+                        },
+                        new CustomSay()
+                        {
+                            who = Grunan,
+                            Text = "He will be fine.",
                             loopTag = "neutral"
                         },
                         new CustomSay()

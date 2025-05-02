@@ -107,4 +107,29 @@ namespace Angder.EchoesOfTheFuture.Features
         }
 
     }
+    public class AVariableHintSingleusehand : AVariableHint
+    {
+        public override List<Tooltip> GetTooltips(State s)
+        {
+            string key;
+            string name;
+            string description;
+            key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::AVariableHintSingleusehand::Normal";
+            name = ModEntry.Instance.Localizations.Localize(["action", "AVariableHintSingleusehand", "name"]);
+
+            description = ModEntry.Instance.Localizations.Localize(["action", "AVariableHintSingleusehand", "description"]);
+
+            List<Tooltip> tooltips = [
+            new GlossaryTooltip(key)
+            {
+                    TitleColor = Colors.action,
+                    Title = name,
+                    Description = description
+            }
+
+            ];
+            return tooltips;
+        }
+
+    }
 }

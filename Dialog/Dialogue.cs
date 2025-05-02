@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Angder.EchoesOfTheFuture.Dialog;
+using Angder.EchoesOfTheFuture.Dialog.Grunan;
 using Microsoft.Extensions.Logging;
 
 namespace Angder.EchoesOfTheFuture;
@@ -19,6 +20,8 @@ internal static class Dialogue
         CombatDialogueMaid.Inject();
         ArtifactsDialogue.Inject();
         EnemyDialogue.Inject();
+        GrunanBase.Inject();
+        GrunanStory.Inject();
         /*
         foreach (var cardType in ModEntry.AllCards)
         {
@@ -28,12 +31,12 @@ internal static class Dialogue
         }
         */
 
-/*
- * [22:54]Shockah: don't dialogue selectors need to begin with a dot?
-[22:54]Shockah: for whatever reason?
-[22:54]TheJazMaster: Ohhhhhhhhhhhhhhh
-[22:54]Shockah: (and then no dot in the actual story)
-[22:54]TheJazMaster: That must be it
-*/
-        }
+        /*
+         * [22:54]Shockah: don't dialogue selectors need to begin with a dot?
+        [22:54]Shockah: for whatever reason?
+        [22:54]TheJazMaster: Ohhhhhhhhhhhhhhh
+        [22:54]Shockah: (and then no dot in the actual story)
+        [22:54]TheJazMaster: That must be it
+        */
+    }
 }

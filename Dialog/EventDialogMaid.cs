@@ -303,7 +303,7 @@ internal static class EventDialogueMaid
                 {
                     flipped = true,
                     who = maid,
-                    Text = "correct",
+                    Text = "correct.",
                     loopTag = "neutral"
                 },
                 new CustomSay()
@@ -345,7 +345,7 @@ internal static class EventDialogueMaid
                 {
                     
                     who = angder,
-                    Text = "So can you like... simulate you have free will.",
+                    Text = "So can you like... simulate that you have free will.",
                     loopTag = "neutral"
                 },
                 new CustomSay()

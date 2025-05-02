@@ -1,0 +1,88 @@
+﻿using Angder.EchoesOfTheFuture.Artifacts;
+using Angder.EchoesOfTheFuture.Cards;
+using Angder.EchoesOfTheFuture.Features;
+using FMOD;
+using System;
+using System.Linq;
+
+namespace Angder.EchoesOfTheFuture;
+internal sealed class VoidManager : IStatusLogicHook
+{
+    bool triggered = false;
+    //Card newcard;
+    public static ModEntry Instance => ModEntry.Instance;
+    public VoidManager()
+    {
+
+        /* We task Kokoro with the job to register our status into the game */
+        Instance.KokoroApi.RegisterStatusLogicHook(this, 1);
+
+        /*
+        ModEntry.Instance.Helper.Events.RegisterAfterArtifactsHook(nameof(Artifact.OnQueueEmptyDuringPlayerTurn), (State state, Combat combat) =>
+        {
+            if (triggered == true)
+            {
+                triggered = false;
+            }
+        });
+        */
+        ModEntry.Instance.Helper.Events.RegisterAfterArtifactsHook(nameof(Artifact.OnPlayerRecieveCardMidCombat), (State state, Combat combat, Card card) =>
+        {
+            int count = state.ship.Get(ModEntry.Instance.Voidsight.Status);
+            Console.WriteLine(triggered);
+        if (triggered == false) //triggered < state.ship.Get(ModEntry.Instance.Voidsight.Status))
+            {
+                //triggered = true;
+                if (count > 0 && GrunanTraitManager.IsVoid(card, state) != true) //triggered < state.ship.Get(ModEntry.Instance.Voidsight.Status))
+                {
+                    GrunanTraitManager.SetVoid(card, state, true);
+
+                    combat.Queue(new AAddCard
+                    {
+                        card = card.CopyWithNewId(),
+                        amount = state.ship.Get(ModEntry.Instance.Voidsight.Status),
+                        destination = CardDestination.Discard,
+                    });
+                    GrunanTraitManager.SetVoid(card, state, false);
+                    /*
+                    combat.Queue(new AStatus()
+                    {
+                        status = ModEntry.Instance.Voidsight.Status,
+                        statusAmount = 0,
+                        mode = AStatusMode.Set,
+                        targetPlayer = true
+                    }); */
+                };
+                if (0 < state.ship.Get(ModEntry.Instance.Memory.Status))
+                {
+                    combat.Queue(new Refreshnotes()
+                    {
+
+                    });
+                }
+            }
+        });
+        
+
+    }
+    /*
+    public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
+    {
+        //triggered = false;
+        if (status != Instance.EldrichAttention.Status)
+            return false;
+        if (timing != StatusTurnTriggerTiming.TurnStart)
+            return false;
+        if (ship.Get(ModEntry.Instance.EldrichAttention.Status) > 0)
+        {
+            combat.Queue(new AStatus()
+            {
+                status = ModEntry.Instance.Voidsight.Status,
+                statusAmount = state.ship.Get(ModEntry.Instance.EldrichAttention.Status),
+                targetPlayer = true
+            });
+        }
+        return false;
+    }
+    */
+}

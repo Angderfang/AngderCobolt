@@ -1,4 +1,6 @@
-﻿using System;
+﻿/*
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ public partial interface IKokoroApi
 
 	public interface IActionApi
 	{
+
 		CardAction MakeExhaustEntireHandImmediate();
 		CardAction MakePlaySpecificCardFromAnywhere(int cardId, bool showTheCardIfNotInHand = true);
 		CardAction MakePlayRandomCardsFromAnywhere(IEnumerable<int> cardIds, int amount = 1, bool showTheCardIfNotInHand = true);
@@ -36,3 +39,5 @@ public partial interface IKokoroApi
 		List<CardAction> GetWrappedCardActionsRecursively(CardAction action, bool includingWrapperActions);
 	}
 }
+
+*/

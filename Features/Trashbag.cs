@@ -15,11 +15,6 @@ namespace Angder.EchoesOfTheFuture.Features;
             return ModEntry.Instance.TrashbagIcon.Sprite;
         }
 
-        public override string GetDialogueTag()
-        {
-            return "asteroid";
-        }
-
         public override double GetWiggleAmount()
         {
             return 1.0;
