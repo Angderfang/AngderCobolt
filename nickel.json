@@ -1,8 +1,8 @@
 {
   "UniqueName": "Angder.EchoesOfTheFuture",
-  "Version": "0.13.5",
+  "Version": "0.14",
   "Author": "Angder",
-  "Description": "Adds two new violent characters to the game.",
+  "Description": "Adds three new characters to the game, Angder, Grunan, and D26.",
   "RequiredApiVersion": "0.6.0",
   "EntryPointAssembly": "EchoesOfTheFuture.dll",
   "Dependencies": [

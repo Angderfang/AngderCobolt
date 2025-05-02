@@ -40,6 +40,12 @@ public sealed class RemoteManager
 
     private static ModEntry Instance => ModEntry.Instance;
 
+    //HEY! THIS DOESN'T BELONG HERE! INTRUDER ALERT!
+    /*
+    public static bool IsConsuming(Card card, State state)
+        => Instance.Helper.Content.Cards.IsCardTraitActive(state, card, Instance.Consuming);
+    */
+    //HEY! THIS DOESN'T BELONG HERE! INTRUDER ALERT!
     public static bool IsRemoteControlled(Card card, State state)
         => Instance.Helper.Content.Cards.IsCardTraitActive(state, card, Instance.RemoteControl);
 

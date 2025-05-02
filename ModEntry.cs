@@ -13,8 +13,12 @@ using System.Xml;
 using Angder.EchoesOfTheFuture.Patches;
 using Angder.EchoesOfTheFuture.Cards.Butlercards;
 using Angder.EchoesOfTheFuture.Artifacts.ButlerArtifacts;
+using Angder.EchoesOfTheFuture.Artifacts.GrunanArtifacts;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Angder.EchoesOfTheFuture.Cards.Grunancards.Common;
+using Angder.EchoesOfTheFuture.Features.Grunan;
+using FMOD;
 
 namespace Angder.EchoesOfTheFuture;
 
@@ -55,7 +59,14 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_squint { get; }
 
 
-    //Angder Card arts
+    //GRUNAN CARD ARTS
+
+    internal ISpriteEntry Icebolt { get; }
+    internal ISpriteEntry Fireball { get; }
+    internal ISpriteEntry Candle { get; }
+    internal ISpriteEntry Decay { get; }
+
+    //BUTLER Card arts
     internal ISpriteEntry Maid_Trashfire { get; }
     internal ISpriteEntry Maid_Dusting { get; }
     internal ISpriteEntry Maid_Littering { get; }
@@ -66,7 +77,11 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Maid_Reset { get; }
     internal ISpriteEntry Maid_Field { get; }
     internal ISpriteEntry Maid_Scrap { get; }
+    internal ISpriteEntry Powerdiversion { get; }
+    internal ISpriteEntry Replace { get; }
+    internal ISpriteEntry ScarpCannon { get; }
 
+    //ANGDER Card arts
     internal ISpriteEntry Angder_CleaveArt { get; }
     internal ISpriteEntry Angder_RemoteUplink { get; }
     internal ISpriteEntry Angder_Airlock { get; }
@@ -87,6 +102,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_ShiftShot { get; }
     internal ISpriteEntry Angder_Ramcard { get; }
     internal ISpriteEntry Angder_Instinct { get; }
+    internal ISpriteEntry Angder_flare { get; }
 
 
     //traitstuff
@@ -160,7 +176,7 @@ public sealed class ModEntry : SimpleMod
     ];
     internal static IReadOnlyList<Type> Angder_RareCard_Types { get; } = [
          typeof(CardPorts),
-         typeof(CardRam),
+         //typeof(CardRam),
          typeof(CardDeepraid),
          typeof(CardPlannedRaid),
          typeof(CardEnrage),
@@ -217,6 +233,9 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry TrashbagMidrow { get; }
     internal ISpriteEntry TrashbagIcon { get; }
 
+    internal ISpriteEntry Claw1 { get; }
+    internal ISpriteEntry Claw2 { get; }
+
     internal ISpriteEntry ShieldIcon { get; }
     internal ISpriteEntry ShieldNormalShine { get; }
     internal ISpriteEntry ShieldNormal { get; }
@@ -258,7 +277,7 @@ public sealed class ModEntry : SimpleMod
 
     //internal ISpriteEntry Warmodesprite { get; }
     internal ISpriteEntry Malfunctionin { get; }
-    internal ISpriteEntry Malfunctionout { get; } //YES I AM MISSING MY GUN. I USED TO FIRE 10 SHOTS A CARD DARN IT!
+    internal ISpriteEntry Malfunctionout { get; }
     
     internal IStatusEntry Warmode { get; }
     internal IStatusEntry Disposalprocess { get; }
@@ -336,11 +355,118 @@ public sealed class ModEntry : SimpleMod
 
     #endregion
 
+    #region GrunanBasicStuff
+    internal ISpriteEntry Grunan_CardFrame { get; }
+    internal ISpriteEntry Grunan_Character_CardBackground { get; }
+    internal ISpriteEntry Grunan_Character_Panel { get; }
+    internal ISpriteEntry GrunanSquint { get; }
+    internal ISpriteEntry GrunanSquinttalk { get; }
+    internal ISpriteEntry GrunanNeutral { get; }
+    internal ISpriteEntry GrunanMini { get; }
+    internal ISpriteEntry GrunanNeutralTalk { get; }
+    internal ISpriteEntry GrunanNeutralTalk2 { get; }
+
+    internal ISpriteEntry Grunanhand { get; }
+    internal ISpriteEntry Grunanhandtalk { get; }
+    internal ISpriteEntry GrunanBook { get; }
+    internal ISpriteEntry GrunanBookTalk { get; }
+    internal ISpriteEntry GrunanFacepalm { get; }
+    internal ISpriteEntry GrunanFacepalmTalk { get; }
+    internal ISpriteEntry GrunanSmile { get; }
+    internal ISpriteEntry GrunanSmileTalk { get; }
+    internal ISpriteEntry GrunanFlipped { get; }
+    internal ISpriteEntry GrunanFlippedTalk { get; }
+    internal ISpriteEntry GrunanPanic { get; }
+    internal ISpriteEntry GrunanPanicTalk { get; }
+    internal ISpriteEntry GrunanFlippedPain { get; }
+    internal ISpriteEntry GrunanFlippedPainTalk { get; }
+    internal ISpriteEntry GrunanFlippedRelax { get; }
+    internal ISpriteEntry GrunanFlippedRelaxTalk { get; }
+    //traitstuff
+    internal ICardTraitEntry Consuming { get; private set; } = null!;
+    internal ISpriteEntry ConsumingSprite { get; private set; } = null!;
+    internal ISpriteEntry ConsumingIcon { get; private set; } = null!;
+
+
+    internal ICardTraitEntry Untrashable { get; private set; } = null!;
+    internal ISpriteEntry UntrashableSprite { get; private set; } = null!;
+    internal ISpriteEntry UntrashableIcon { get; private set; } = null!;
+
+    internal ISpriteEntry ShatterIcon { get; }
+
+
+    //Stutus stuff
+
+    //internal ISpriteEntry MemoryIcon { get; }
+    internal IStatusEntry Memory { get; }
+    internal IStatusEntry Voidsight { get; }
+
+    internal IStatusEntry EldrichAttention { get; }
+
+    internal IDeckEntry GrunanDeck { get; }
+    internal ICharacterEntryV2 Grunanchar { get; }
+
+    internal static IReadOnlyList<Type> Grunan_StarterCard_Types { get; } = [
+        typeof(EndlessResearch),
+        typeof(Fireball),
+    ];
+    
+    internal static IReadOnlyList<Type> Grunan_CommonCard_Types { get; } = [
+        typeof(Empower),
+        typeof(CardMagicShield),
+        typeof(Greed),
+        typeof(Trails),
+        typeof(Sigil),
+        typeof(Shatter),
+        typeof(Salve)
+    ];
+
+    /* common cards */
+    
+    internal static IReadOnlyList<Type> Grunan_UnCommonCard_Types { get; } = [
+        typeof(Teleport),
+        typeof(Flow),
+        typeof(Iceblast),
+        typeof(SpellBook),
+        typeof(Ritual),
+        typeof(RitualDec),
+        typeof(CardMagicMissile),
+    ];
+    internal static IReadOnlyList<Type> Grunan_RareCard_Types { get; } = [
+        typeof(CardMemory),
+        typeof(ConsumeSoul),
+        typeof(Bloodritual),
+        typeof(GlimpseTheVoid),
+        typeof(Necromancy),
+    ];
+    internal static IEnumerable<Type> Grunan_AllCard_Types
+    => Grunan_StarterCard_Types
+    .Concat(Grunan_CommonCard_Types)
+    .Concat(Grunan_UnCommonCard_Types)
+    .Concat(Grunan_RareCard_Types);
+    //.Concat(Grunan_EXE_Types);
+
+    internal static IReadOnlyList<Type> Grunan_CommonArtifact_Types { get; } = [
+        typeof(Ritualofair),
+        typeof(WitchesWeekly),
+        typeof(BurningEffigy),
+];
+    internal static IReadOnlyList<Type> Grunan_BossArtifact_Types { get; } = [
+
+        typeof(BookofReading),
+        typeof(Darkness),
+        ];
+    internal static IEnumerable<Type> Grunan_AllArtifact_Types
+        => Grunan_CommonArtifact_Types.Concat(Grunan_BossArtifact_Types);
+
+    #endregion
+
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
     {
         Instance = this;
         Harmony = new(package.Manifest.UniqueName);
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
+        _ = new CardBrowseFilterManager();
 
         AnyLocalizations = new JsonLocalizationProvider(
         tokenExtractor: new SimpleLocalizationTokenExtractor(),
@@ -367,7 +493,7 @@ public sealed class ModEntry : SimpleMod
             Angder_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_panel.png"));
             //Base an nuetral
 
-            Angder_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_mini_0.png"));
+            Angder_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_character_mini_0.png"));
             Angder_talk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angdertalk.png"));
             Angder_Neutral = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angder_Neutral.png"));
             Angder_bigmouth = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/ANgder4/Angdertalkbigmouth.png"));
@@ -422,9 +548,10 @@ public sealed class ModEntry : SimpleMod
             Angder_ShiftShot = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/ShiftShot.png"));
             Angder_Ramcard = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Ram.png"));
             Angder_Instinct = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Instinct.png"));
+        Angder_flare = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Flare.png"));
 
-            //Angder deck
-            AngderDeck = helper.Content.Decks.RegisterDeck("AngderDeck", new DeckConfiguration()
+        //Angder deck
+        AngderDeck = helper.Content.Decks.RegisterDeck("AngderDeck", new DeckConfiguration()
             {
                 Definition = new DeckDef()
                 {
@@ -742,7 +869,9 @@ public sealed class ModEntry : SimpleMod
         Maid_Quickclean = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Quickclean.png"));
         Maid_Reset = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Reset.png"));
         Maid_Field = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Interferencefield.png"));
-
+        Powerdiversion = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Powerdiversion.png"));
+        Replace = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Powerdiversion.png"));
+        ScarpCannon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Scrapcannon2.png"));
 
         HandExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustFromhand.png"));
         DeckExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustDraw.png"));
@@ -784,6 +913,10 @@ public sealed class ModEntry : SimpleMod
         ButlerGlitch3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch3.png"));
         ButlerGlitch4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Butler/Glitch4.png"));
 
+        //claw images
+
+        Claw1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/SalvageArm.png"));
+        Claw2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/artifacts/Brokenclaw.png"));
 
 
         ButlerDeck = helper.Content.Decks.RegisterDeck("ButlerDeck", new DeckConfiguration()
@@ -798,7 +931,7 @@ public sealed class ModEntry : SimpleMod
                 BorderSprite = Butler_Character_CardFrame.Sprite,
                 Name = this.AnyLocalizations.Bind(["character", "Butler", "name"]).Localize,
             });
-            ButlerstrashDeck = helper.Content.Decks.RegisterDeck("Computermalfunctions", new DeckConfiguration()
+        ButlerstrashDeck = helper.Content.Decks.RegisterDeck("Computermalfunctions", new DeckConfiguration()
             {
                 Definition = new DeckDef()
                 {
@@ -998,8 +1131,331 @@ public sealed class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "Exhaustover6", "description"]).Localize
         });
         #endregion
+        
+        #region GrunanStuff
+
+        Grunan_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan_character_cardbackground.png"));
+        Grunan_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan_character_cardframe.png"));
+        Grunan_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan_character_panel.png"));
+
+        Icebolt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Iceball.png"));
+        Fireball = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Fireball.png"));
+        Candle = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Ritualfire.png"));
+        Decay = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Decay.png"));
 
 
+        GrunanMini = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_character_mini_0.png"));
+        GrunanNeutral = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral.png"));
+        GrunanNeutralTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_talk.png"));
+        GrunanNeutralTalk2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_talk2.png"));
+        GrunanSquint = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Squint.png"));
+        GrunanSquinttalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Squint_talk.png"));
+        GrunanSmile = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smile.png"));
+        GrunanSmileTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smiletalk.png"));
+        GrunanBook = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanBook.png"));
+        GrunanBookTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanBookbob.png"));
+        Grunanhand = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanHand.png"));
+        Grunanhandtalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanHandtalk.png"));
+        GrunanFacepalm = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Facepalm.png"));
+        GrunanFacepalmTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Facepalm_talk.png"));
+        GrunanFlipped = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanFlipped.png"));
+        GrunanFlippedTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanFlippedtalk.png"));
+        GrunanPanic = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic.png"));
+        GrunanPanicTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic_talk.png"));
+
+        GrunanFlippedPain = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_Pain.png"));
+        GrunanFlippedPainTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_Pain_talk.png"));
+
+        GrunanFlippedRelax = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_relaxed.png"));
+        GrunanFlippedRelaxTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_relaxed_talk.png"));
+
+
+
+
+
+    GrunanDeck = helper.Content.Decks.RegisterDeck("GrunanDeck", new DeckConfiguration()
+        {
+            Definition = new DeckDef()
+            {
+                color = new Color("06402B"),
+                titleColor = new Color("000000")
+            },
+
+            DefaultCardArt = Grunan_Character_CardBackground.Sprite,
+            BorderSprite = Grunan_CardFrame.Sprite,
+            Name = this.AnyLocalizations.Bind(["character", "Grunan", "name"]).Localize,
+        });
+        
+        helper.ModRegistry.GetApi<IMoreDifficultiesApi>("TheJazMaster.MoreDifficulties", new SemanticVersion(1, 3, 0))?.RegisterAltStarters(
+            deck: GrunanDeck.Deck,
+            starterDeck: new StarterDeck
+            {
+                cards = [
+                    new CardMagicShield(),
+                    new Bloodritual(),
+                ]
+            }
+        );
+        
+        
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanmini", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "mini",
+            Frames = new[]
+        {
+                /* Mini only needs one sprite. We call it animation just because we add it the same way as other expressions. */
+                GrunanMini.Sprite
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanNeutral", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "neutral",
+            Frames = new[]
+            {
+                GrunanNeutral.Sprite,
+                GrunanNeutralTalk.Sprite,
+                GrunanNeutral.Sprite,
+                GrunanNeutralTalk2.Sprite,
+                GrunanNeutral.Sprite,
+            }
+        });
+        
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanbook", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "book",
+            Frames = new[]
+            {
+                GrunanBook.Sprite,
+                GrunanBookTalk.Sprite,
+                GrunanBook.Sprite,
+                GrunanBookTalk.Sprite,
+                GrunanBook.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanGameover", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "gameover",
+            Frames = new[]
+    {
+                GrunanFacepalm.Sprite,
+                GrunanFacepalmTalk.Sprite,
+                GrunanFacepalm.Sprite,
+                GrunanFacepalmTalk.Sprite,
+                GrunanFacepalm.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanfacepalm", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "facepalm",
+            Frames = new[]
+            {
+                GrunanFacepalm.Sprite,
+                GrunanFacepalmTalk.Sprite,
+                GrunanFacepalm.Sprite,
+                GrunanFacepalmTalk.Sprite,
+                GrunanFacepalm.Sprite,
+            }
+        });
+        
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunansquint", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "squint",
+            Frames = new[]
+                {
+                GrunanSquint.Sprite,
+                GrunanSquinttalk.Sprite,
+                GrunanSquint.Sprite,
+                GrunanSquinttalk.Sprite,
+                GrunanSquint.Sprite,
+                GrunanSquinttalk.Sprite,
+                GrunanSquint.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanFlippedpain", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "Flippedpain",
+            Frames = new[]
+            {
+                GrunanFlippedPain.Sprite,
+                GrunanFlippedPainTalk.Sprite,
+                GrunanFlippedPain.Sprite,
+                GrunanFlippedPainTalk.Sprite,
+                GrunanFlippedPain.Sprite,
+
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanFlippedRelax", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "Flippedrelax",
+            Frames = new[]
+    {
+                GrunanFlippedRelax.Sprite,
+                GrunanFlippedRelaxTalk.Sprite,
+                GrunanFlippedRelax.Sprite,
+                GrunanFlippedRelaxTalk.Sprite,
+                GrunanFlippedRelax.Sprite,
+
+            }
+        });
+
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanflipped", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "flipped",
+            Frames = new[]
+            {
+                GrunanFlipped.Sprite,
+                GrunanFlippedTalk.Sprite,
+                GrunanFlipped.Sprite,
+                GrunanFlippedTalk.Sprite,
+                GrunanFlipped.Sprite,
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanhand", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "hand",
+            Frames = new[]
+            {
+                Grunanhand.Sprite,
+                Grunanhandtalk.Sprite,
+                Grunanhand.Sprite,
+                Grunanhandtalk.Sprite,
+                Grunanhand.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanpanic", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "Panic",
+            Frames = new[]
+            {
+                GrunanPanic.Sprite,
+                GrunanPanicTalk.Sprite,
+                GrunanPanic.Sprite,
+                GrunanPanicTalk.Sprite,
+                GrunanPanic.Sprite,
+            }
+        });
+        
+        Grunanchar = helper.Content.Characters.V2.RegisterPlayableCharacter("Grunan", new PlayableCharacterConfigurationV2()
+        {
+            Deck = GrunanDeck.Deck,
+            Starters = new StarterDeck
+            {
+                cards = [new EndlessResearch(),
+                    new Fireball{},
+                    ],
+            },
+            //ExeCardType = typeof(AngderEXE),
+            BorderSprite = Grunan_Character_Panel.Sprite,
+            Description = AnyLocalizations.Bind(["character", "Grunan", "description"]).Localize,
+        }); ;
+
+        foreach (var cardType in Grunan_AllCard_Types)
+            AccessTools.DeclaredMethod(cardType, nameof(IAngderCard.Register))?.Invoke(null, [helper]);
+
+
+        foreach (var artifactType in Grunan_AllArtifact_Types)
+            AccessTools.DeclaredMethod(artifactType, nameof(IAngderArtifact.Register))?.Invoke(null, [helper]);
+
+
+        UntrashableSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Untrashable.png"));
+        UntrashableIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/UntrashableIcon.png"));
+        /* Register trait. Making this work sucked! */
+        Untrashable = helper.Content.Cards.RegisterTrait("Untrashable", new()
+        {
+            Icon = (_, _) => UntrashableSprite.Sprite,
+            Name = AnyLocalizations.Bind(["trait", "Untrashable", "name"]).Localize,
+            Tooltips = (_, _) => [
+                new GlossaryTooltip($"cardtrait.{Package.Manifest.UniqueName}::Untrashable")
+                    {
+                        Icon = UntrashableSprite.Sprite,
+                        TitleColor = Colors.cardtrait,
+                        Title = Localizations.Localize(["trait", "Untrashable", "name"]),
+                        Description = Localizations.Localize(["trait", "Untrashable", "description"])
+                    }
+            ]
+        });
+
+
+        //NOTE: CONSUMING IS MISNAMED: IT'S ACTUALLY "ABYSSAL".
+        ConsumingSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Consuming.png"));
+        ConsumingIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ConsumingIcon.png"));
+        /* Register trait. Making this work sucked! */
+        Consuming = helper.Content.Cards.RegisterTrait("Consuming", new()
+        {
+            Icon = (_, _) => ConsumingSprite.Sprite,
+            Name = AnyLocalizations.Bind(["trait", "Consuming", "name"]).Localize,
+            Tooltips = (_, _) => [
+                new GlossaryTooltip($"cardtrait.{Package.Manifest.UniqueName}::Consuming")
+                    {
+                        Icon = ConsumingSprite.Sprite,
+                        TitleColor = Colors.cardtrait,
+                        Title = Localizations.Localize(["trait", "Consuming", "name"]),
+                        Description = Localizations.Localize(["trait", "Consuming", "description"])
+                    }
+            ]
+        });
+
+
+        //memory
+
+        Memory = helper.Content.Statuses.RegisterStatus("Memory", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Memory.png")).Sprite,
+                color = new("06402B"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "Memory", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "Memory", "description"]).Localize
+        });
+
+        Voidsight = helper.Content.Statuses.RegisterStatus("Voidsight", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Voidsight.png")).Sprite,
+                color = new("06402B"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "Voidsight", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "Voidsight", "description"]).Localize,
+        });
+        EldrichAttention = helper.Content.Statuses.RegisterStatus("EldrichAttention", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/EldrichAttention.png")).Sprite,
+                color = new("06402B"),
+                isGood = true,
+            },
+            Name = AnyLocalizations.Bind(["status", "EldrichAttention", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "EldrichAttention", "description"]).Localize,
+            
+            });
+
+
+
+        #endregion
 
         StunSmallIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/stunShipsmallIcon.png"));
         Angdermissingin = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Angdermissingin.png"));
@@ -1007,6 +1463,7 @@ public sealed class ModEntry : SimpleMod
         Malfunctionin = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/MalfunctioningIN.png"));
         Malfunctionout = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/MalfunctioningOUT.png"));
 
+        ShatterIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/shatter.png"));
         MoveenemyLeft = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/moveLeftEnemy.png"));
         MoveenemyRight = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/moveRightEnemy.png"));
 
@@ -1019,6 +1476,8 @@ public sealed class ModEntry : SimpleMod
 
         Overdriveno = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/overdriveNo.png"));
         
+
+
         
         /* RAM symbol */
 
@@ -1034,9 +1493,11 @@ public sealed class ModEntry : SimpleMod
         _ = new DisruptManager();
         _ = new FuelDumpManager();
         _ = new SiphonManager();
+        _ = new WrittenManager();
 
         _ = new CleaveManager();
         _ = new RemoteManager();
+        _ = new VoidManager();
         /* */
         // icons_moveRightEnemyassign = Spr.icons_moveRightEnemy;
     }
