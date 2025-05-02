@@ -30,6 +30,8 @@ internal sealed class VacuumCleaner : Artifact, IAngderArtifact
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "VacuumCleaner", "description"]).Localize
         });
     }
+
+
     public override void OnTurnStart(State state, Combat combat)
     {
         foreach (Card item in state.deck)
