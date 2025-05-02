@@ -1,39 +1,35 @@
-﻿using Angder.EchoesOfTheFuture.Features;
-using Nickel;
-//using Shockah.Kokoro;
+﻿using Nickel;
 using System.Collections.Generic;
 using System.Reflection;
 
 
-namespace Angder.EchoesOfTheFuture.Cards;
 
+namespace Angder.EchoesOfTheFuture.Cards.Angdercards;
 
-internal sealed class CardCodepurge : Card, IAngderCard
+internal sealed class CardAnxiety : Card, IAngderCard
 {
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Codepurge", new()
+        helper.Content.Cards.RegisterCard("Anxiety", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-
-                deck = ModEntry.Instance.ButlerDeck.Deck,
+                deck = ModEntry.Instance.AngderDeck.Deck,
 
                 rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Codepurge", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Anxiety", "name"]).Localize
         });
     }
     public override CardData GetData(State state)
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Maid_Chute.Sprite,
             cost = 1,
-            //exhaust = true
+            art = ModEntry.Instance.Angder_Crates.Sprite,
         };
         return data;
     }
@@ -42,62 +38,64 @@ internal sealed class CardCodepurge : Card, IAngderCard
         List<CardAction> actions = new();
         switch (upgrade)
         {
-            
-
             case Upgrade.None:
                 actions = new()
                 {
+                    /*
                     new AStatus()
                     {
-                        targetPlayer = true,
                         status = Status.shield,
+                        targetPlayer = true,
                         statusAmount = 1
                     },
-
-                    new ASpawn
+                    */
+                    new AStatus()
                     {
-                        thing = new Trashbag
-                        {
-                            yAnimation = 0.0
-                        }
-                    }
-        };
-        /* Remember to always break it up! */
-        break;
+                        status = ModEntry.Instance.Disrupt.Status,
+                        statusAmount = 2,
+                        targetPlayer = true
+                    },
+
+                };
+                /* Remember to always break it up! */
+                break;
             case Upgrade.A:
                 actions = new()
                 {
                     new AStatus()
                     {
-                        targetPlayer = true,
                         status = Status.shield,
-                        statusAmount = 2
+                        targetPlayer = true,
+                        statusAmount = 1
                     },
-                    new ASpawn
+
+                    new AStatus()
                     {
-                        thing = new Trashbag
-                        {
-                            yAnimation = 0.0
-                        }
+                        status = ModEntry.Instance.Disrupt.Status,
+                        statusAmount = 2,
+                        targetPlayer = true
                     },
+
+
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
+
                     new AStatus()
                     {
-                        targetPlayer = true,
                         status = Status.tempShield,
-                        statusAmount = 3
+                        targetPlayer = true,
+                        statusAmount = 2
                     },
-                    new ASpawn
+
+                    new AStatus()
                     {
-                        thing = new Trashbag
-                        {
-                            yAnimation = 0.0
-                        }
-                    }
+                        status = ModEntry.Instance.Disrupt.Status,
+                        statusAmount = 2,
+                        targetPlayer = true
+                    },
                 };
                 break;
         }

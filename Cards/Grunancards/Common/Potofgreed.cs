@@ -1,38 +1,38 @@
-﻿using Angder.EchoesOfTheFuture.Features;
+﻿using Angder.EchoesOfTheFuture;
 using Nickel;
-//using Shockah.Kokoro;
+using OneOf.Types;
 using System.Collections.Generic;
 using System.Reflection;
 
-
 namespace Angder.EchoesOfTheFuture.Cards;
 
-
-internal sealed class CardReplace : Card, IAngderCard
+internal sealed class Greed : Card, IAngderCard
 {
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("CodeReplace", new()
+        helper.Content.Cards.RegisterCard("Greed", new()
         {
+            
+
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.ButlerDeck.Deck,
-                rarity = Rarity.common,
+                deck = ModEntry.Instance.GrunanDeck.Deck,
 
+                rarity = Rarity.common,
+               
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Replace", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Greed", "name"]).Localize
         });
     }
     public override CardData GetData(State state)
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Replace.Sprite,
+            //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
             cost = 0,
-            exhaust = true,
-            retain = upgrade == Upgrade.A ? true : false,
+            singleUse = true
         };
         return data;
     }
@@ -41,54 +41,53 @@ internal sealed class CardReplace : Card, IAngderCard
         List<CardAction> actions = new();
         switch (upgrade)
         {
-            
-
             case Upgrade.None:
                 actions = new()
                 {
-                    new Dontplaycardsearch
-                    {
-                    browseAction = new Dontplaycard(),
-                    browseSource = CardBrowse.Source.Hand,
-                    },
                     new ADrawCard()
                     {
-                        count = 1,
+                       count = 1,
                     },
-        };
+                    new AStatus()
+                    {
+                       status = Status.drawNextTurn,
+                       statusAmount = 2,
+                       targetPlayer = true
+                    },
+                };
+
         /* Remember to always break it up! */
         break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new Dontplaycardsearch
-                    {
-                    browseAction = new Dontplaycard(),
-                    browseSource = CardBrowse.Source.Hand,
-                    },
                     new ADrawCard()
                     {
-                        count = 1,
+                       count = 2,
                     },
-
+                    new AStatus()
+                    {
+                       status = Status.drawNextTurn,
+                       statusAmount = 2,
+                       targetPlayer = true
+                    },
                 };
+
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new Dontplaycardsearch
+                    new ADrawCard()
                     {
-                        browseAction = new Dontplaycard(),
-                        browseSource = CardBrowse.Source.Hand,
+                       count = 10,
                     },
-                    new AStatus()
+                    new AHurt()
                     {
                         targetPlayer = true,
-                        status = Status.drawNextTurn,
-                        statusAmount = 3
+                       hurtAmount = 2,
                     },
                 };
-                break;
+        break;
         }
         return actions;
     }

@@ -1,4 +1,5 @@
 ﻿using Angder.EchoesOfTheFuture;
+using Angder.EchoesOfTheFuture.Features;
 using Nickel;
 using System.Collections.Generic;
 using System.Reflection;
@@ -29,44 +30,36 @@ internal sealed class CardSystemCleanout : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            art = ModEntry.Instance.Angder_Instinct.Sprite,
-            cost = 3,
-            exhaust = upgrade == Upgrade.B ? false : true
+            art = ModEntry.Instance.Powerdiversion.Sprite,
+            cost = 2,
+            exhaust = true
 
         };
         return data;
     }
     public override List<CardAction> GetActions(State s, Combat c)
     {
+        int Exhaustcount = c.exhausted.Count;
         List<CardAction> actions = new();
         switch (upgrade)
         {
             case Upgrade.None:
                 actions = new()
                 {
-                    
+
+                    new AVariableHintExhaustThree
+                    {
+                        status = ModEntry.Instance.Exhaustover3.Status
+                    },
+
                     new AStatus()
                     {
-                        status = Status.powerdrive,
-                        statusAmount = 1,
-                        targetPlayer = true
-                    },
-                    new AStatus()
-                    {
-                        status = Status.shield,
-                        statusAmount = 0,
-                        targetPlayer = true,
-                        mode = AStatusMode.Set
-                    },
-                    new AExhaustEntireHand()
-                    {
-
+                       status = Status.maxShield,
+                       statusAmount = Exhaustcount/3,
+                       xHint = 1,
+                       targetPlayer = true
                     },
 
-                    new AEndTurn()
-                    {
-
-                    },
                     /* */
 
                 };
@@ -75,64 +68,45 @@ internal sealed class CardSystemCleanout : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
-
-                    new AStatus()
+                    new AVariableHintExhaustThree
                     {
-                        status = Status.powerdrive,
-                        statusAmount = 1,
-                        targetPlayer = true
+                        status = ModEntry.Instance.Exhaustover3.Status
                     },
                     new AStatus()
                     {
-                        status = Status.overdrive,
-                        statusAmount = 3,
-                        targetPlayer = true
+                       status = Status.maxShield,
+                       statusAmount = Exhaustcount/3,
+                       xHint = 1,
+                       targetPlayer = true
                     },
                     new AStatus()
                     {
-                        status = Status.shield,
-                        statusAmount = 0,
-                        targetPlayer = true,
-                        mode = AStatusMode.Set
+                       status = Status.shield,
+                       statusAmount = Exhaustcount/3,
+                       xHint = 1,
+                       targetPlayer = true
                     },
-                    new AExhaustEntireHand()
-                    { 
-
-                    },
-
-                    new AEndTurn()
-                    {
-
-                    },
-
-
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-
-                    new AStatus()
+                    new AVariableHintExhaustThree
                     {
-                        status = Status.powerdrive,
-                        statusAmount = 1,
-                        targetPlayer = true
+                        status = ModEntry.Instance.Exhaustover3.Status
                     },
                     new AStatus()
                     {
-                        status = Status.shield,
-                        statusAmount = 0,
-                        targetPlayer = true,
-                        mode = AStatusMode.Set
+                       status = Status.maxShield,
+                       statusAmount = Exhaustcount/3,
+                       xHint = 1,
+                       targetPlayer = true
                     },
-                    new AExhaustEntireHand()
+                    new AStatus()
                     {
-
-                    },
-
-                    new AEndTurn()
-                    {
-
+                       status = Status.perfectShield,
+                       statusAmount = 1,
+                       targetPlayer = true
                     },
 
                 };
