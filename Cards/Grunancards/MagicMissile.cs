@@ -48,7 +48,7 @@ internal sealed class CardMagicMissile : Card, IAngderCard
                     thing = new Missile
                     {
                         yAnimation = 0.0,
-                        missileType = MissileType.normal,
+                        missileType = MissileType.heavy,
                         targetPlayer = false
                     }
 
@@ -64,8 +64,19 @@ internal sealed class CardMagicMissile : Card, IAngderCard
                     thing = new Missile
                     {
                         yAnimation = 0.0,
-                        missileType = MissileType.seeker,
+                        missileType = MissileType.heavy,
                         targetPlayer = false
+                    }
+                    },
+                    new ASpawn
+                    {
+                        offset = -2,
+                    thing = new Missile
+                    {
+                        yAnimation = 0.0,
+                        missileType = MissileType.seeker,
+                        targetPlayer = false,
+                        
                     }
                     }
                 };

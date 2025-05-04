@@ -29,7 +29,7 @@ internal sealed class CardMemory : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            //art = ModEntry.Instance.Maid_Chute.Sprite,
+            art = ModEntry.Instance.Bookscard.Sprite,
             cost = upgrade == Upgrade.B ? 2 : 1,
             exhaust = upgrade == Upgrade.B ? false : true,
             singleUse = upgrade == Upgrade.B ? true : false,

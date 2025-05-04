@@ -34,42 +34,91 @@ internal static class GrunanStory
                     //flipped = true,
                     who = "comp",
                     Text = "...",
-                    loopTag = "worried"
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
                     //flipped = true,
                     who = "comp",
-                    Text = "Maam, are you OK?",
+                    Text = "Are you OK?",
                     loopTag = "worried"
                 },
                 new CustomSay()
                 {
                     flipped = true,
                     who = grunan,
-                    Text = "...A suprisingly measured response from seeing my horrific burns.",
-                    loopTag = "flipped"
+                    Text = "...I just woke up in a ship I have never seen before, don't remember my own name, and I am being bothered by some cute little cat emoticon.",
+                    loopTag = "flippedannoyed"
                 },
                 new CustomSay()
                 {
                     flipped = true,
                     who = grunan,
-                    Text = "I am fine the burns are old, very old actually.",
-                    loopTag = "Flippedrelax"
+                    Text = "Also, I have a note here that reads \"timeloop\" in my own handwriting.",
+                    loopTag = "flippedannoyed"
+                },
+                new CustomSay()
+                {
+                    //flipped = true,
+                    who = "comp",
+                    Text = "I was more concerned about the fact half your face is missing.",
+                    loopTag = "worried"
                 },
                 new CustomSay()
                 {
                     flipped = true,
                     who = grunan,
                     Text = "...",
+                    loopTag = "flippedannoyed"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = grunan,
+                    Text = "...Of course...I remember now.",
                     loopTag = "flipped"
                 },
                 new CustomSay()
                 {
                     flipped = true,
                     who = grunan,
-                    Text = "I'm going to go do some research. Poke me if and when you need me to break the laws of physics, and not a moment before.",
+                    Text = "...I'm a space wizard. Of course I have contingencies for if I get trapped in a timeloop.",
+                    loopTag = "Flippedrelax"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = grunan,
+                    Text = "I must have written this note so it persists between loops..",
+                    loopTag = "flippedsmile"
+                },
+                new CustomSay()
+                {
+                    //flipped = true,
+                    who = "comp",
+                    Text = "We are about to be attacked. If you have magical powers, we could use your help.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = grunan,
+                    Text = "I have more important things to worry about.",
                     loopTag = "flipped"
+                },
+                new CustomSay()
+                {
+                    //flipped = true,
+                    who = "comp",
+                    Text = "...",
+                    loopTag = "worried"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = grunan,
+                    Text = "Fine, I will see what I can do.",
+                    loopTag = "flippedannoyed"
                 },
 
             }
@@ -102,7 +151,7 @@ internal static class GrunanStory
                 new CustomSay()
                 {
                     who = grunan,
-                    Text = "So when we leave, will we be returning to a point in the far future?",
+                    Text = "So when we leave, will time have passed outside this little bubble?",
                     loopTag = "squint"
                 },
                 new CustomSay()
@@ -115,8 +164,8 @@ internal static class GrunanStory
                 new CustomSay()
                 {
                     who = grunan,
-                    Text = "...Right.",
-                    loopTag = "panic"
+                    Text = "...Right. That is definitely not concerning at all.",
+                    loopTag = "Panic"
                 },
             }
         };

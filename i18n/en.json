@@ -9,6 +9,13 @@
           "Angder is chaotic, violent, and has a love of combat. He often goes <c=boldPink>missing</c> for extended periods in order to steal from and damage the enemy ship."
       ]
     },
+    "Grunan": {
+      "name": "Grunan",
+      "description": [ 
+          "<c=06402B>GRUNAN</c>",
+          "Grunan is a self proclaimed space necromancer. She specializes in <c=boldPink>powerful cards</c> that are <c=downside>single use</c>."
+      ]
+    },
     "Butler": {
       "name": "D26",
       "Trash" : "D26 Service Droid",
@@ -25,7 +32,7 @@
 
     "SalvageArm":{
         "name": "CLAW",
-        "description": "Every third turn after the start of combat, Move a card of your choice from your exhaust pile to your hand."
+        "description": "Every third turn after the start of combat, Move a card of your choice from your exhaust pile to your hand. <c=downside>Can only active 10 times each combat.</c>"
     },
     "VacuumCleaner":{
         "name": "VACUUM",
@@ -73,8 +80,59 @@
       "name": "SHIPS MANIFEST",
       "description": "At the start of combat, gain 3 <c=status>PLANNED HEIST</c>. <c=status>PLANNED HEIST</c> grants an extra card when triggered."
     },
+
+
+
+    "BookofReading": {
+      "name": "GUIDE TO PROPER CAPITALIZATION",
+      "description": "Gain 1 extra <c=energy>ENERGY</c> and draw one card the first time you play a text card each turn."
+    },
+    "Ritualofair": {
+      "name": "IMP WINGS",
+      "description": "Gain one <c=card>WINGS</c> at the start of each combat.</c>"
+    },
+    "Darkness": {
+      "name": "DARKNESS",
+      "description": "Gain 1 extra <c=energy>ENERGY</c> every turn. <c=downside>When picked up, add 3 non-temporary <c=card>Abyssal Vision</c> cards to your deck."
+    },
+    "WitchesWeekly": {
+    "name": "WITCHES WEEKLY",
+    "description": "At the start of each combat, you may add one of three common <c=06402B>GRUNAN</c> cards to your hand! That is a FREE CARD every combat! You may also reject the card choice! Wow!"
+    },
+    "BurningEffigy": {
+    "name": "SNAKE PLUSHY",
+    "description": "Every 3 Single Use cards played in combat grants 1 <c=status>OVERDRIVE.</c>"
+    },
+
   },
   "card": {
+
+  //GRUNAN <c=06402B> </c>
+        "Salve": {"name": "Salve" },
+      "BareMinimum": {"name": "The Bare Minimum" },
+      "Tome": {"name": "Spellbook", "description": {"None": "Add two Grunan cards to hand, from 2 choices each time.", "A": "Add two Grunan cards to hand, from 4 choices each time.", "B": "Add three Grunan cards to hand, from 2 choices each time."}}, 
+      "EndlessResearch": {"name": "Endless Research", "description": {"None": {"False": "Add one new Grunan card, from 3 choices, to your hand", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "A": {"False": "Add one new Grunan card from 4 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "B":  {"False": "Add one new card from any deck, from 5 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}}},      
+      "Fireball": {"name": "Fireball" },  
+      "Empower": {"name": "Empower", "description": {"None": "Choose 2 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "A": "Choose 3 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "B": "Choose 2 <c=cardtrait>Single Use</c> cards in your deck. Upgrade them."}}, 
+      "Teleport": {"name": "Teleport" },  
+      "Flow": {"name": "Field Study",  "description": {"None": "Choose between three cards to add to your hand.", "A": "Choose between five cards to add to your hand.", "B": "Add three Random triple discounted cards to your hand."}},  
+      "Shatter": {"name": "Decay"},
+      "Greed": {"name": "Curse of Avarice" },
+      "CardMagicMissile": {"name": "Magic Missile" },
+      "Trails": {"name": "Wings" },
+      "ConsumeSoul": {"name": "Steal Soul" },
+      "Iceblast": {"name": "Iceblast" },
+      "CardMemory": {"name": "Research Notes" },
+      "Bloodritual": {"name": "Ritual of Flame",  "description": {"None": "Add a <c=card>Fireball</c> to your discard pile. Attack for {{damage}}.", "A": "Add a <c=card>Fireball</c> to your discard pile. Attack for {{damage2}}.", "B": "Add <c=card>Fireballs</c> to discard based on hand size. Exhaust hand."}},
+      "GlimpseTheVoid": {"name": "Glimpse The Void"},
+      "CardTimestop": {"name": "End of Time"},
+      "Necromancy": {"name": "Necromancy",  "description": {"None": "Attack damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>", "A": "Attack damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>", "B": "Arcane bolt damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>"}},
+      "MagicShield": {"name": "Barrier"},
+
+      "RitualDec": {"name": "Ritual of Decay",  "description": {"None": "Add 3 <c=card>Decay</c> cards to your discard pile", "A": "Add 3 <c=card>Decay</c> cards to your discard pile, then Shatter for <c=boldPink>{{damage}}</c>", "B": "Add 4 <c=card>Decay</c> cards to your hand, <c=downside>take 1 hull damage.</c>"}},
+      "Sigil": {"name": "Sigil of Protection"},
+      "Ritual":{"name": "Circle of Protection",  "description": {"None": "Add two <c=card>Sigil Of Protection</c> cards to your discard pile", "A": "Add three <c=card>Sigil Of Protection</c> cards to your discard pile", "B": "Add one <c=card>Barrier</c> card to your discard pile"}},
+      
       "Garbage": {"name": "Garbage" },
 
       "ScrapCannon": {"name": "Scrap Cannon" },
@@ -153,6 +211,14 @@
    "Remotecontrol": {
         "name" : "Remote Control", 
         "description": "This card can be used while its owner is missing."
+           },
+   "Consuming": {
+        "name" : "VOIDTOUCHED", 
+        "description": "This card does not trigger <status>THE VOID STARES BACK.</c>"
+    },
+    "Untrashable": {
+        "name" : "Single Use", 
+        "description": "Playing this card would usually <c=downside>completely remove it from your deck.</c> It is currently being protected by <c=status>WRITTEN NOTES</c>."
     },
   },
   "status": {
@@ -165,7 +231,7 @@
         "description" : "If <c=3A4999>Angder</c> is missing at start of your turn: add a 0 cost card into your hand from Angder's haul, <c=downside>then decreases by 1.</c>",
     },
                     "DisposalProcess": {
-        "name": "Disposal Process",
+        "name": "DISPOSAL PROCESS",
         "description" : "Every time you play a card from the trash deck, draw {0}.",
     },
                 "FuelSiphon": {
@@ -205,8 +271,23 @@
 
     },
     "Warmode": {
-        "name": "The Old code.",
+        "name": "THE OLD CODE.",
         "description" : "Every time you play a card from the trash deck, attack for {0}.",
+
+    },
+        "Voidsight": {
+        "name": "THE VOID STARES BACK.",
+        "description" : "When a card is added to your deck in combat, add {0} copies to your discard pile. <c=downside>Effects all cards, including trash.</c>",
+
+    },
+        "EldrichAttention": {
+        "name": "SOMETHING IS LISTENING.",
+        "description" : "At the start of each turn, gain this much <status>THE VOID STARES BACK.</c>",
+
+    },
+    "Memory": {
+    "name": "WRITTEN NOTES.",
+    "description" : "The next {0} single use cards you play will exhaust instead.",
 
     },
   },
@@ -220,6 +301,10 @@
     "AVariableHintExhaustThree" : {
         "name": "",
         "description": "<c=action>X</c> = 1 for every 3 Exhausted cards."
+                                }, 
+    "Shatter" : {
+        "name": "ARCANE BOLT",
+        "description": "Deal damage directly to the enemy ship, regardless of relative positions."
                                 }, 
     "AVariableHintExhaustSix" : {
         "name": "",
@@ -265,7 +350,7 @@
                         }
     },
     "Overdriveno": {
-        "name": "Reliable",
+        "name": "RELIABLE",
         "description" : {
             "Damage": "This action deals a set amount of damage per shot, it cannot be modified by status effects or artifacts.",
              }
@@ -273,8 +358,7 @@
   },
     "Midrow": {
     "Trashbag": {
-      "name": "Trashbag",
+      "name": "TRASHBAG",
       "description": "Will block one attack. When destroyed, puts a <c=card>TRASH</c> into your hand."
     },
   }
-

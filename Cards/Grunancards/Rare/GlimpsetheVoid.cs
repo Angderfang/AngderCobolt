@@ -29,8 +29,8 @@ internal sealed class GlimpseTheVoid : Card, IAngderCard
     {
         CardData data = new CardData()
         {
-            //art = ModEntry.Instance.Maid_Chute.Sprite,
-            cost = upgrade == Upgrade.A ? 0 : upgrade == Upgrade.B ? 2 : 1,
+            art = ModEntry.Instance.Eldrich.Sprite,
+            cost = upgrade == Upgrade.A ? 1 : upgrade == Upgrade.B ? 2 : 2,
             exhaust = true,
             singleUse = false,
         };
@@ -74,7 +74,7 @@ internal sealed class GlimpseTheVoid : Card, IAngderCard
                     new AStatus()
                     {
                         status = ModEntry.Instance.Voidsight.Status,
-                        statusAmount = 3,
+                        statusAmount = 2,
                         targetPlayer = true
                     },
 

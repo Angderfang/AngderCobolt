@@ -31,7 +31,7 @@ internal sealed class Flow : Card, IAngderCard
         CardData data = new CardData()
         {
             description = ModEntry.Instance.Localizations.Localize(["card", "Flow", "description", upgrade.ToString()]),
-            //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
+            art = ModEntry.Instance.Bookscard.Sprite,
             cost = 0,
             singleUse = true,
         };

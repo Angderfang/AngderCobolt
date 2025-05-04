@@ -31,7 +31,7 @@ internal sealed class SpellBook : Card, IAngderCard
         CardData data = new CardData()
         {
             description = ModEntry.Instance.Localizations.Localize(["card", "Tome", "description", upgrade.ToString()]),
-            //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
+            art = ModEntry.Instance.Bookscard.Sprite,
             cost = upgrade == Upgrade.B ? 0 : 1,
             singleUse = true
         };

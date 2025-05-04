@@ -33,6 +33,7 @@ internal sealed class EndlessResearch : Card, IAngderCard //IHasCustomCardTraits
     {
         CardData data = new CardData()
         {
+            art = ModEntry.Instance.Bookscard.Sprite,
             description = ModEntry.Instance.Localizations.Localize(["card", "EndlessResearch", "description", upgrade.ToString(), flipped.ToString()]),
             //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
             cost = 0,
