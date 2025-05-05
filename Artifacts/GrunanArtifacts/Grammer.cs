@@ -29,12 +29,15 @@ internal sealed class BookofReading : Artifact, IAngderArtifact
     {
         Readup = false;
     }
-
+    public override void OnTurnStart(State s, Combat c)
+    {
+        Readup = false;
+    }
     public override void OnPlayerPlayCard(int energyCost, Deck deck, Card card, State state, Combat combat, int handPosition, int handCount)
     {
         CardData data = card.GetData(state);
 
-        if (data.description != null)
+        if (data.description != null && Readup != true)
         {
             Pulse();
             combat.QueueImmediate(new AEnergy()
