@@ -65,6 +65,9 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Fireball { get; }
     internal ISpriteEntry Candle { get; }
     internal ISpriteEntry Decay { get; }
+    internal ISpriteEntry Bookscard { get; }
+    internal ISpriteEntry RitualBase { get; }
+    internal ISpriteEntry Eldrich { get; }
 
     //BUTLER Card arts
     internal ISpriteEntry Maid_Trashfire { get; }
@@ -376,12 +379,16 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry GrunanSmileTalk { get; }
     internal ISpriteEntry GrunanFlipped { get; }
     internal ISpriteEntry GrunanFlippedTalk { get; }
+    internal ISpriteEntry GrunanFlippedSmile { get; }
     internal ISpriteEntry GrunanPanic { get; }
     internal ISpriteEntry GrunanPanicTalk { get; }
     internal ISpriteEntry GrunanFlippedPain { get; }
     internal ISpriteEntry GrunanFlippedPainTalk { get; }
     internal ISpriteEntry GrunanFlippedRelax { get; }
     internal ISpriteEntry GrunanFlippedRelaxTalk { get; }
+
+    internal ISpriteEntry GrunanFlippedAnnoyed { get; }
+    internal ISpriteEntry GrunanFlippedAnnoyedTalk { get; }
     //traitstuff
     internal ICardTraitEntry Consuming { get; private set; } = null!;
     internal ISpriteEntry ConsumingSprite { get; private set; } = null!;
@@ -1142,7 +1149,9 @@ public sealed class ModEntry : SimpleMod
         Fireball = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Fireball.png"));
         Candle = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Ritualfire.png"));
         Decay = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Decay.png"));
-
+        RitualBase = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Ritualbase.png"));
+        Bookscard = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Books.png"));
+        Eldrich = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Eldrich.png"));
 
         GrunanMini = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_character_mini_0.png"));
         GrunanNeutral = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral.png"));
@@ -1158,8 +1167,9 @@ public sealed class ModEntry : SimpleMod
         Grunanhandtalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanHandtalk.png"));
         GrunanFacepalm = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Facepalm.png"));
         GrunanFacepalmTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Facepalm_talk.png"));
-        GrunanFlipped = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanFlipped.png"));
-        GrunanFlippedTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanFlippedtalk.png"));
+        GrunanFlipped = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped.png"));
+        GrunanFlippedTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_talk.png"));
+        GrunanFlippedSmile = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_smile.png"));
         GrunanPanic = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic.png"));
         GrunanPanicTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic_talk.png"));
 
@@ -1169,19 +1179,20 @@ public sealed class ModEntry : SimpleMod
         GrunanFlippedRelax = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_relaxed.png"));
         GrunanFlippedRelaxTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_relaxed_talk.png"));
 
+        GrunanFlippedAnnoyed = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_annoyed.png"));
+        GrunanFlippedAnnoyedTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_annoyed_talk.png"));
 
 
 
-
-    GrunanDeck = helper.Content.Decks.RegisterDeck("GrunanDeck", new DeckConfiguration()
+        GrunanDeck = helper.Content.Decks.RegisterDeck("GrunanDeck", new DeckConfiguration()
         {
             Definition = new DeckDef()
             {
-                color = new Color("06402B"),
+                color = new Color("597D35"),
                 titleColor = new Color("000000")
             },
-
-            DefaultCardArt = Grunan_Character_CardBackground.Sprite,
+            
+            DefaultCardArt = RitualBase.Sprite,
             BorderSprite = Grunan_CardFrame.Sprite,
             Name = this.AnyLocalizations.Bind(["character", "Grunan", "name"]).Localize,
         });
@@ -1219,11 +1230,25 @@ public sealed class ModEntry : SimpleMod
                 GrunanNeutral.Sprite,
                 GrunanNeutralTalk.Sprite,
                 GrunanNeutral.Sprite,
-                GrunanNeutralTalk2.Sprite,
+                GrunanNeutralTalk.Sprite,
                 GrunanNeutral.Sprite,
             }
         });
-        
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanFlippedAnnoyed", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "flippedannoyed",
+            Frames = new[]
+            {
+                GrunanFlippedAnnoyed.Sprite,
+                GrunanFlippedAnnoyedTalk.Sprite,
+                GrunanFlippedAnnoyed.Sprite,
+                GrunanFlippedAnnoyedTalk.Sprite,
+                GrunanFlippedAnnoyed.Sprite,
+            }
+        });
+
         helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanbook", new CharacterAnimationConfigurationV2()
         {
             CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
@@ -1326,6 +1351,21 @@ public sealed class ModEntry : SimpleMod
                 GrunanFlipped.Sprite,
             }
         });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanflippedsmile", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "flippedsmile",
+            Frames = new[]
+            {
+                GrunanFlippedSmile.Sprite,
+                GrunanFlippedTalk.Sprite,
+                GrunanFlippedSmile.Sprite,
+                GrunanFlippedTalk.Sprite,
+                GrunanFlippedSmile.Sprite,
+            }
+        });
+
         helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanhand", new CharacterAnimationConfigurationV2()
         {
             CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
