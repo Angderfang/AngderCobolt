@@ -31,7 +31,7 @@ internal sealed class Necromancy : Card, IAngderCard
         {
             description = ModEntry.Instance.Localizations.Localize(["card", "Necromancy", "description", upgrade.ToString()], new { damage = GetInjuredTotal(state) }),
             //art = ModEntry.Instance.Maid_Chute.Sprite,
-            cost = upgrade == Upgrade.A ? 2 : 3,
+            cost = upgrade == Upgrade.A ? 1 : 2,
             exhaust = true,
         };
         return data;

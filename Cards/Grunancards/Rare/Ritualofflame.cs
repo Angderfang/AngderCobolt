@@ -37,7 +37,7 @@ internal sealed class Bloodritual : Card, IAngderCard //IHasCustomCardTraits
             //description = ModEntry.Instance.Localizations.Localize(["card", "EndlessResearch", "description", upgrade.ToString(), flipped.ToString()]),
             description = ModEntry.Instance.Localizations.Localize(["card", "Bloodritual", "description", upgrade.ToString()], new { damage = GetDmg(state, 1), damage2 = GetDmg(state, 2), damage3 = GetDmg(state, GetHandTotal(state))}) ,
             cost = 1,
-            exhaust = false,
+            exhaust = true,
             //floppable = false,
 
         };

@@ -29,7 +29,7 @@ internal sealed class CardMagicShield : Card, IAngderCard
         CardData data = new CardData()
         {
             //art = ModEntry.Instance.Angder_Gatling.Sprite,
-            cost = 2,
+            cost = upgrade == Upgrade.A ? 2 : upgrade == Upgrade.B ? 3 : 2,
             retain = true,
             buoyant = true,
             singleUse = true

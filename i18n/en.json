@@ -12,7 +12,7 @@
     "Grunan": {
       "name": "Grunan",
       "description": [ 
-          "<c=06402B>GRUNAN</c>",
+          "<c=597D35>GRUNAN</c>",
           "Grunan is a self proclaimed space necromancer. She specializes in <c=boldPink>powerful cards</c> that are <c=downside>single use</c>."
       ]
     },
@@ -84,12 +84,12 @@
 
 
     "BookofReading": {
-      "name": "GUIDE TO PROPER CAPITALIZATION",
+      "name": "DICTIONARY",
       "description": "Gain 1 extra <c=energy>ENERGY</c> and draw one card the first time you play a text card each turn."
     },
     "Ritualofair": {
       "name": "IMP WINGS",
-      "description": "Gain one <c=card>WINGS</c> at the start of each combat.</c>"
+      "description": "Add one <c=card>WINGS</c> to your deck at the start of each combat.</c>"
     },
     "Darkness": {
       "name": "DARKNESS",
@@ -97,7 +97,7 @@
     },
     "WitchesWeekly": {
     "name": "WITCHES WEEKLY",
-    "description": "At the start of each combat, you may add one of three common <c=06402B>GRUNAN</c> cards to your hand! That is a FREE CARD every combat! You may also reject the card choice! Wow!"
+    "description": "At the start of each combat, you may add one of three <c=status>common</c> <c=597D35>GRUNAN</c> cards to your hand! You may also reject the card choice!"
     },
     "BurningEffigy": {
     "name": "SNAKE PLUSHY",
@@ -110,10 +110,10 @@
   //GRUNAN <c=06402B> </c>
         "Salve": {"name": "Salve" },
       "BareMinimum": {"name": "The Bare Minimum" },
-      "Tome": {"name": "Spellbook", "description": {"None": "Add two Grunan cards to hand, from 2 choices each time.", "A": "Add two Grunan cards to hand, from 4 choices each time.", "B": "Add three Grunan cards to hand, from 2 choices each time."}}, 
-      "EndlessResearch": {"name": "Endless Research", "description": {"None": {"False": "Add one new Grunan card, from 3 choices, to your hand", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "A": {"False": "Add one new Grunan card from 4 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "B":  {"False": "Add one new card from any deck, from 5 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}}},      
+      "Tome": {"name": "Spellbook", "description": {"None": "Add two <c=597D35>Grunan</c> cards to hand, from 2 choices each time.", "A": "Add two <c=597D35>Grunan</c> cards to hand, from 4 choices each time.", "B": "Add three <c=597D35>Grunan</c> cards to hand, from 2 choices each time."}}, 
+      "EndlessResearch": {"name": "Endless Research", "description": {"None": {"False": "Add one new <c=597D35>Grunan</c> card, from 3 choices, to your hand", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "A": {"False": "Add one new <c=597D35>Grunan</c> card from 4 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}, "B":  {"False": "Add one new card, from 5 choices, to your hand.", "True": "<c=downside>Consumed: There is no more research to be done this battle.</c>"}}},      
       "Fireball": {"name": "Fireball" },  
-      "Empower": {"name": "Empower", "description": {"None": "Choose 2 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "A": "Choose 3 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "B": "Choose 2 <c=cardtrait>Single Use</c> cards in your deck. Upgrade them."}}, 
+      "Empower": {"name": "Empower", "description": {"None": "Choose 2 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "A": "Choose 2 <c=cardtrait>Single Use</c> cards in your hand. Upgrade them.", "B": "Choose a <c=cardtrait>Single Use</c> card. Upgrade and move to your hand."}}, 
       "Teleport": {"name": "Teleport" },  
       "Flow": {"name": "Field Study",  "description": {"None": "Choose between three cards to add to your hand.", "A": "Choose between five cards to add to your hand.", "B": "Add three Random triple discounted cards to your hand."}},  
       "Shatter": {"name": "Decay"},
@@ -126,7 +126,7 @@
       "Bloodritual": {"name": "Ritual of Flame",  "description": {"None": "Add a <c=card>Fireball</c> to your discard pile. Attack for {{damage}}.", "A": "Add a <c=card>Fireball</c> to your discard pile. Attack for {{damage2}}.", "B": "Add <c=card>Fireballs</c> to discard based on hand size. Exhaust hand."}},
       "GlimpseTheVoid": {"name": "Glimpse The Void"},
       "CardTimestop": {"name": "End of Time"},
-      "Necromancy": {"name": "Necromancy",  "description": {"None": "Attack damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>", "A": "Attack damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>", "B": "Arcane bolt damage = hull missing from the enemy ship. <c=boldPink>{{damage}}</c>"}},
+      "Necromancy": {"name": "Necromancy",  "description": {"None": "Attack damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>", "A": "Attack damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>", "B": "Arcane bolt damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>"}},
       "MagicShield": {"name": "Barrier"},
 
       "RitualDec": {"name": "Ritual of Decay",  "description": {"None": "Add 3 <c=card>Decay</c> cards to your discard pile", "A": "Add 3 <c=card>Decay</c> cards to your discard pile, then Shatter for <c=boldPink>{{damage}}</c>", "B": "Add 4 <c=card>Decay</c> cards to your hand, <c=downside>take 1 hull damage.</c>"}},
@@ -271,17 +271,17 @@
 
     },
     "Warmode": {
-        "name": "THE OLD CODE.",
+        "name": "THE OLD CODE",
         "description" : "Every time you play a card from the trash deck, attack for {0}.",
 
     },
         "Voidsight": {
-        "name": "THE VOID STARES BACK.",
-        "description" : "When a card is added to your deck in combat, add {0} copies to your discard pile. <c=downside>Effects all cards, including trash.</c>",
+        "name": "THE VOID STARES BACK",
+        "description" : "When a non-trash card is added to your deck in combat, add {0} copies to your discard pile.",
 
     },
         "EldrichAttention": {
-        "name": "SOMETHING IS LISTENING.",
+        "name": "SOMETHING IS LISTENING",
         "description" : "At the start of each turn, gain this much <status>THE VOID STARES BACK.</c>",
 
     },
@@ -304,7 +304,7 @@
                                 }, 
     "Shatter" : {
         "name": "ARCANE BOLT",
-        "description": "Deal damage directly to the enemy ship, regardless of relative positions."
+        "description": "Piercing Attack that deals damage directly to the enemy ship, regardless of relative positions."
                                 }, 
     "AVariableHintExhaustSix" : {
         "name": "",

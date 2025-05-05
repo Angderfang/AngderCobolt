@@ -39,7 +39,7 @@ internal sealed class Empower : Card, IAngderCard
         {
             description = ModEntry.Instance.Localizations.Localize(["card", "Empower", "description", upgrade.ToString()]),
             //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
-            cost = 1,
+            cost = upgrade == Upgrade.A ? 0 : 1,
             exhaust = true
         };
         return data;
@@ -85,26 +85,11 @@ internal sealed class Empower : Card, IAngderCard
                     filterUpgrade = Upgrade.None,
                     filterUUID = uuid
                     }.ApplyModData(CardBrowseFilterManager.FilterOnlySingleUseKey, true),
-                new ACardSelectImproved
-                    {
-                    browseAction = new UpgradeCardBrowseEmpower(),
-                    browseSource = CardBrowse.Source.Hand,
-                    filterUpgrade = Upgrade.None,
-                    filterUUID = uuid
-                    }.ApplyModData(CardBrowseFilterManager.FilterOnlySingleUseKey, true),
                 };
-
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                new ACardSelectImproved
-                    {
-                    browseAction = new UpgradeCardBrowseEmpower(),
-                    browseSource = CardBrowse.Source.Deck,
-                    filterUpgrade = Upgrade.None,
-                    filterUUID = uuid
-                    }.ApplyModData(CardBrowseFilterManager.FilterOnlySingleUseKey, true),
                 new ACardSelectImproved
                     {
                     browseAction = new UpgradeCardBrowseEmpower(),
