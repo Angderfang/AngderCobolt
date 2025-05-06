@@ -129,7 +129,7 @@
       "Necromancy": {"name": "Necromancy",  "description": {"None": "Attack damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>", "A": "Attack damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>", "B": "Arcane bolt damage = hull missing from the enemy ship. Damage = <c=boldPink>{{damage}}</c>"}},
       "MagicShield": {"name": "Barrier"},
 
-      "RitualDec": {"name": "Ritual of Decay",  "description": {"None": "Add 3 <c=card>Decay</c> cards to your discard pile", "A": "Add 3 <c=card>Decay</c> cards to your discard pile, then Shatter for <c=boldPink>{{damage}}</c>", "B": "Add 4 <c=card>Decay</c> cards to your hand, <c=downside>take 1 hull damage.</c>"}},
+      "RitualDec": {"name": "Ritual of Decay",  "description": {"None": "Add 3 <c=card>Decay</c> cards to your discard pile", "A": "Add 3 <c=card>Decay</c> cards to your discard pile, then Arcane bolt for <c=boldPink>{{damage}}</c>", "B": "Add 4 <c=card>Decay</c> cards to your hand, <c=downside>take 1 hull damage.</c>"}},
       "Sigil": {"name": "Sigil of Protection"},
       "Ritual":{"name": "Circle of Protection",  "description": {"None": "Add two <c=card>Sigil Of Protection</c> cards to your discard pile", "A": "Add three <c=card>Sigil Of Protection</c> cards to your discard pile", "B": "Add one <c=card>Barrier</c> card to your discard pile"}},
       
@@ -277,7 +277,7 @@
     },
         "Voidsight": {
         "name": "THE VOID STARES BACK",
-        "description" : "When a non-trash card is added to your deck in combat, add {0} copies to your discard pile.",
+        "description" : "When a non-trash card is added to your deck in combat, add {0} copies to your discard pile. <downside>Removed at the end of your turn.</c>",
 
     },
         "EldrichAttention": {

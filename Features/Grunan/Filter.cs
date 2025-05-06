@@ -69,10 +69,10 @@ public class CardBrowseFilterManager
                 //Console.WriteLine("Checking");
                 if (doesFilterSingleuse)
                 {
-                    //Console.WriteLine("HELLO2");
-                    //Console.WriteLine(FilterOnlySingleUse);
-                    //Console.WriteLine(c.GetDataWithOverrides(g.state).singleUse);
-                    if (c.GetDataWithOverrides(g.state).singleUse != FilterOnlySingleUse || GrunanTraitManager.IsUntrashable(c, g.state))
+                //Console.WriteLine("HELLO2");
+                //Console.WriteLine(FilterOnlySingleUse);
+                //Console.WriteLine(c.GetDataWithOverrides(g.state).singleUse);
+                if (c.GetDataWithOverrides(g.state).singleUse != FilterOnlySingleUse && GrunanTraitManager.IsUntrashable(c, g.state) == false)
                     {
                         //Console.WriteLine("FILTERED");
                         return true;
