@@ -40,7 +40,7 @@ internal sealed class EnergySiphon : Artifact, IAngderArtifact
     }
     public override List<Tooltip>? GetExtraTooltips()
     => StatusMeta.GetTooltips(ModEntry.Instance.Angdermissing.Status, 1); //.Concat(StatusMeta.GetTooltips(ModEntry.Instance.Rampage.Status, 1));
-
+    
     public override void AfterPlayerStatusAction(State state, Combat combat, Status status, AStatusMode mode, int statusAmount)
     {
         if (status == ModEntry.Instance.Angdermissing.Status && mode == AStatusMode.Add && statusAmount > 0 && stateset == false)
