@@ -9,7 +9,7 @@ internal sealed class TheftManager : IStatusLogicHook
     public TheftManager()
     {
         /* We task Kokoro with the job to register our status into the game */
-        Instance.KokoroApi.RegisterStatusLogicHook(this, 1);
+        Instance.KokoroApiold.RegisterStatusLogicHook(this, 1);
     }
     public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
     {

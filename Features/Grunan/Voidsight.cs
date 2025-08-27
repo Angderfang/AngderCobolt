@@ -14,18 +14,8 @@ internal sealed class VoidManager : IStatusLogicHook
     public VoidManager()
     {
 
-        /* We task Kokoro with the job to register our status into the game */
-        Instance.KokoroApi.RegisterStatusLogicHook(this, 1);
+        Instance.KokoroApiold.RegisterStatusLogicHook(this, 1);
 
-        /*
-        ModEntry.Instance.Helper.Events.RegisterAfterArtifactsHook(nameof(Artifact.OnQueueEmptyDuringPlayerTurn), (State state, Combat combat) =>
-        {
-            if (triggered == true)
-            {
-                triggered = false;
-            }
-        });
-        */
         ModEntry.Instance.Helper.Events.RegisterAfterArtifactsHook(nameof(Artifact.OnPlayerRecieveCardMidCombat), (State state, Combat combat, Card card) =>
         {
             int count = state.ship.Get(ModEntry.Instance.Voidsight.Status);
@@ -53,7 +43,7 @@ internal sealed class VoidManager : IStatusLogicHook
                         targetPlayer = true
                     }); */
                 };
-                if (0 < state.ship.Get(ModEntry.Instance.Memory.Status))
+                if (0 < state.ship.Get(ModEntry.Instance.Memory.Status) && GrunanTraitManager.IsVoid(card, state) != true)
                 {
                     combat.Queue(new Refreshnotes()
                     {
@@ -65,7 +55,6 @@ internal sealed class VoidManager : IStatusLogicHook
         
 
     }
-    
     public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
     {
         if (status != Instance.Voidsight.Status)
@@ -73,13 +62,16 @@ internal sealed class VoidManager : IStatusLogicHook
         if (timing != StatusTurnTriggerTiming.TurnEnd)
             return false;
         //triggered = false;
+        if (state.ship.Get(Status.timeStop) == 0 && state.ship.Get(Instance.Voidsight.Status) > 0) 
+        {
             combat.Queue(new AStatus()
             {
                 status = ModEntry.Instance.Voidsight.Status,
                 statusAmount = 0,
                 targetPlayer = true,
-                mode= AStatusMode.Set
+                mode = AStatusMode.Set
             });
+        }
         return false;
     }
     

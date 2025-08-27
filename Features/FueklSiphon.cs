@@ -3,36 +3,35 @@ using Angder.EchoesOfTheFuture.Cards;
 using System.Linq;
 
 namespace Angder.EchoesOfTheFuture;
-internal sealed class FuelDumpManager : IStatusLogicHook
+internal sealed class SiphonManager : IStatusLogicHook
 {
     public static ModEntry Instance => ModEntry.Instance;
-    public FuelDumpManager()
+    public SiphonManager()
     {
         /* We task Kokoro with the job to register our status into the game */
         Instance.KokoroApiold.RegisterStatusLogicHook(this, 1);
     }
+    
     public bool HandleStatusTurnAutoStep(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status, ref int amount, ref StatusTurnAutoStepSetStrategy setStrategy)
     {
-        if (status != Instance.FuelDiscard.Status)
+        if (status != Instance.FuelSiphon.Status)
             return false;
-        if (timing != StatusTurnTriggerTiming.TurnEnd)
+        if (timing != StatusTurnTriggerTiming.TurnStart)
             return false;
 
 
-        /* Theft */
 
-
-        if (ship.Get(ModEntry.Instance.FuelDiscard.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
+        if (ship.Get(ModEntry.Instance.FuelSiphon.Status) > 0 && ship.Get(ModEntry.Instance.Angdermissing.Status) > 0)
         {
             combat.Queue(new AStatus()
             {
-                status = Status.lockdown,
+                status = Status.evade,
                 statusAmount = 1,
-                targetPlayer = false
+                targetPlayer = true
             });
                 combat.Queue(new AStatus()
                 {
-                    status = ModEntry.Instance.FuelDiscard.Status,
+                    status = ModEntry.Instance.FuelSiphon.Status,
                     statusAmount = -1,
                     targetPlayer = true
                 });

@@ -39,9 +39,10 @@ namespace Angder.EchoesOfTheFuture.Features.Grunan
         };
         }
 
-        public override Icon? GetIcon(State s)
-        {
-            return new Icon(Spr.icons_upgradeCard, 1, Colors.textMain);
-        }
+        ////public override Icon? GetIcon(State s)
+        //{
+
+            //return new Icon(ModEntry.Instance.ShatterIcon.Sprite, 1, Colors.textMain);
+        //}
     }
 }

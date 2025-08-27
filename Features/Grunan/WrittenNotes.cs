@@ -12,7 +12,7 @@ internal sealed class WrittenManager : IStatusLogicHook
     public WrittenManager()
     {
         /* We task Kokoro with the job to register our status into the game */
-        Instance.KokoroApi.RegisterStatusLogicHook(this, 1);
+        Instance.KokoroApiold.RegisterStatusLogicHook(this, 1);
 
         
         ModEntry.Instance.Helper.Events.RegisterAfterArtifactsHook(nameof(Artifact.OnCombatEnd), (State state) =>

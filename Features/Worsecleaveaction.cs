@@ -9,7 +9,7 @@ namespace Angder.EchoesOfTheFuture;
 
 //This is called "worseCleaveAction" because originally it was meant to be replaced. Then the rpelacement fell through and I patched this to be not as awful.
 
-public class CleaveAction : CardAction
+public class CleaveAction : AAttack
 {
     public bool TargetPlayer;
     public required int Damage;
@@ -71,7 +71,7 @@ public class CleaveAction : CardAction
             {
                 icon = ModEntry.Instance.Cleavelongright;
                 key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::Long";
-                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Right"]);
+                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "RightLong"]);
                 description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Right"], new { Long = Length + 1, truedamage });
             }
             else
@@ -88,7 +88,7 @@ public class CleaveAction : CardAction
             {
                 icon = ModEntry.Instance.Cleavelongleft;
                 key = $"{ModEntry.Instance.Package.Manifest.UniqueName}::Cleave::Long";
-                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "Left"]);
+                name = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "name", "LeftLong"]);
                 description = ModEntry.Instance.Localizations.Localize(["action", "Cleave", "description", "Left"], new { Long = Length + 1, truedamage });
             }
             else
