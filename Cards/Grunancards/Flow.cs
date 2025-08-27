@@ -65,7 +65,7 @@ internal sealed class Flow : Card, IAngderCard
                     //limitDeck = ModEntry.Instance.GrunanDeck.Deck,
                     makeAllCardsTemporary = false,
                     overrideUpgradeChances = false,
-                    canSkip = true,
+                    canSkip = false,
                     inCombat = true,
                     },
                 };

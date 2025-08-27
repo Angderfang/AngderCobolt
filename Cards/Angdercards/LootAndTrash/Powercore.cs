@@ -30,7 +30,7 @@ internal sealed class CardLootPowercore : Card, IAngderCard
             cost = 0,
             exhaust = true,
             temporary = true,
-            retain = upgrade == Upgrade.B ? true : false,
+            retain = true,
 
         };
         return data;
@@ -68,7 +68,13 @@ internal sealed class CardLootPowercore : Card, IAngderCard
                     new AEnergy()
                     {
                         changeAmount = 1,
-                    }
+                    },
+                    new AStatus()
+                    {
+                        status = Status.energyNextTurn,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
                 };
                 break;
         }

@@ -86,7 +86,7 @@ internal sealed class EndlessResearch : Card, IAngderCard //IHasCustomCardTraits
                 {
                 new ACardOffering
                     {
-                    amount = 5,
+                    amount = 4,
                     //limitDeck = ModEntry.Instance.AngderDeck.Deck,
                     makeAllCardsTemporary = false,
                     overrideUpgradeChances = false,

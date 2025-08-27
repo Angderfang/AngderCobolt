@@ -46,9 +46,9 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
                 actions = new()
                 {
 
-                ModEntry.Instance.KokoroApi.ActionCosts.Make(
-                    cost: ModEntry.Instance.KokoroApi.ActionCosts.Cost(
-                        resource: ModEntry.Instance.KokoroApi.ActionCosts.StatusResource(
+                ModEntry.Instance.KokoroApiold.ActionCosts.Make(
+                    cost: ModEntry.Instance.KokoroApiold.ActionCosts.Cost(
+                        resource: ModEntry.Instance.KokoroApiold.ActionCosts.StatusResource(
                             status: ModEntry.Instance.Angdermissing.Status,
                             //target: IKokoroApi.IActionCostApi.StatusResourceTarget.EnemyWithOutgoingArrow,
                             costUnsatisfiedIcon: ModEntry.Instance.Angdermissingun.Sprite,
@@ -71,9 +71,9 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
                 actions = new()
                 {
 
-                ModEntry.Instance.KokoroApi.ActionCosts.Make(
-                    cost: ModEntry.Instance.KokoroApi.ActionCosts.Cost(
-                        resource: ModEntry.Instance.KokoroApi.ActionCosts.StatusResource(
+                ModEntry.Instance.KokoroApiold.ActionCosts.Make(
+                    cost: ModEntry.Instance.KokoroApiold.ActionCosts.Cost(
+                        resource: ModEntry.Instance.KokoroApiold.ActionCosts.StatusResource(
                             status: ModEntry.Instance.Angdermissing.Status,
                             //target: IKokoroApi.IActionCostApi.StatusResourceTarget.EnemyWithOutgoingArrow,
                             costUnsatisfiedIcon: ModEntry.Instance.Angdermissingun.Sprite,
@@ -95,9 +95,9 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
                 actions = new()
                 {
 
-                ModEntry.Instance.KokoroApi.ActionCosts.Make(
-                    cost: ModEntry.Instance.KokoroApi.ActionCosts.Cost(
-                        resource: ModEntry.Instance.KokoroApi.ActionCosts.StatusResource(
+                ModEntry.Instance.KokoroApiold.ActionCosts.Make(
+                    cost: ModEntry.Instance.KokoroApiold.ActionCosts.Cost(
+                        resource: ModEntry.Instance.KokoroApiold.ActionCosts.StatusResource(
                             status: ModEntry.Instance.Angdermissing.Status,
                             //target: IKokoroApi.IActionCostApi.StatusResourceTarget.EnemyWithOutgoingArrow,
                             costUnsatisfiedIcon: ModEntry.Instance.Angdermissingun.Sprite,
@@ -110,9 +110,9 @@ internal sealed class CardExtractionflare : Card, IAngderCard, IHasCustomCardTra
                         damage = GetDmg(s, 4)
                     }
                 ),
-                ModEntry.Instance.KokoroApi.ActionCosts.Make(
-                    cost: ModEntry.Instance.KokoroApi.ActionCosts.Cost(
-                        resource: ModEntry.Instance.KokoroApi.ActionCosts.StatusResource(
+                ModEntry.Instance.KokoroApiold.ActionCosts.Make(
+                    cost: ModEntry.Instance.KokoroApiold.ActionCosts.Cost(
+                        resource: ModEntry.Instance.KokoroApiold.ActionCosts.StatusResource(
                             status: ModEntry.Instance.Angdermissing.Status,
                             //target: IKokoroApi.IActionCostApi.StatusResourceTarget.EnemyWithOutgoingArrow,
                             costUnsatisfiedIcon: ModEntry.Instance.Angdermissingun.Sprite,

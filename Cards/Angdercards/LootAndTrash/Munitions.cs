@@ -29,7 +29,8 @@ internal sealed class CardStolenMunitions : Card, IAngderCard
             art = ModEntry.Instance.Angder_Crates.Sprite,
             cost = 0,
             exhaust = true,
-            temporary = true
+            temporary = true,
+            retain = true
         };
         return data;
     }
@@ -43,9 +44,11 @@ internal sealed class CardStolenMunitions : Card, IAngderCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack()
+                    new AStatus()
                     {
-                        damage = GetDmg(s, 2)
+                        status = Status.shield,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
 
 
@@ -55,26 +58,22 @@ internal sealed class CardStolenMunitions : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack()
+                    new AStatus()
                     {
-                        damage = GetDmg(s, 4)
+                        status = Status.shield,
+                        statusAmount = 2,
+                        targetPlayer = true
                     },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack()
+                    new AStatus()
                     {
-                        damage = GetDmg(s, 1)
-                    },
-                    new AAttack()
-                    {
-                        damage = GetDmg(s, 1)
-                    },
-                    new AAttack()
-                    {
-                        damage = GetDmg(s, 1)
+                        status = Status.maxShield,
+                        statusAmount = 2,
+                        targetPlayer = true
                     },
                 };
                 break;

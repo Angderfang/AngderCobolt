@@ -11,6 +11,7 @@ internal static class EnemyDialogue
 
     internal static void Inject()
     {
+        string grunan = ModEntry.Instance.GrunanDeck.Deck.Key();
         string Angder = Instance.AngderDeck.Deck.Key();
         //Jumbo?
         DB.story.all["Miner_Angder"] = new()
@@ -57,7 +58,7 @@ internal static class EnemyDialogue
                 new CustomSay()
                 {
                     who = "miner",
-                    Text = "Let me lend you some more ammunition.",
+                    Text = "Let me lend you some ammunition.",
                     loopTag = "neutral"
                 },
             }
@@ -231,6 +232,12 @@ internal static class EnemyDialogue
                 {
                     who = Angder,
                     Text = "Always love fighting a genuine monster.", //Wow, rude Angder. If Grunan was here, she would respond with something like : "ANGDER! Don't call random creatures monsters (Though to be fair this one does eat people)"
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = grunan,
+                    Text = "Just because it has tentacles doesn't make it a monster.", //Wow, rude Angder. If Grunan was here, she would respond with something like : "ANGDER! Don't call random creatures monsters (Though to be fair this one does eat people)"
                     loopTag = "neutral"
                 },
             }

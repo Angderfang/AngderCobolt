@@ -30,7 +30,8 @@ internal sealed class CardCoolRocket : Card, IAngderCard
             art = ModEntry.Instance.Angder_Crates.Sprite,
             cost = 0,
             exhaust = true,
-            temporary = true
+            temporary = true,
+            retain = true,
         };
         return data;
     }
@@ -43,13 +44,9 @@ internal sealed class CardCoolRocket : Card, IAngderCard
                 actions = new()
                 {
 
-                    new ASpawn()
+                    new ADrawCard()
                     {
-                        thing = new Missile()
-                        {
-                        yAnimation = 0.0,
-                        missileType = MissileType.normal
-                        }
+                        count = 2,
                     },
 
                 };
@@ -58,38 +55,20 @@ internal sealed class CardCoolRocket : Card, IAngderCard
             case Upgrade.A:
                 actions = new()
                 {
-
-                    new ASpawn()
+                    new ADrawCard()
                     {
-                        thing = new Missile()
-                        {
-                        yAnimation = 0.0,
-                        missileType = MissileType.normal
-                        }
-                    },
-                    new ASpawn()
-                    {
-                        offset = 1,
-                        thing = new Missile()
-                        {
-                        yAnimation = 0.0,
-                        
-                        missileType = MissileType.normal
-                        }
-                        
+                        count = 3,
                     },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn()
+                    new AStatus()
                     {
-                        thing = new Missile()
-                        {
-                        yAnimation = 0.0,
-                        missileType = MissileType.heavy
-                        }
+                        status = Status.drawNextTurn,
+                        statusAmount = 4,
+                        targetPlayer = true
                     },
                 };
                 break;

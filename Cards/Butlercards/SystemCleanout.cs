@@ -59,7 +59,13 @@ internal sealed class CardSystemCleanout : Card, IAngderCard
                        xHint = 1,
                        targetPlayer = true
                     },
-
+                    new AStatus()
+                    {
+                       status = Status.tempShield,
+                       statusAmount = Exhaustcount/3,
+                       xHint = 1,
+                       targetPlayer = true
+                    },
                     /* */
 
                 };

@@ -76,7 +76,7 @@ internal sealed class SpellBook : Card, IAngderCard
                 {
                 new ACardOffering
                     {
-                    amount = 5,
+                    amount = 4,
                     limitDeck = ModEntry.Instance.GrunanDeck.Deck,
                     makeAllCardsTemporary = false,
                     overrideUpgradeChances = false,
@@ -85,12 +85,9 @@ internal sealed class SpellBook : Card, IAngderCard
                     //discount = -1,
                     //dialogueSelector = ".summonAngder"
                     },
-                };
-                actions = new()
-                {
                 new ACardOffering
                     {
-                    amount = 5,
+                    amount = 4,
                     limitDeck = ModEntry.Instance.GrunanDeck.Deck,
                     makeAllCardsTemporary = false,
                     overrideUpgradeChances = false,

@@ -35,7 +35,8 @@ internal sealed class Shatter : Card, IAngderCard
             //description = ModEntry.Instance.Localizations.Localize(["card", "Shatter", "description", upgrade.ToString()]),
             //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
             cost = 0,
-            singleUse = true,
+            singleUse = upgrade == Upgrade.B ? false : true,
+            exhaust = upgrade == Upgrade.B ? true : false,
         };
         return data;
     }
@@ -80,7 +81,7 @@ internal sealed class Shatter : Card, IAngderCard
                 {
                 new AShatter
                     {
-                    hurtAmount = GetDmg(s,4),
+                    hurtAmount = GetDmg(s,2),
                     targetPlayer = false,
                     },
                 };

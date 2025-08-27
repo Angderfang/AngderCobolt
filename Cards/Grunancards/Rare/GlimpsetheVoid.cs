@@ -30,9 +30,9 @@ internal sealed class GlimpseTheVoid : Card, IAngderCard
         CardData data = new CardData()
         {
             art = ModEntry.Instance.Eldrich.Sprite,
-            cost = upgrade == Upgrade.A ? 1 : upgrade == Upgrade.B ? 2 : 2,
+            cost = 1,
             exhaust = true,
-            singleUse = false,
+            retain = upgrade == Upgrade.A ? true : false,
         };
         return data;
     }

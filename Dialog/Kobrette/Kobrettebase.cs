@@ -1,20 +1,37 @@
 ﻿namespace Angder.EchoesOfTheFuture;
 
-internal static class GrunanBase
+internal static class KobretteBase
 {
     private static ModEntry Instance => ModEntry.Instance;
 
     internal static void Inject()
     {
-        //NEED TO RWRITE EVERTHING
-        //Damage taken
         string Maid = Instance.ButlerDeck.Deck.Key();
         string Angder = Instance.AngderDeck.Deck.Key();
         string Grunan = Instance.GrunanDeck.Deck.Key();
-        DB.story.all["Grunan_Die"] = new()
+        string Kobrette = Instance.KobretteDeck.Deck.Key();
+
+        DB.story.all["Verybighited_Kobrette"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
+            enemyShotJustHit = true,
+            minDamageDealtToPlayerThisTurn = 6,
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = Kobrette,
+                    Text = "...We have survived worse.",
+                    loopTag = "sad"
+                },
+            }
+        };
+
+        DB.story.all["Kobrette_Die"] = new()
+        {
+            type = NodeType.combat,
+            allPresent = new() { Kobrette },
             oncePerRun = false,
             oncePerCombat = true,
             maxHull = 1,
@@ -25,17 +42,17 @@ internal static class GrunanBase
             {
                 new CustomSay()
                 {
-                    who = Grunan,
-                    Text = "Can we try not to blow up the ship? I am working on something important.",
-                    loopTag = "facepalm"
+                    who = Kobrette,
+                    Text = "We just need to believe.",
+                    loopTag = "shield"
                 },
             }
         };
 
-        DB.story.all["Grunan_unharmed"] = new()
+        DB.story.all["Kobrette_unharmed"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             oncePerRun = false,
             oncePerCombat = true,
             enemyShotJustHit = true,
@@ -49,20 +66,20 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "Pathetic.",
+                            who = Kobrette,
+                            Text = "The hull will hold.",
                             loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "...Is this the worst they can do?",
+                            who = Kobrette,
+                            Text = "Good thing I upgraded the front of the ship.",
                             loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "Disappointing",
+                            who = Kobrette,
+                            Text = "You cannot harm us, villain",
                             loopTag = "neutral"
                         },
                     }
@@ -70,10 +87,10 @@ internal static class GrunanBase
             }
         };
 
-        DB.story.all["Grunan_nearly_harmed"] = new()
+        DB.story.all["Kobrette_nearly_harmed"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             oncePerRun = false,
             oncePerCombat = true,
             enemyShotJustHit = true,
@@ -90,20 +107,20 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "Nothing to worry about.",
+                            who = Kobrette,
+                            Text = "We can fix that later.",
                             loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "You guys can handle this.",
-                            loopTag = "book"
+                            who = Kobrette,
+                            Text = "We are still in good shape.",
+                            loopTag = "neutral"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "No harm done. Yet.",
+                            who = Kobrette,
+                            Text = "We still have the advantage.",
                             loopTag = "neutral"
                         },
                     }
@@ -111,10 +128,10 @@ internal static class GrunanBase
             }
         };
 
-        DB.story.all["Grunan_ouch"] = new()
+        DB.story.all["Kobrette_ouch"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             oncePerRun = false,
             oncePerCombat = true,
             enemyShotJustHit = true,
@@ -129,31 +146,31 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "...You should probably stop them from doing that.",
-                            loopTag = "neutral"
+                            who = Kobrette,
+                            Text = "Bit more than a scratch that time.",
+                            loopTag = "sad"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "You had one job.",
+                            who = Kobrette,
+                            Text = "That wasn't a critical system.",
                             loopTag = "squint"
                         },
                         new CustomSay()
                         {
-                            who = Grunan,
-                            Text = "Damn, I might actually have to do something about that.",
-                            loopTag = "squint"
+                            who = Kobrette,
+                            Text = "That was a nice shot. Next is our turn..",
+                            loopTag = "manic"
                         },
                     }
                 }
             }
         };
 
-        DB.story.all["Grunan_BigOuch"] = new()
+        DB.story.all["Kobrette_BigOuch"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             oncePerRun = false,
             oncePerCombat = true,
             maxHull = 3,
@@ -164,57 +181,28 @@ internal static class GrunanBase
             {
                 new CustomSay()
                 {
-                    who = Grunan,
-                    Text = "Can we try not to blow up the ship? I am working on something important.",
-                    loopTag = "Panic"
+                    who = Kobrette,
+                    Text = "Would surrender be honourable?",
+                    loopTag = "neutral"
                 },
                 new CustomSay()
                 {
-                    who = Grunan,
-                    Text = "Maybe I should take over for a bit. Before we all explode.",
-                    loopTag = "squint"
-                },
-            }
-        };
-
-        DB.story.all["MissingHitting_Grunan"] = new()
-        {
-            type = NodeType.combat,
-            allPresent = new() { Grunan },
-            minDamageDealtToEnemyThisTurn = 1,
-            playerShotJustMissed = true,
-            lines = new()
-            {
-                new SaySwitch()
-                {
-                    lines = new()
-                    {
-                        new CustomSay()
-                        {
-                        who = Grunan,
-                        Text = "So we are only slightly incompetent today.",
-                        loopTag = "neutral"
-                        },
-                        new CustomSay()
-                        {
-                        who = Grunan,
-                        Text = "don't worry, you only need to hit 40% of the time to score a D rank.",
-                        loopTag = "slightsmile"
-                        },
-
-                    }
+                    who = Kobrette,
+                    Text = "We still have the moral highground.",
+                    loopTag = "neutral"
                 },
             }
         };
 
 
-        DB.story.all["Miss_Grunan"] = new()
+
+        DB.story.all["Miss_Kobrette"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             playerShotJustMissed = true,
             maxDamageDealtToEnemyThisAction = 0,
-            whoDidThat = Instance.GrunanDeck.Deck,
+            whoDidThat = Instance.KobretteDeck.Deck,
             doesNotHaveArtifacts = ["Recalibrator", "Grazerbeam"],
             lines = new()
             {
@@ -224,15 +212,15 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "What a waste.",
+                        who = Kobrette,
+                        Text = "Cowards. Face my cannon bravely.",
                         loopTag = "squint"
                         },
 
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "As planned, don't question it.",
+                        who = Kobrette,
+                        Text = "The cannon is confirmed to be operational.",
                         loopTag = "neutral"
                         },
 
@@ -242,13 +230,13 @@ internal static class GrunanBase
                 },
             }
         };
-        DB.story.all["bighit_Grunan"] = new()
+        DB.story.all["bighit_Kobrette"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             playerShotJustHit = true,
             minDamageDealtToEnemyThisTurn = 3,
-            whoDidThat = Instance.GrunanDeck.Deck,
+            whoDidThat = Instance.KobretteDeck.Deck,
             lines = new()
             {
                 new SaySwitch()
@@ -257,22 +245,22 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "Easy.",
-                        loopTag = "slightsmile"
+                        who = Kobrette,
+                        Text = "We do accept surrender you know.",
+                        loopTag = "neutral"
                         },
 
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "I'm suprised they are still flying at all after that one.",
-                        loopTag = "slightsmile"
+                        who = Kobrette,
+                        Text = "Justice!",
+                        loopTag = "manic"
                         },
 
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "Anyone got a mana potion I can borrow?",
+                        who = Kobrette,
+                        Text = "Repent, while there is still time!",
                         loopTag = "neutral"
                         },
 
@@ -282,12 +270,13 @@ internal static class GrunanBase
             }
         };
 
-        DB.story.all["Corrode_Grunan"] = new()
+        DB.story.all["hugehit_Kobrette"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
-            lastTurnPlayerStatuses = new() { Status.corrode },
-            oncePerRun = true,
+            allPresent = new() { Kobrette },
+            playerShotJustHit = true,
+            minDamageDealtToEnemyThisTurn = 6,
+            whoDidThat = Instance.KobretteDeck.Deck,
             lines = new()
             {
                 new SaySwitch()
@@ -296,38 +285,40 @@ internal static class GrunanBase
                     {
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "can we not have the ship melt while I am trying to work?",
-                        loopTag = "hand"
+                        who = Kobrette,
+                        Text = "Even if we fall, your not going to last long with damage like that.",
+                        loopTag = "manic"
                         },
+
 
                     }
                 },
             }
         };
 
-        DB.story.all["Fleeing1_Grunan"] = new()
+
+        DB.story.all["Fleeing1_Kobrette"] = new()
         {
             type = NodeType.combat,
-            allPresent = new() { Grunan },
+            allPresent = new() { Kobrette },
             shipsDontOverlapAtAll = true,
             
             turnStart = false,
             oncePerCombat = true,
-            oncePerCombatTags = new() { "Grunanflee" },
+            oncePerCombatTags = new() { "Kobretteflee" },
             lines = new()
             {
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "Finally, some peace and quiet.",
-                        loopTag = "slightsmile"
+                        who = Kobrette,
+                        Text = "Our cowardice shames us all...",
+                        loopTag = "sad"
                         },
                         new CustomSay()
                         {
-                        who = Grunan,
-                        Text = "I can finally catch up on some light reading",
-                        loopTag = "book"
+                        who = Kobrette,
+                        Text = "I will pretend this is a tactical retreat.",
+                        loopTag = "sad"
                         },
             }
         };

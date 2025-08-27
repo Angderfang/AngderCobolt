@@ -1,0 +1,716 @@
+﻿using System.Linq;
+
+namespace Angder.EchoesOfTheFuture;
+
+internal static class EventDialogue
+{
+    private static ModEntry Instance => ModEntry.Instance;
+
+    internal static void Inject()
+    {
+        string angder = ModEntry.Instance.AngderDeck.Deck.Key();
+        string kobrette = ModEntry.Instance.KobretteDeck.Deck.Key();
+        string Grunan = ModEntry.Instance.GrunanDeck.Deck.Key();
+        string D26 = ModEntry.Instance.ButlerDeck.Deck.Key();
+
+        DB.story.GetNode("AbandonedShipyard_Repaired")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
+        {
+            
+            who = angder,
+            Text = "Now we can take even more damage.",
+            loopTag = "talk"
+            
+        });
+
+        //Intros, Not plots
+
+        DB.story.all["angder_Intro_1"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder },
+            once = true,
+            bg = "BGRunStart",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...what is going on? Where am I?",
+                    loopTag = "grumpy"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "You just came out of Cryosleep.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "What are you doing on my ship? If I had my axe I would~",
+                    loopTag = "grumpy"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Wait... Is this my ship?",
+                    loopTag = "nervous"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "I suppose that depends...",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Do you want it to be?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Yes?",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Then how about helping us defend it, before we all explode again.",
+                    loopTag = "neutral"
+                },
+                /*
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Wait, what do you mean by 'Again'?",
+                    loopTag = "nervous"
+                },
+                */
+            }
+        };
+
+
+        DB.story.all["angder_Intro_2"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder },
+            once = true,
+            bg = "BGRunStart",
+            requiredScenes = ["angder_Intro_1"],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Back here again?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Yes. we are in a timeloop.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I thought we were on a ship.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "...",
+                    loopTag = "squint"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Just go to the bridge already.",
+                    loopTag = "squint"
+                },
+            }
+        };
+
+        DB.story.all["angder_Intro_4"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder },
+            once = true,
+            bg = "BGRunStart",
+            requiredScenes = ["angder_Intro_1"],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I think I am starting to get used to this cycle of waking up here, fighting, and then exploding.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "It actually took less time for you than most.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Though you also took considerably longer to arrive for the first time.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...Like I arrived late to the party.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = "comp",
+                    Text = "Which is suprising as that implies the passage of external time.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I would rather just blow some people up rather than think about what that implies.",
+                    loopTag = "neutral"
+                },
+            }
+        };
+
+        /*
+        DB.story.all["angder_Intro_3"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder },
+            once = true,
+            bg = "BGRunStart",
+            requiredScenes = ["angder_Intro_1"],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Another day... or is it the same day?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "Pretty sure time doesn't move much within the loop.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...Then how come things change?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "The timeloop is unstable, which is fortunate, otherwise it would probably be impossible to escape from.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...And we do that by fighting?",
+                    loopTag = "neutral"
+                },
+            }
+        };
+        */
+
+        //Dizzy Story
+
+
+        DB.story.all["angder_Intro_Dizzy"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder, Deck.dizzy.Key() },
+            requiredScenes = ["angder_Intro_1"],
+            once = true,
+            bg = "BGRunStart",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Aghh. What...?",
+                    loopTag = "grumpy"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = Deck.dizzy.Key(),
+                    Text = "You are awake.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Oh, of course. the loop. Which means we are about to be attacked.",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Which is closer, the Bridge or the airlock?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = Deck.dizzy.Key(),
+                    Text = "Definitely the bridge, and please don't check the map.",
+                    loopTag = "serious"
+                },
+            }
+        };
+        
+        //Angder grumpy intros should be kept to a minimum.
+
+
+   
+        
+        //Not happy with how Dizzy sounds here.
+
+        //Riggs
+
+        /*
+        DB.story.all["angder_Intro_Riggs"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_first" },
+            allPresent = new() { angder, Deck.riggs.Key() },
+            once = true,
+            bg = "BGRunStart",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "Does Cryosleep ever stop causing headaches.",
+                    loopTag = "squint"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I prefer it to waking up normally.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "Oh hey! A new person!",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "actually. I think I remember meeting you before.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I also think I know you, even before the loops... Your voice is familiar.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.riggs.Key(),
+                    Text = "...",
+                    loopTag = "squint"
+                },
+            }
+        };
+        */
+
+
+        //Eunice
+
+
+        /*
+        DB.story.all["angder_Final_eunice_postRiggsscene"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "zone_three" },
+            allPresent = new() { angder, Deck.eunice.Key() },
+            once = true,
+            bg = "BGRunStart",
+            requiredScenes = ["angder_Advance_eunice", "angder_Advance_Riggs" ],
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Hey, Drake! I remember now, where I saw your name.",
+                    loopTag = "nervous"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "And like, for the good of time or something...",
+                    loopTag = "nervous"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Just forget that I said anything!",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.eunice.Key(),
+                    Text = "...",
+                    loopTag = "mad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.eunice.Key(),
+                    Text = "That would be far easier if you hadn't turned up and specifically told me to do that.",
+                    loopTag = "mad"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "But... like... I don't want to~",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.eunice.Key(),
+                    Text = "I'm dead in the future, aren't I.",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "...",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.eunice.Key(),
+                    Text = "Riggs told me where you are from, and that reaction only makes sense if I am dead or something similar. So as I already know... tell me exactly what happened.",
+                    loopTag = "mad"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "Umm guys? Isn't that...",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "A really bad idea?",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.eunice.Key(),
+                    Text = "Since when has that ever stopped me?",
+                    loopTag = "sly"
+                },
+            }
+        };
+        */
+
+        /* peri */
+
+
+        
+        DB.story.all["angder_Annoys_peri"] = new()
+        {
+            type = NodeType.@event,
+            requiredScenes = ["angder_Intro_1"],
+            lookup = new() { "zone_lawless" },
+            allPresent = new() { angder, Deck.peri.Key() },
+            once = true,
+            bg = "BGVanilla",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Angder. We need to talk.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "what is it?",
+                    loopTag = "sad"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I need to ask you to take things a little more seriously.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "What are you talking about? I am always taking this seriously.",
+                    loopTag = "serious"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I don't think you are.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "I have been watching you in combat, you are constantly grinning from ear to ear, and taking stupid risks without a single concern for the safety of this ship.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Even when WE are the ones being injured, you are too busy enjoying yourself to actually help.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "I mean yea. I enjoy fighting. Is that really a problem? I do plenty of damage!",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "At the slightest opportunity, you dive to the enemy ship, often when we need you at the controls.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    flipped = true,
+                    who = angder,
+                    Text = "Yea, that's how I fight. Up close, personal. blood rushing through my veins.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "...",
+                    loopTag = "nap"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Some of us actually want the loops to end Angder.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = Deck.peri.Key(),
+                    Text = "Not all of us enjoy fighting as much as you do.",
+                    loopTag = "neutral"
+                },
+            }
+        };
+
+
+        //No more Story
+        DB.story.GetNode("CrystallizedFriendEvent")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
+        {
+            who = angder,
+            Text = "I suppose it might be for the best...",
+            loopTag = "neutral"
+        });
+        DB.story.all[$"CrystallizedFriendEvent_{angder}"] = new()
+        {
+            type = NodeType.@event,
+            oncePerRun = true,
+            allPresent = new() { angder },
+            bg = "BGCrystalizedFriend",
+            lines = new()
+            {
+                new Wait()
+                {
+                    secs = 1.5
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Isn't anyone else worried about the implications that our pods are just floating in space? No? Ok then.",
+                    loopTag = "neutral"
+                }
+            }
+        };
+        DB.story.GetNode("GrandmaShop")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
+        {
+            who = angder,
+            Text = "Food?",
+            loopTag = "neutral"
+        });
+        DB.story.all[$"LoseCharacterCard_{angder}"] = new()
+        {
+            type = NodeType.@event,
+            oncePerRun = true,
+            allPresent = new() { angder },
+            bg = "BGSupernova",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Aww. I needed that",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "Let's keep moving.",
+                    loopTag = "neutral"
+                }
+            }
+        };
+        DB.story.all[$"ShopkeeperInfinite_{angder}_Multi_0"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "shopBefore" },
+            allPresent = new() { angder },
+            bg = "BGShop",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Hey, a shop.",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "nerd",
+                    Text = "Leave your weapons on your ship please.",
+                    loopTag = "neutral",
+                    flipped = true
+                },
+                new Jump()
+                {
+                    key = "NewShop"
+                }
+            }
+        };
+        DB.story.all[$"ShopkeeperInfinite_{angder}_Multi_1"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "shopBefore" },
+            allPresent = new() { angder },
+            bg = "BGShop",
+            
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = "nerd",
+                    Text = "How's it going?",
+                    loopTag = "neutral",
+                    flipped = true
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "Amazing! I have never been attacked by so many people!",
+                    loopTag = "neutral"
+                },
+                new Jump()
+                {
+                    key = "NewShop"
+                }
+            }
+        };
+        DB.story.all[$"ShopkeeperInfinite_{angder}_Multi_2"] = new()
+        {
+            type = NodeType.@event,
+            lookup = new() { "shopBefore" },
+            allPresent = new() { angder },
+            bg = "BGShop",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = "nerd",
+                    Text = "Hello!",
+                    loopTag = "neutral",
+                    flipped = true
+                },
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "HI!",
+                    loopTag = "neutral"
+                },
+                new Jump()
+                {
+                    key = "NewShop"
+                }
+            }
+        };
+        DB.story.all[$"ChoiceCardRewardOfYourColorChoice_{angder}"] = new()
+        {
+            type = NodeType.@event,
+            oncePerRun = true,
+            allPresent = new() { angder },
+            bg = "BGBootSequence",
+            lines = new()
+            {
+                new CustomSay()
+                {
+                    who = angder,
+                    Text = "I think I have a cool new idea!",
+                    loopTag = "neutral"
+                },
+                new CustomSay()
+                {
+                    who = "comp",
+                    Text = "Let's keep moving.",
+                    loopTag = "squint"
+                }
+            }
+        };
+        /*
+        DB.story.GetNode("Sasha_2_multi_2")?.lines.OfType<SaySwitch>().FirstOrDefault()?.lines.Insert(0, new CustomSay()
+        {
+            who = angder,
+            Text = "BALL!",
+            loopTag = "neutral"
+        });
+        */
+
+    }
+}

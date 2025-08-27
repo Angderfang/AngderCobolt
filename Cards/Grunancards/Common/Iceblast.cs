@@ -33,7 +33,8 @@ internal sealed class Iceblast : Card, IAngderCard
             art = ModEntry.Instance.Icebolt.Sprite,
             //description = ColorlessLoc.GetDesc(state, upgrade == Upgrade.B ? 3 : 2, (Deck)ModEntry.Instance.AngderDeck.Deck),
             cost = 1,
-            singleUse = true,
+            singleUse = upgrade == Upgrade.B ? false : true,
+            exhaust = upgrade == Upgrade.B ? true : false,
         };
         return data;
     }
@@ -72,9 +73,9 @@ internal sealed class Iceblast : Card, IAngderCard
                 {
                     new AAttack()
                     {
-                       damage = GetDmg(s, 1),
+                       damage = GetDmg(s, 2),
                         status = Status.lockdown,
-                        statusAmount = 3
+                        statusAmount = 2
                     },
                 };
         break;

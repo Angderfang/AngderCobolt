@@ -14,6 +14,8 @@ internal static class Dialogue
 
     internal static void Inject()
     {
+        RiggsAngder.Inject();
+        DizzyAngder.Inject();
         EventDialogueMaid.Inject();
         EventDialogue.Inject();
         CombatDialogue.Inject();
@@ -22,6 +24,10 @@ internal static class Dialogue
         EnemyDialogue.Inject();
         GrunanBase.Inject();
         GrunanStory.Inject();
+        GrunanMaxStory.Inject();
+        GrunanAngderStory.Inject();
+        KobretteStory.Inject();
+        KobretteBase.Inject();
         /*
         foreach (var cardType in ModEntry.AllCards)
         {

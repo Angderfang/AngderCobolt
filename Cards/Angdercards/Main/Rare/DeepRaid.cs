@@ -51,7 +51,7 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     {
                         status = Status.drawNextTurn,
                         targetPlayer = true,
-                        statusAmount = 3
+                        statusAmount = 2
                     },
 
                     new AStatus()
@@ -79,7 +79,7 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     {
                         status = Status.drawNextTurn,
                         targetPlayer = true,
-                        statusAmount = 3
+                        statusAmount = 2
                     },
 
                     new AStatus()
@@ -106,7 +106,7 @@ internal sealed class CardDeepraid : Card, IAngderCard
                     {
                         status = Status.drawNextTurn,
                         targetPlayer = true,
-                        statusAmount = 3
+                        statusAmount = 2
                     },
 
                     new AStatus()
