@@ -14,11 +14,15 @@ using Angder.EchoesOfTheFuture.Patches;
 using Angder.EchoesOfTheFuture.Cards.Butlercards;
 using Angder.EchoesOfTheFuture.Artifacts.ButlerArtifacts;
 using Angder.EchoesOfTheFuture.Artifacts.GrunanArtifacts;
+using Angder.EchoesOfTheFuture.Artifacts.KobretteArtifacts;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Angder.EchoesOfTheFuture.Cards.Grunancards.Common;
 using Angder.EchoesOfTheFuture.Features.Grunan;
 using FMOD;
+using Shockah.Kokoro;
+using Angder.EchoesOfTheFuture.Features.NewAngder;
+//using Angder.EchoesOfTheFuture.Cards;
 
 namespace Angder.EchoesOfTheFuture;
 
@@ -26,11 +30,15 @@ namespace Angder.EchoesOfTheFuture;
 public sealed class ModEntry : SimpleMod
 {
     internal static ModEntry Instance { get; private set; } = null!;
-    internal IKokoroApi KokoroApi { get; }
+    //internal readonly IKokoroApi KokoroApi;
+    internal IKokoroApi.IV2 KokoroApi { get; }
+    internal IKokoroApi KokoroApiold { get; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
 
     internal readonly Harmony Harmony;
+
+    //IModHelper Helper;
 
     #region AngdersBasicstuff
     // AngdersDeck and Face Images.
@@ -58,7 +66,16 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Angder_squinttalk { get; }
     internal ISpriteEntry Angder_squint { get; }
 
+    #region TinyAngder
+    //Holyshit TinyAngder
 
+    internal ISpriteEntry Angder_Stand { get; }
+    internal ISpriteEntry Angder_Sleep1 { get; }
+    internal ISpriteEntry Angder_Sleep2 { get; }
+    internal ISpriteEntry Angder_Float { get; }
+
+
+    #endregion
     //GRUNAN CARD ARTS
 
     internal ISpriteEntry Icebolt { get; }
@@ -239,13 +256,6 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Claw1 { get; }
     internal ISpriteEntry Claw2 { get; }
 
-    internal ISpriteEntry ShieldIcon { get; }
-    internal ISpriteEntry ShieldNormalShine { get; }
-    internal ISpriteEntry ShieldNormal { get; }
-    internal ISpriteEntry ShieldNormalCracked1 { get; }
-    internal ISpriteEntry ShieldNormalCracked2 { get; }
-    internal ISpriteEntry ShieldNormalCracked3 { get; }
-    internal ISpriteEntry ShieldNormalCracked4 { get; }
     internal ISpriteEntry Butler_Character_CardBackground { get; }
     internal ISpriteEntry Butler_Trash_CardFrame { get; }
     internal ISpriteEntry Butler_Character_CardFrame { get; }
@@ -375,8 +385,8 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry GrunanBookTalk { get; }
     internal ISpriteEntry GrunanFacepalm { get; }
     internal ISpriteEntry GrunanFacepalmTalk { get; }
-    internal ISpriteEntry GrunanSmile { get; }
-    internal ISpriteEntry GrunanSmileTalk { get; }
+    //internal ISpriteEntry GrunanSmile { get; }
+    //internal ISpriteEntry GrunanSmileTalk { get; }
     internal ISpriteEntry GrunanFlipped { get; }
     internal ISpriteEntry GrunanFlippedTalk { get; }
     internal ISpriteEntry GrunanFlippedSmile { get; }
@@ -386,7 +396,18 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry GrunanFlippedPainTalk { get; }
     internal ISpriteEntry GrunanFlippedRelax { get; }
     internal ISpriteEntry GrunanFlippedRelaxTalk { get; }
+    internal ISpriteEntry GrunanSlightsmile { get; }
+    internal ISpriteEntry GrunanSlightsmileTalk { get; }
+    internal ISpriteEntry GrunanSlightsmileTalk2 { get; }
+    internal ISpriteEntry GrunanwutTalk { get; }
+    internal ISpriteEntry Grunanwut { get; }
 
+    internal ISpriteEntry Grunan_Flipped_headlift_anger { get; }
+    internal ISpriteEntry Grunan_Flipped_headlift_anger_talk { get; }
+    internal ISpriteEntry Grunan_Flipped_headlift_anger_2 { get; }
+    internal ISpriteEntry Grunan_Flipped_headlift_anger_2talk { get; }
+    //internal ISpriteEntry Grunan_wut { get; }
+    //internal ISpriteEntry Grunan_wut_talk { get; }
     internal ISpriteEntry GrunanFlippedAnnoyed { get; }
     internal ISpriteEntry GrunanFlippedAnnoyedTalk { get; }
     //traitstuff
@@ -468,12 +489,124 @@ public sealed class ModEntry : SimpleMod
 
     #endregion
 
+    #region KobretteBasicStuff
+
+    internal IStatusEntry StatusConstructioncrew { get; }
+    //internal ISpriteEntry Constructioncrew { get; }
+    internal IStatusEntry Fortress { get; }
+    internal ISpriteEntry ShieldbashIcon { get; }
+    internal ISpriteEntry Mace { get; }
+    internal ISpriteEntry MaceIcon { get; }
+    internal ISpriteEntry ShieldIcon { get; }
+    internal ISpriteEntry ShieldNormalShine { get; }
+    internal ISpriteEntry ShieldNormal { get; }
+    internal ISpriteEntry ShieldNormalCracked1 { get; }
+    internal ISpriteEntry ShieldNormalCracked2 { get; }
+    internal ISpriteEntry ShieldNormalCracked3 { get; }
+    internal ISpriteEntry ShieldNormalCracked4 { get; }
+
+    internal ISpriteEntry Kobrette_CardBackground_Cog { get; }
+    internal ISpriteEntry Kobrette_CardBackground_Lightning { get; }
+    internal ISpriteEntry Kobrette_CardBackground_Wall { get; }
+    internal ISpriteEntry Kobrette_Character_CardBackground { get; }
+
+    internal ISpriteEntry Kobrette_CardFrame { get; }
+    internal ISpriteEntry Kobrette_Character_Panel { get; }
+    internal ISpriteEntry KobretteSquint { get; }
+    internal ISpriteEntry KobretteSquint1 { get; }
+    internal ISpriteEntry KobretteSquint2 { get; }
+    internal ISpriteEntry KobretteSad { get; }
+    internal ISpriteEntry KobretteSad1 { get; }
+    internal ISpriteEntry KobretteSad2 { get; }
+
+    internal ISpriteEntry KobretteConfused { get; }
+    internal ISpriteEntry KobretteConfused1 { get; }
+    internal ISpriteEntry KobretteConfused2 { get; }
+    internal ISpriteEntry KobretteConfused3 { get; }
+    internal ISpriteEntry KobretteNeutral { get; }
+    internal ISpriteEntry KobretteNeutral1 { get; }
+    internal ISpriteEntry KobretteNeutral2 { get; }
+    internal ISpriteEntry KobretteNeutral3 { get; }
+    internal ISpriteEntry KobretteMini { get; }
+    internal ISpriteEntry KobretteShield { get; }
+    internal ISpriteEntry KobretteShieldBob { get; }
+    internal ISpriteEntry KobretteManic { get; }
+    internal ISpriteEntry KobretteManictalk1 { get; }
+    internal ISpriteEntry KobretteManictalk2 { get; }
+
+    internal ISpriteEntry KobretteGameover { get; }
+    //traitstuff
+
+    //Stutus stuff
+
+    //internal ISpriteEntry MemoryIcon { get; }
+
+    
+    internal IDeckEntry KobretteDeck { get; }
+    internal ICharacterEntryV2 Kobrettechar { get; }
+    
+    internal static IReadOnlyList<Type> Kobrette_StarterCard_Types { get; } = [
+        typeof(CardShieldtest),
+        typeof(Standfirm),
+    ];
+
+    internal static IReadOnlyList<Type> Kobrette_CommonCard_Types { get; } = [
+        typeof(Smite),
+        //typeof(Standfirm),
+        typeof(Sharedenemy),
+        typeof(Faithshield),
+        typeof(Mace),
+        typeof(FaceMe),
+        typeof(Riposte),
+        typeof(spiritWeapon),
+
+    ];
+
+
+    internal static IReadOnlyList<Type> Kobrette_UnCommonCard_Types { get; } = [
+        typeof(MaintainPosition),
+        typeof(SwordAndBoard),
+        typeof(Plating),
+        typeof(AdjustDefense),
+        typeof(Repair),
+        typeof(HoldTheLine),
+        typeof(Remote)
+    ];
+    internal static IReadOnlyList<Type> Kobrette_RareCard_Types { get; } = [
+        typeof(CardRam),
+        typeof(ShieldBash),
+        typeof(Cavalry),
+        typeof(Guide),
+        typeof(WeatherTheStorm),
+
+    ];
+    internal static IEnumerable<Type> Kobrette_AllCard_Types
+    => Kobrette_StarterCard_Types
+    .Concat(Kobrette_CommonCard_Types)
+    .Concat(Kobrette_UnCommonCard_Types)
+    .Concat(Kobrette_RareCard_Types);
+    //.Concat(Grunan_EXE_Types);
+
+    internal static IReadOnlyList<Type> Kobrette_CommonArtifact_Types { get; } = [
+        typeof(Brick),
+        typeof(GuardianShield),
+        typeof(Sandbag),
+];
+    internal static IReadOnlyList<Type> Kobrette_BossArtifact_Types { get; } = [
+        typeof(ArmouredCore),
+        ];
+    internal static IEnumerable<Type> Kobrette_AllArtifact_Types
+        => Kobrette_CommonArtifact_Types.Concat(Kobrette_BossArtifact_Types);
+    
+    #endregion
+
+
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
     {
         Instance = this;
         Harmony = new(package.Manifest.UniqueName);
-        KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
-        _ = new CardBrowseFilterManager();
+        KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!.V2;
+        KokoroApiold = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
 
         AnyLocalizations = new JsonLocalizationProvider(
         tokenExtractor: new SimpleLocalizationTokenExtractor(),
@@ -491,10 +624,15 @@ public sealed class ModEntry : SimpleMod
          * Example: You added your own character, you will want to create an appropiate entry in the i18n file. 
          * If you would rather use simple strings whenever possible, that's also an option -you do you. */
 
+        Angder_Stand = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/TinyAngder/Angder_standing.png"));
+        Angder_Sleep1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/TinyAngder/Angder_sleep.png"));
+        Angder_Sleep2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/TinyAngder/Angder_sleep_breath.png"));
+        Angder_Float = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/TinyAngder/Angder_freefloat.png"));
+
         //Keeping this here; no way I would remember how this works.
 
-            //Oh hey, I found his face.
-            Angder_Trash_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_Trashcardframe.png"));
+        //Oh hey, I found his face.
+        Angder_Trash_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_Trashcardframe.png"));
             Angder_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_cardbackground.png"));
             Angder_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_cardframe.png"));
             Angder_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Angder_character_panel.png"));
@@ -877,21 +1015,13 @@ public sealed class ModEntry : SimpleMod
         Maid_Reset = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Reset.png"));
         Maid_Field = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Interferencefield.png"));
         Powerdiversion = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Powerdiversion.png"));
-        Replace = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Powerdiversion.png"));
+        Replace = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Replace.png"));
         ScarpCannon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Maid/Scrapcannon2.png"));
 
         HandExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustFromhand.png"));
         DeckExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustDraw.png"));
         DiscardExhaustone = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/ExhaustDiscard.png"));
         DrawExhaustone = DeckExhaustone;
-
-        ShieldIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FlyingShield.png"));
-        ShieldNormalShine = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldShine.png"));
-        ShieldNormal = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldFull.png"));
-        ShieldNormalCracked1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCracked.png"));
-        ShieldNormalCracked2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedTwo.png"));
-        ShieldNormalCracked3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedThree.png"));
-        ShieldNormalCracked4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedAlot.png"));
 
         TrashbagMidrow = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/trashbag.png"));
         TrashbagIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/trashbag.png"));
@@ -952,7 +1082,7 @@ public sealed class ModEntry : SimpleMod
                 Name = this.AnyLocalizations.Bind(["character", "Computermalfunctions", "Trash"]).Localize,
             });
 
-        ACombatPatches.Apply();
+        //ACombatPatches.Apply();
         helper.ModRegistry.GetApi<IMoreDifficultiesApi>("TheJazMaster.MoreDifficulties", new SemanticVersion(1, 3, 0))?.RegisterAltStarters(
             deck: ButlerDeck.Deck,
             starterDeck: new StarterDeck
@@ -1154,13 +1284,16 @@ public sealed class ModEntry : SimpleMod
         Eldrich = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Grunan/Eldrich.png"));
 
         GrunanMini = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_character_mini_0.png"));
+        GrunanSlightsmile = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_smile.png"));
+        GrunanSlightsmileTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_smile_talk.png"));
+        GrunanSlightsmileTalk2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_smile_talk2.png"));
         GrunanNeutral = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral.png"));
         GrunanNeutralTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_talk.png"));
         GrunanNeutralTalk2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Neutral_talk2.png"));
         GrunanSquint = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Squint.png"));
         GrunanSquinttalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Squint_talk.png"));
-        GrunanSmile = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smile.png"));
-        GrunanSmileTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smiletalk.png"));
+        //GrunanSmile = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smile.png"));
+        //GrunanSmileTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Smiletalk.png"));
         GrunanBook = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanBook.png"));
         GrunanBookTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanBookbob.png"));
         Grunanhand = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/GrunanHand.png"));
@@ -1173,6 +1306,9 @@ public sealed class ModEntry : SimpleMod
         GrunanPanic = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic.png"));
         GrunanPanicTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Panic_talk.png"));
 
+        Grunanwut = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_wut.png"));
+        GrunanwutTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_wuttalk.png"));
+
         GrunanFlippedPain = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_Pain.png"));
         GrunanFlippedPainTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_Pain_talk.png"));
 
@@ -1182,8 +1318,10 @@ public sealed class ModEntry : SimpleMod
         GrunanFlippedAnnoyed = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_annoyed.png"));
         GrunanFlippedAnnoyedTalk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_annoyed_talk.png"));
 
-
-
+        Grunan_Flipped_headlift_anger = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_anger.png"));
+        Grunan_Flipped_headlift_anger_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_anger_2.png"));
+        Grunan_Flipped_headlift_anger_2talk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_anger_2talk.png"));
+        Grunan_Flipped_headlift_anger_talk = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Grunan/Grunan_Flipped_headlift_anger_talk.png"));
         GrunanDeck = helper.Content.Decks.RegisterDeck("GrunanDeck", new DeckConfiguration()
         {
             Definition = new DeckDef()
@@ -1230,8 +1368,49 @@ public sealed class ModEntry : SimpleMod
                 GrunanNeutral.Sprite,
                 GrunanNeutralTalk.Sprite,
                 GrunanNeutral.Sprite,
-                GrunanNeutralTalk.Sprite,
+                GrunanNeutralTalk2.Sprite,
                 GrunanNeutral.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanRealAngerstopped", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "wut",
+            Frames = new[]
+    {
+                Grunanwut.Sprite,
+                GrunanwutTalk.Sprite,
+                Grunanwut.Sprite,
+                GrunanwutTalk.Sprite,
+                Grunanwut.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("GrunanRealAngerflipped", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "RealAngerflipped",
+            Frames = new[]
+            {
+                Grunan_Flipped_headlift_anger.Sprite,
+                Grunan_Flipped_headlift_anger_talk.Sprite,
+                Grunan_Flipped_headlift_anger.Sprite,
+                Grunan_Flipped_headlift_anger_2talk.Sprite,
+                Grunan_Flipped_headlift_anger_2.Sprite,
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("Grunanslightsmile", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::GrunanDeck",
+            LoopTag = "slightsmile",
+            Frames = new[]
+    {
+                GrunanSlightsmile.Sprite,
+                GrunanSlightsmileTalk.Sprite,
+                GrunanSlightsmile.Sprite,
+                GrunanSlightsmileTalk2.Sprite,
+                GrunanSlightsmile.Sprite,
             }
         });
 
@@ -1473,10 +1652,12 @@ public sealed class ModEntry : SimpleMod
         {
             Definition = new()
             {
+                
                 icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Voidsight.png")).Sprite,
                 color = new("06402B"),
                 isGood = true
             },
+            
             Name = AnyLocalizations.Bind(["status", "Voidsight", "name"]).Localize,
             Description = AnyLocalizations.Bind(["status", "Voidsight", "description"]).Localize,
         });
@@ -1494,6 +1675,248 @@ public sealed class ModEntry : SimpleMod
             });
 
 
+
+        #endregion
+
+
+        #region KobretteStuff
+
+        //Constructioncrew = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Spanner.png"));
+
+        ShieldIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/FlyingShield.png"));
+        ShieldNormalShine = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldShine.png"));
+        ShieldNormal = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldFullHealthbar.png"));
+        ShieldNormalCracked1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedHealthbar.png"));
+        ShieldNormalCracked2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedHealthbartwo.png"));
+        ShieldNormalCracked3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedHealthbarthree.png"));
+        ShieldNormalCracked4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/ShieldCrackedHealthbarAlot.png"));
+
+
+        ShieldbashIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Shieldbash.png"));
+
+        MaceIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/MaceIcon.png"));
+        Mace = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Midrow/Mace.png"));
+
+        Kobrette_CardBackground_Wall = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Kobrette/MaintainPosition.png"));
+        Kobrette_CardBackground_Lightning = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Kobrette/Lightning.png"));
+        Kobrette_CardBackground_Cog = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Kobrette/HolyCog.png"));
+        //Kobrette_Character_Spanner = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Kobrette/SpannerArt.png"));
+
+        Kobrette_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/CardArt/Kobrette/SpannerArt.png"));
+        Kobrette_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette_character_cardframe.png"));
+        Kobrette_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette_character_panel.png"));
+
+
+        KobretteMini = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_character_mini_0.png"));
+        KobretteNeutral = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Neutral.png"));
+        KobretteNeutral1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Neutral_1.png"));
+        KobretteNeutral2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Neutral_2.png"));
+        KobretteNeutral3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Neutral_3.png"));
+        KobretteSquint = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Squint.png"));
+        KobretteSquint1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Squint_1.png"));
+        KobretteSquint2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Squint_2.png"));
+        KobretteSad = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Sad.png"));
+        KobretteSad1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Sad_1.png"));
+        KobretteSad2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Sad_2.png"));
+        KobretteConfused = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Confused.png"));
+        KobretteConfused1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Confused_1.png"));
+        KobretteConfused2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Confused_2.png"));
+        KobretteConfused3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Confused_3.png"));
+        KobretteGameover = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Gameover.png"));
+        KobretteShield = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Shield.png"));
+        KobretteShieldBob = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Shield_bob.png"));
+        KobretteManic = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Manic.png"));
+        KobretteManictalk1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Manic_talk.png"));
+        KobretteManictalk2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Kobrette/Kobrette_Manic_talk2.png"));
+
+        KobretteDeck = helper.Content.Decks.RegisterDeck("KobretteDeck", new DeckConfiguration()
+        {
+            Definition = new DeckDef()
+            {
+                color = new Color("B08F00"),
+                titleColor = new Color("000000")
+            },
+
+            DefaultCardArt = Kobrette_Character_CardBackground.Sprite,
+            BorderSprite = Kobrette_CardFrame.Sprite,
+            Name = this.AnyLocalizations.Bind(["character", "Kobrette", "name"]).Localize,
+        });
+
+        helper.ModRegistry.GetApi<IMoreDifficultiesApi>("TheJazMaster.MoreDifficulties", new SemanticVersion(1, 3, 0))?.RegisterAltStarters(
+            deck: KobretteDeck.Deck,
+            starterDeck: new StarterDeck
+            {
+                cards = [
+                    new spiritWeapon(),
+                    new Smite(),
+                ]
+            }
+        );
+
+
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("kobrettemini", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "mini",
+            Frames = new[]
+        {
+                // Mini only needs one sprite. We call it animation just because we add it the same way as other expressions.
+                KobretteMini.Sprite
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteSquint", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "squint",
+            Frames = new[]
+        {
+                KobretteSquint.Sprite,
+                KobretteSquint1.Sprite,
+                KobretteSquint2.Sprite,
+                KobretteSquint.Sprite,
+                KobretteSquint2.Sprite,
+                KobretteSquint1.Sprite,
+                KobretteSquint.Sprite,
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteConfused", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "confused",
+            Frames = new[]
+{
+                KobretteConfused.Sprite,
+                KobretteConfused1.Sprite,
+                KobretteConfused2.Sprite,
+                KobretteConfused3.Sprite,
+                KobretteConfused.Sprite,
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteManic", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "manic",
+            Frames = new[]
+{
+                KobretteManic.Sprite,
+                KobretteManictalk1.Sprite,
+                KobretteManic.Sprite,
+                KobretteManictalk2.Sprite,
+                KobretteManic.Sprite,
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteShield", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "shield",
+            Frames = new[]
+{
+                KobretteShield.Sprite,
+                KobretteShieldBob.Sprite,
+                KobretteShield.Sprite,
+                KobretteShieldBob.Sprite,
+                KobretteShield.Sprite,
+            }
+        });
+
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteSad", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "sad",
+            Frames = new[]
+{
+                KobretteSad.Sprite,
+                KobretteSad1.Sprite,
+                KobretteSad2.Sprite,
+                KobretteSad.Sprite,
+                KobretteSad2.Sprite,
+                KobretteSad1.Sprite,
+                KobretteSad.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteNeutral", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "neutral",
+            Frames = new[]
+        {
+                KobretteNeutral.Sprite,
+                KobretteNeutral1.Sprite,
+                KobretteNeutral2.Sprite,
+                KobretteNeutral3.Sprite,
+                KobretteNeutral.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation("KobretteGameover", new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = "Angder.EchoesOfTheFuture::KobretteDeck",
+            LoopTag = "gameover",
+            Frames = new[]
+{
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+                KobretteGameover.Sprite,
+            }
+        });
+
+        Kobrettechar = helper.Content.Characters.V2.RegisterPlayableCharacter("Kobrette", new PlayableCharacterConfigurationV2()
+        {
+            Deck = KobretteDeck.Deck,
+            Starters = new StarterDeck
+            {
+                cards = [new CardShieldtest(),
+                    new Standfirm{},
+                    ],
+            },
+            //ExeCardType = typeof(AngderEXE),
+            BorderSprite = Kobrette_Character_Panel.Sprite,
+            Description = AnyLocalizations.Bind(["character", "Kobrette", "description"]).Localize,
+        }); ;
+
+        foreach (var cardType in Kobrette_AllCard_Types)
+            AccessTools.DeclaredMethod(cardType, nameof(IAngderCard.Register))?.Invoke(null, [helper]);
+
+
+        foreach (var artifactType in Kobrette_AllArtifact_Types)
+            AccessTools.DeclaredMethod(artifactType, nameof(IAngderArtifact.Register))?.Invoke(null, [helper]);
+        
+
+        StatusConstructioncrew = helper.Content.Statuses.RegisterStatus("ConstructionCrew", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Spanner.png")).Sprite,
+                color = new("06402B"),
+                isGood = true,
+                
+        },
+
+            Name = AnyLocalizations.Bind(["status", "ConstructionCrew", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ConstructionCrew", "description"]).Localize
+        });
+
+        Fortress = helper.Content.Statuses.RegisterStatus("Fortress", new()
+        {
+            Definition = new()
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Fortress.png")).Sprite,
+                color = new("06402B"),
+                isGood = true,
+
+            },
+
+            Name = AnyLocalizations.Bind(["status", "Fortress", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "Fortress", "description"]).Localize
+        });
 
         #endregion
 
@@ -1524,9 +1947,12 @@ public sealed class ModEntry : SimpleMod
         Ram = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/Ram.png"));
         RamPierce = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/RamPierce.png"));
         MGPatches.Apply(Harmony);
-
-
+        Capcrew.Apply(Harmony);
+        FortressPatch.Apply(Harmony);
+        RamPatch.Apply(Harmony);
         /* Check this out in Features/Rampage.cs */
+        _ = new TinyAngderManager();
+        _ = new CrewManager();
         _ = new RampageManager();
         _ = new FuryManager();
         _ = new TheftManager();
@@ -1534,10 +1960,14 @@ public sealed class ModEntry : SimpleMod
         _ = new FuelDumpManager();
         _ = new SiphonManager();
         _ = new WrittenManager();
-
+        _ = new PlaycardManager();
+        _ = new StatusRenderManager();
+        _ = new CardBrowseFilterManager();
         _ = new CleaveManager();
         _ = new RemoteManager();
         _ = new VoidManager();
+        _ = new FortressManager();
+        _ = new StormManager();
         /* */
         // icons_moveRightEnemyassign = Spr.icons_moveRightEnemy;
     }

@@ -1,6 +1,6 @@
 {
   "UniqueName": "Angder.EchoesOfTheFuture",
-  "Version": "0.14.6",
+  "Version": "0.15.5",
   "Author": "Angder",
   "Description": "Adds three new characters to the game, Angder, Grunan, and D26.",
   "RequiredApiVersion": "1.16.0",
@@ -17,8 +17,8 @@
     },
     ],
     "UpdateChecks": {
-        "GitHub": {
-            "Repository": "Angderfang/AngderCobolt"
+        "NexusMods": {
+            "ID": 58
         }
     }
 
